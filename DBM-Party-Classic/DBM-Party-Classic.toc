@@ -4,6 +4,9 @@
 ## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Gruppe-Classic|r
 ## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Mazmorras (Clásico)|r
 ## Title-esMX:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Mazmorras (Clásico)|r
+## Title-ptBR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Masmorras (Clássico)|r
+## Title-frFR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Donjons (Classique)|r
+## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Подземелье (классический)|r
 ## Title-koKR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0던전 (클래식)|r
 ## Title-zhTW:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0隊伍首領-傳統|r
 ## Title-zhCN:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0队伍首领(经典旧世)|r
@@ -17,14 +20,24 @@
 ## X-DBM-Mod-Category: Classic
 ## X-DBM-Mod-Has-Single-Format: 1
 ## X-DBM-Mod-SubCategoriesID: 48,230,229|Lower,229|Upper,36,429,90,349,389,129,47,189,289,33,34,329,109,70,43,209
+## X-DBM-Mod-SubCategoriesID-deDE: 48,230,229|Untere,229|Obere,36,429,90,349,389,129,47,189,289,33,34,329,109,70,43,209
 ## X-DBM-Mod-SubCategoriesID-esES: 48,230,229|Inferior,229|Superior,36,429,90,349,389,129,47,189,289,33,34,329,109,70,43,209
 ## X-DBM-Mod-SubCategoriesID-esMX: 48,230,229|Inferior,229|Superior,36,429,90,349,389,129,47,189,289,33,34,329,109,70,43,209
 ## X-DBM-Mod-SubCategoriesID-ptBR: 48,230,229|Inferior,229|Superior,36,429,90,349,389,129,47,189,289,33,34,329,109,70,43,209
+## X-DBM-Mod-SubCategoriesID-frFR: 48,230,229|Inférieur,229|Supérieur,36,429,90,349,389,129,47,189,289,33,34,329,109,70,43,209
+## X-DBM-Mod-SubCategoriesID-ruRU: 48,230,229|Нижняя,229|Верхняя,36,429,90,349,389,129,47,189,289,33,34,329,109,70,43,209
+## X-DBM-Mod-SubCategoriesID-koKR: 48,230,229|하층,229|상층,36,429,90,349,389,129,47,189,289,33,34,329,109,70,43,209
+## X-DBM-Mod-SubCategoriesID-zhTW: 48,230,229|下層,229|上層,36,429,90,349,389,129,47,189,289,33,34,329,109,70,43,209
+## X-DBM-Mod-SubCategoriesID-zhCN: 48,230,229|下层,229|上层,36,429,90,349,389,129,47,189,289,33,34,329,109,70,43,209
+
+
 ## X-DBM-Mod-Name: Dungeons (Classic)
 ## X-DBM-Mod-Name-deDE: Gruppe (Classic)
 ## X-DBM-Mod-Name-esES: Mazmorras (Clásico)
 ## X-DBM-Mod-Name-esMX: Mazmorras (Clásico)
 ## X-DBM-Mod-Name-ptBR: Masmorras (Clássico)
+## X-DBM-Mod-Name-frFR: Donjons (Classique)
+## X-DBM-Mod-Name-ruRU: Подземелье (классический)
 ## X-DBM-Mod-Name-koKR: 던전 (클래식)
 ## X-DBM-Mod-Name-zhTW: 隊伍首領 (傳統)
 ## X-DBM-Mod-Name-zhCN: 队伍首领(经典旧世)
@@ -32,13 +45,14 @@
 ## X-DBM-Mod-MapID: 48,230,229,36,429,90,349,389,129,47,189,289,33,34,329,109,70,43,209
 localization.en.lua
 localization.de.lua
-localization.kr.lua
-localization.tw.lua
 localization.es.lua
 localization.mx.lua
-localization.cn.lua
 localization.pt.lua
+localization.fr.lua
 localization.ru.lua
+localization.kr.lua
+localization.tw.lua
+localization.cn.lua
 
 BlackfathomDeeps\GhamooRa.lua
 BlackfathomDeeps\LadySerevess.lua
