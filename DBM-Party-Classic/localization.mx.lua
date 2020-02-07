@@ -449,12 +449,12 @@ L:SetGeneralLocalization{
 	name 		= "Illyanna Roblecuervo"
 }
 ------------------------
--- Magister Kelendris --
+-- Magister Kalendris --
 ------------------------
 L = DBM:GetModLocalization(408)
 
 L:SetGeneralLocalization{
-	name 		= "Magister Kelendris"
+	name 		= "Magister Kalendris"
 }
 ----------------
 -- Immol'thar --
@@ -729,7 +729,7 @@ L:SetGeneralLocalization{
 }
 
 -----------------------------
---  PlaguemawtheRotting  --
+--  Plaguemaw the Rotting  --
 -----------------------------
 L = DBM:GetModLocalization("PlaguemawtheRotting")
 
@@ -1078,7 +1078,7 @@ L:SetGeneralLocalization{
 }
 
 -------------------------
---  Stormwind Stockaid 34M (10L/15C)  --
+--  Stormwind Stockade 34M (10L/15C)  --
 -----------------------------
 --  Targorr the Dread  --
 -----------------------------
