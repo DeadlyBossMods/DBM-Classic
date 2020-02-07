@@ -6,11 +6,21 @@ local L = DBM_GUI_Translations
 L.MainFrame = "Deadly Boss Mods"
 
 L.TranslationByPrefix		= "Traducido por "
-L.TranslationBy 			= "Saispai"
+L.TranslationBy 			= "Saispai, Woopy"
 L.Website					= "Visita nuestro canal de Discord: |cFF73C2FBhttps://discord.gg/deadlybossmods|r."
 L.WebsiteButton				= "Página web"
 
 L.OTabBosses	= "Jefes"
+L.OTabOptions	= "Opciones"
+
+L.TabCategory_BFA	 		= "Battle for Azeroth"
+L.TabCategory_LEG	 		= "Legion"
+L.TabCategory_WOD	 		= "Warlords of Draenor"
+L.TabCategory_MOP	 		= "Mists of Pandaria"
+L.TabCategory_CATA	 		= "Cataclismo"
+L.TabCategory_WOTLK 		= "Wrath of the Lich King"
+L.TabCategory_BC 			= "Burning Crusade"
+L.TabCategory_CLASSIC		= "WoW Clásico"
 
 L.TabCategory_Options	 	= "Opciones generales"
 L.TabCategory_OTHER    		= "Otros módulos"
@@ -30,6 +40,9 @@ L.Button_LoadMod 			= 'Cargar módulo'
 L.Mod_Enabled				= "Habilitar módulo"
 L.Mod_Reset					= "Cargar opciones por defecto"
 L.Reset 					= "Restaurar"
+
+L.Enable  					= "Activar"
+L.Disable					= "Desactivar"
 
 L.NoSound					= "Sin sonido"
 
@@ -105,6 +118,7 @@ L.AutoRespond 				= "Responder automáticamente a susurros en encuentro"
 L.WhisperStats 				= "Incluir estadísticas de victoria y derrota en las respuestas automáticas a susurros"
 L.DisableStatusWhisper 		= "Desactivar susurros automáticos de estado de encuentro del grupo o banda para todos los jugadores (requiere ser el líder). Solo se aplica a bandas en dificultad normal, heroica y mítica, y a mazmorras de piedra angular."
 L.DisableGuildStatus 		= "Desactivar mensajes de hermandad de estado de encuentro del grupo o banda para todos los jugadores (requiere ser el líder)."
+L.EnableWBSharing 			= "Comparte cuando sacas/derrotas a un jefe mundial o activas un buff mundial con tus amigos de battle.net que están en el mismo reino. (Esta información siempre se compartirá con tu hermandad)"
 
 -- Tab: Barsetup
 L.BarSetup					= "Configuración de barras"
@@ -141,7 +155,18 @@ L.Bar7Header				= "Opciones de barras de usuario"
 L.Bar7ForceLarge			= "Usar siempre barras grandes"
 L.Bar7CustomInline			= "Usar icono '!' personalizado"
 L.Bar7Footer				= "(la barra de muestra no se\nactualiza en vivo)"
-
+--Dropdown Options
+L.CBTGeneric				= "Genérico"
+L.CBTAdd					= "Add"
+L.CBTAOE					= "AOE"
+L.CBTTargeted				= "Objetivo"
+L.CBTInterrupt				= "Interrumpir"
+L.CBTRole					= "Rol"
+L.CBTPhase					= "Fase"
+L.CBTImportant				= "Importante (Usuario)"
+L.CVoiceOne					= "Voz de Cuenta 1"
+L.CVoiceTwo					= "Voz de Cuenta 2"
+L.CVoiceThree				= "Voz de Cuenta 3"
 -- Tab: Timers
 L.AreaTitle_BarColors		= "Colores de barras por tipo de temporizador"
 L.AreaTitle_BarSetup		= "Opciones generales de barras"
@@ -265,6 +290,7 @@ L.FilterInterruptsHeader	= "Patrón para ocultar avisos de facultades interrumpi
 L.FilterInterrupts			= "Si no es tu objetivo o foco (siempre)"
 L.FilterInterrupts2			= "Si no es tu objetivo o foco (siempre) o no puedes interrumpir (solo jefes)"
 L.FilterInterrupts3			= "Si no es tu objetivo o foco (siempre) o no puedes interrumpir (todos los enemigos)"
+L.FilterInterrupts4			= "Siempre filtra las advertencias de interrupción (no quieres verlas punto)"
 L.FilterInterruptNoteName	= "Ocultar avisos de facultades interrumpibles con orden de interrupciones si el aviso no contiene tu nombre en la nota"
 L.FilterDispels				= "Ocular avisos de facultades disipables si tu disipación no está disponible"
 L.FilterTrashWarnings		= "Ocultar todos los avisos de enemigos menores en mazmorras normales y heroicas"
@@ -289,7 +315,7 @@ L.DisableSFX				= "Desactivar el canal de efectos de sonido en encuentros"
 L.DisableCinematics			= "Saltar cinemáticas automáticamente"
 L.OnlyFight					= "Solo en combate, tras haber visto la cinemática por primera vez"
 L.AfterFirst				= "Tras haber visto la cinemática por primera vez"
-L.Always					= ALWAYS
+L.Always					= "Siempre"
 L.CombatOnly				= "En combate"
 L.RaidCombat				= "En combate (solo en jefes)"
 L.TrivialContent			= "Mazmorras no míticas"
