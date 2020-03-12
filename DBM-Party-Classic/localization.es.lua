@@ -238,7 +238,7 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization(392)
 
 L:SetGeneralLocalization{
-	name 		= "Urok Aullasino"
+	name 		= "Urok Aullapocalipsis"
 }
 -----------------------------
 --  Quartermaster Zigris  --
