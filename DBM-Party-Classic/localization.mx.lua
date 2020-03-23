@@ -589,7 +589,7 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization(424)
 
 L:SetGeneralLocalization{
-	name 		= "Lativaja"
+	name 		= "Latisable"
 }
 
 -----------------------------
