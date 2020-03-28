@@ -1334,7 +1334,7 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization(748)
 
 L:SetGeneralLocalization{
-	name 		= "Centinela obsidiana"
+	name 		= "Centinela Obsidiano"
 }
 -----------------------------
 --  Ancient Stone Keeper  --
@@ -1342,7 +1342,7 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization(470)
 
 L:SetGeneralLocalization{
-	name 		= "Vigilante de piedra anciano"
+	name 		= "Vigilante pétreo anciano"
 }
 -----------------------------
 --  Galgann Firehammer  --
