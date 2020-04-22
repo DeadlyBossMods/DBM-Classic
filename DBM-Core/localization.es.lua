@@ -581,3 +581,11 @@ DBM_LDB_CAT_OTHER		= "Otros módulos"
 
 DBM_LDB_CAT_GENERAL		= "General"
 DBM_LDB_ENABLE_BOSS_MOD	= "Habilitar módulo"
+
+--Localizers, do not copy entire table, follow same guidelines as other tables, overwrite each entry with DBM_CORE_WORLD_BUFF_TRIGGERS.hordeOny = "stuff" for example.
+DBM_CORE_WORLD_BUFF_TRIGGERS.hordeOny		= "People of the Horde, citizens of Orgrimmar, come, gather round and celebrate a hero of the Horde",
+DBM_CORE_WORLD_BUFF_TRIGGERS.allianceOny	= "Ciudadanos y aliados de Ventormenta, en el día de hoy, hemos hecho historia.",
+DBM_CORE_WORLD_BUFF_TRIGGERS.hordeNef		= "NEFARIAN IS SLAIN! People of Orgrimmar",
+DBM_CORE_WORLD_BUFF_TRIGGERS.allianceNef	= "Citizens of the Alliance, the Lord of Blackrock is slain!",
+DBM_CORE_WORLD_BUFF_TRIGGERS.zgHeart		= "Now, only one step remains to rid us of the Soulflayer's threat",
+DBM_CORE_WORLD_BUFF_TRIGGERS.rendHead		= "The false Warchief, Rend Blackhand, has fallen!"
