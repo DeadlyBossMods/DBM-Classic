@@ -1,4 +1,4 @@
-﻿if GetLocale() ~= "esES" and GetLocale() ~= "esMX" then return end
+﻿if GetLocale() ~= "esES" then return end
 local L
 
 -------------------
@@ -7,7 +7,7 @@ local L
 L = DBM:GetModLocalization("Venoxis")
 
 L:SetGeneralLocalization{
-	name = "Sumo sacerdote Venoxis"
+	name = "Sumo Sacerdote Venoxis"
 }
 
 -------------------
@@ -16,7 +16,7 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization("Jeklik")
 
 L:SetGeneralLocalization{
-	name = "Suma sacerdotisa Jeklik"
+	name = "Suma Sacerdotisa Jeklik"
 }
 
 -------------------
@@ -25,7 +25,7 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization("Marli")
 
 L:SetGeneralLocalization{
-	name = "Suma sacerdotisa Mar'li"
+	name = "Suma Sacerdotisa Mar'li"
 }
 
 -------------------
@@ -34,11 +34,11 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization("Thekal")
 
 L:SetGeneralLocalization{
-	name = "Sumo sacerdote Thekal"
+	name = "Sumo Sacerdote Thekal"
 }
 
 L:SetWarningLocalization({
-	WarnSimulKill	= "Primer add muerto - Resurrección en ~12 segundos"
+	WarnSimulKill	= "Primer add muerto - Resurrección en ~15 segundos"
 })
 
 L:SetTimerLocalization({
@@ -54,6 +54,9 @@ L:SetMiscLocalization({
 	PriestDied	= "%s muere.",
 	YellPhase2	= "Shirvallah, ¡lléname de IRA!",
 	YellKill	= "¡Hakkar ya no me controla! ¡Por fin algo de paz!"
+	Thekal		= "Sumo Sacerdote Thekal",
+	Zath		= "Integrista Zath",
+	LorKhan		= "Integrista Lor'Khan"
 })
 
 -------------------
@@ -62,7 +65,7 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Arlokk")
 
 L:SetGeneralLocalization{
-	name = "Suma sacerdotisa Arlokk"
+	name = "Suma Sacerdotisa Arlokk"
 }
 
 -------------------
@@ -85,6 +88,7 @@ L:SetGeneralLocalization{
 L:SetMiscLocalization{
 	Bloodlord 	= "Señor sangriento Mandokir",
 	Ohgan		= "Ohgan"
+	GazeYell	= "I'm watching you"
 }
 
 -------------------
@@ -93,7 +97,7 @@ L:SetMiscLocalization{
 L = DBM:GetModLocalization("EdgeOfMadness")
 
 L:SetGeneralLocalization{
-	name = "Blandón de la Locura"
+	name = "Extremo de la Locura"
 }
 L:SetMiscLocalization{
 	Hazzarah = "Hazza'rah",
@@ -117,5 +121,5 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization("Jindo")
 
 L:SetGeneralLocalization{
-	name = "Jin'do el Aojador"
+	name = "Jin'do el Malhechor"
 }
