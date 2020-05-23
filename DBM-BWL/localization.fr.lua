@@ -17,10 +17,10 @@ L:SetOptionLocalization{
 }
 L:SetMiscLocalization{
 	Phase2Emote	= "flee as the controlling power of the orb is drained.",
-	YellEgg1 = "You'll pay for forcing me to do this!",
-	YellEgg2 = "Fools! These eggs are more precious than you know!",
-	YellEgg3 = "No - not another one! I'll have your heads for this atrocity!",
-	YellPull 	= "Intruders have breached the hatchery! Sound the alarm! Protect the eggs at all costs!\r\n"--Yes this yell actually has a return and new line in it. as grabbed by transcriptor
+	YellEgg1 = "Vous allez payer pour m’avoir forcé à faire ça !",
+	YellEgg2 = "Imbéciles ! Vous n’avez pas idée de la valeur de ces œufs !",
+	YellEgg3 = "Non, pas un autre ! J’aurai vos têtes pour venger cette atrocité !",
+	YellPull = "La chambre des œufs est envahie ! Sonnez l’alarme ! Protégez les œufs à tout prix !\r\n"--Yes this yell actually has a return and new line in it. as grabbed by transcriptor
 }
 -------------------
 --  Vaelastrasz  --
