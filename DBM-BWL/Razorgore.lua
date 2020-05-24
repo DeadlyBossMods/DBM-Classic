@@ -74,7 +74,6 @@ do
 end
 
 do
-	local warmingFlames = DBM:GetSpellInfo(23040)
 	function mod:SPELL_CAST_SUCCESS(args)
 		if args.spellId == 23040 and self.vb.phase < 2 then
 			self:SendSync("Phase2")
