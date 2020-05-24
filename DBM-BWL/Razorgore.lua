@@ -78,7 +78,7 @@ do
 		if args.spellId == 23040 and self.vb.phase < 2 then
 			self:SendSync("Phase2")
 		elseif args.spellId == 19873 then
-        	self.vb.eggsLeft = self.vb.eggsLeft - 1
+			self.vb.eggsLeft = self.vb.eggsLeft - 1
 			warnEggsLeft:Show(string.format("%d/%d",30-self.vb.eggsLeft,30))
 		end
 	end
