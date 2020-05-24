@@ -1,5 +1,5 @@
 --Mini Dragon (projecteurs[at]gmail.com)
---Last update: 2020/2/24
+--Last update: 2020/5/24
 
 if GetLocale() ~= "zhCN" then return end
 local L
@@ -120,6 +120,7 @@ L:SetTimerLocalization{
 }
 L:SetOptionLocalization{
 	WarnBreath		= "为克洛玛古斯其中一个吐息显示警告",
+	WarnVulnerable	= "为弱点显示警告",
 	TimerBreathCD	= "显示吐息冷却",
 	TimerBreath		= "显示吐息施法",
 	TimerVulnCD		= "显示弱点CD"
@@ -147,13 +148,14 @@ L:SetGeneralLocalization{
 L:SetWarningLocalization{
 	WarnAddsLeft		= "还剩%d个小怪",
 	WarnClassCall		= "%s呼喊",
-	WarnPhase			= "第%s阶段"
+	specwarnClassCall	= "你中了职业点名！"
 }
 L:SetTimerLocalization{
 	TimerClassCall		= "%s 点名结束"
 }
 L:SetOptionLocalization{
 	TimerClassCall		= "为职业点名持续时间显示计时器",
+	WarnAddsLeft		= "通报杀死的龙兽，直到进入第2阶段",
 	WarnClassCall		= "提示职业点名",
 	WarnPhase			= "提示转换阶段"
 }
