@@ -38,7 +38,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization({
-	WarnSimulKill	= "Primer add muerto - Resurrección en ~15 segundos"
+	WarnSimulKill	= "Primer esbirro muerto - Resurrección en ~15 segundos"
 })
 
 L:SetTimerLocalization({
@@ -46,7 +46,7 @@ L:SetTimerLocalization({
 })
 
 L:SetOptionLocalization({
-	WarnSimulKill	= "Anunciar primer add muerto",
+	WarnSimulKill	= "Anunciar primer esbirro muerto",
 	TimerSimulKill	= "Mostrar tiempo para resurrección de sacerdote"
 })
 
@@ -88,7 +88,7 @@ L:SetGeneralLocalization{
 L:SetMiscLocalization{
 	Bloodlord 	= "Señor sangriento Mandokir",
 	Ohgan		= "Ohgan",
-	GazeYell	= "I'm watching you"
+	GazeYell	= "Te estoy vigilando"
 }
 
 -------------------
