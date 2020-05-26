@@ -17,10 +17,10 @@ L:SetOptionLocalization{
 }
 L:SetMiscLocalization{
 	Phase2Emote	= "huyen mientras se consume el poder del orbe.",
-  	YellEgg1 = "You'll pay for forcing me to do this!", -- needs localized resource
-  	YellEgg2 = "Fools! These eggs are more precious than you know!", -- needs localized resource
-  	YellEgg3 = "No - not another one! I'll have your heads for this atrocity!", -- needs localized resource
-	YellPull 	= "¡Los invasores han penetrado en El Criadero! ¡Activad la alarma! ¡Hay que proteger los huevos a toda costa!"
+  	YellEgg1	= "You'll pay for forcing me to do this!", -- needs localized resource
+  	YellEgg2	= "Fools! These eggs are more precious than you know!", -- needs localized resource
+  	YellEgg3	= "No - not another one! I'll have your heads for this atrocity!", -- needs localized resource
+	YellPull	= "¡Los invasores han penetrado en El Criadero! ¡Activad la alarma! ¡Hay que proteger los huevos a toda costa!"
 }
 -------------------
 --  Vaelastrasz  --
@@ -113,7 +113,7 @@ L:SetTimerLocalization{
 }
 L:SetOptionLocalization{
 	WarnBreath		= "Mostrar aviso cuando Chromaggus lance uno de sus alientos",
-	TimerBreathCD	= "Mostrar temporizador para el tiempo de reutilización de los alientos",
+	WarnVulnerable	= "Mostrar temporizador para el tiempo de reutilización de los alientos",
 	TimerBreathCD	= "Mostrar TdR de aliento",
 	TimerBreath		= "Mostrar lanzamiento de aliento",
 	TimerVulnCD		= "Mostrar TdR de Vulnerabilidad"
