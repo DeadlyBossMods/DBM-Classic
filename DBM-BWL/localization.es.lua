@@ -1,4 +1,4 @@
-if GetLocale() ~= "esES"
+if GetLocale() ~= "esES" then return end
 local L
 
 -----------------
