@@ -40,7 +40,7 @@ L:SetMiscLocalization{
 L = DBM:GetModLocalization("Broodlord")
 
 L:SetGeneralLocalization{
-	name	= "Señor de linaje Capazote"
+	name	= "Señor de prole Capazote"
 }
 
 ---------------
