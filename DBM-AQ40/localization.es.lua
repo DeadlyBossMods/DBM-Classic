@@ -55,8 +55,8 @@ L:SetWarningLocalization{
 	WarnShatter	= "Hacerse añicos: %d/3"
 }
 L:SetOptionLocalization{
-	WarnFreeze	= "Anuncio de congela",
-	WarnShatter	= "Anuncio de hacerse añicos"
+	WarnFreeze	= "Anunciar congelar",
+	WarnShatter	= "Anunciar hacerse añicos"
 }
 L:SetMiscLocalization{
 	Slow	= "comienza a ir más despacio!",
@@ -126,7 +126,7 @@ L:SetGeneralLocalization{
 }
 L:SetWarningLocalization{
 	WarnSubmerge		= "Ouro se sumerge",
-	WarnEmerge			= "Ouro se emerge"
+	WarnEmerge			= "Ouro regresa"
 }
 L:SetTimerLocalization{
 	TimerSubmerge		= "Sumersión",
