@@ -17,9 +17,9 @@ L:SetOptionLocalization{
 }
 L:SetMiscLocalization{
 	Phase2Emote	= "huyen mientras se consume el poder del orbe.",
-  	YellEgg1	= "You'll pay for forcing me to do this!", -- needs localized resource
-  	YellEgg2	= "Fools! These eggs are more precious than you know!", -- needs localized resource
-  	YellEgg3	= "No - not another one! I'll have your heads for this atrocity!", -- needs localized resource
+	YellEgg1	= "You'll pay for forcing me to do this!", -- needs localized resource
+	YellEgg2	= "Fools! These eggs are more precious than you know!", -- needs localized resource
+	YellEgg3	= "No - not another one! I'll have your heads for this atrocity!", -- needs localized resource
 	YellPull	= "¡Los invasores han penetrado en El Criadero! ¡Activad la alarma! ¡Hay que proteger los huevos a toda costa!"
 }
 -------------------
