@@ -1,4 +1,4 @@
-if GetLocale() ~= "esES" and GetLocale() ~= "esMX" then return end
+if GetLocale() ~= "esES"
 local L
 
 -----------------
@@ -17,9 +17,9 @@ L:SetOptionLocalization{
 }
 L:SetMiscLocalization{
 	Phase2Emote	= "huyen mientras se consume el poder del orbe.",
-  YellEgg1 = "You'll pay for forcing me to do this!", -- needs localized resource
-  YellEgg2 = "Fools! These eggs are more precious than you know!", -- needs localized resource
-  YellEgg3 = "No - not another one! I'll have your heads for this atrocity!", -- needs localized resource
+  	YellEgg1 = "You'll pay for forcing me to do this!", -- needs localized resource
+  	YellEgg2 = "Fools! These eggs are more precious than you know!", -- needs localized resource
+  	YellEgg3 = "No - not another one! I'll have your heads for this atrocity!", -- needs localized resource
 	YellPull 	= "¡Los invasores han penetrado en El Criadero! ¡Activad la alarma! ¡Hay que proteger los huevos a toda costa!"
 }
 -------------------
@@ -70,6 +70,30 @@ L:SetGeneralLocalization{
 	name = "Flamagor"
 }
 
+-----------------------
+--  Vulnerabilities  --
+-----------------------
+-- Chromaggus, Death Talon Overseer and Death Talon Wyrmguard
+L = DBM:GetModLocalization("TalonGuards")
+
+L:SetGeneralLocalization{
+	name = "Guardias Garra"
+}
+L:SetWarningLocalization{
+	WarnVulnerable		= "%s Vulnerabilidad"
+}
+L:SetOptionLocalization{
+	WarnVulnerable		= "Mostrar aviso de vulnerabilidades de hechizo"
+}
+L:SetMiscLocalization{
+	Fire		= "Fuego",
+	Nature		= "Naturaleza",
+	Frost		= "Escarcha",
+	Shadow		= "Sombras",
+	Arcane		= "Arcano",
+	Holy		= "Sagrado"
+}
+
 ------------------
 --  Chromaggus  --
 ------------------
@@ -80,17 +104,31 @@ L:SetGeneralLocalization{
 }
 L:SetWarningLocalization{
 	WarnBreath		= "%s"
+	WarnVulnerable	= "%s Vulnerabilidad"
 }
 L:SetTimerLocalization{
 	TimerBreathCD	= "%s TdR"
+	TimerBreath		= "%s lanzamiento",
+	TimerVulnCD		= "TdR de Vulnerabilidad"
 }
 L:SetOptionLocalization{
 	WarnBreath		= "Mostrar aviso cuando Chromaggus lance uno de sus alientos",
 	TimerBreathCD	= "Mostrar temporizador para el tiempo de reutilización de los alientos"
+	TimerBreathCD	= "Mostrar TdR de aliento",
+	TimerBreath		= "Mostrar lanzamiento de aliento",
+	TimerVulnCD		= "Mostrar TdR de Vulnerabilidad"
 }
 L:SetMiscLocalization{
 	Breath1	= "Primer aliento",
 	Breath2	= "Segundo aliento"
+	VulnEmote	= "%s flinches as its skin shimmers.",
+	Vuln		= "Vulnerabilidad",
+	Fire		= "Fuego",
+	Nature		= "Naturaleza",
+	Frost		= "Escarcha",
+	Shadow		= "Sombras",
+	Arcane		= "Arcano",
+	Holy		= "Sagrado"
 }
 
 ----------------
@@ -102,18 +140,24 @@ L:SetGeneralLocalization{
 	name = "Nefarian"
 }
 L:SetWarningLocalization{
-	WarnClassCall		= "Llamada: %s",
-	WarnPhase			= "Fase %s"
+	WarnAddsLeft		= "%d restante",
+	WarnClassCall		= "Llamada de %s",
+	specwarnClassCall	= "¡Llamada de clase tuyo!"
+--	WarnClassCall		= "Llamada: %s",
+--	WarnPhase			= "Fase %s"
 }
 L:SetTimerLocalization{
-	TimerClassCall		= "Llamada: %s"
+	TimerClassCall		= "Llamada de %s termina"
 }
 L:SetOptionLocalization{
 	TimerClassCall		= "Mostrar temporizador para la duración de las llamadas en cada clase",
+	WarnAddsLeft		= "Anunciar muertes restante hasta Fase 2",
 	WarnClassCall		= "Mostrar aviso para las llamadas de clase",
-	WarnPhase			= "Anunciar cambios de fase"
+	specwarnClassCall	= "Mostrar aviso especial cuando se ve afectado por la llamada de clase"
+--	WarnPhase			= "Anunciar cambios de fase"
 }
 L:SetMiscLocalization{
+	YellP1		= "Let the games begin!",
 	YellP2		= "Bien hecho, mis esbirros. El coraje de los mortales empieza a mermar. ¡Veamos ahora cómo se enfrentan al verdadero Señor de la Cubre de Roca Negra!",
 	YellP3		= "¡Imposible! ¡Erguíos, mis esbirros! ¡Servid a vuestro maestro una vez más!",
 	YellShaman	= "¡Chamanes, mostradme lo que pueden hacer vuestros tótems!",
