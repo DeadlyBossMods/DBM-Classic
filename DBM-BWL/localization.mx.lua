@@ -103,24 +103,24 @@ L:SetGeneralLocalization{
 	name = "Chromaggus"
 }
 L:SetWarningLocalization{
-	WarnBreath		= "%s"
+	WarnBreath		= "%s",
 	WarnVulnerable	= "%s Vulnerabilidad"
 }
 L:SetTimerLocalization{
-	TimerBreathCD	= "%s TdR"
+	TimerBreathCD	= "%s TdR",
 	TimerBreath		= "%s lanzamiento",
 	TimerVulnCD		= "TdR de Vulnerabilidad"
 }
 L:SetOptionLocalization{
 	WarnBreath		= "Mostrar aviso cuando Chromaggus lance uno de sus alientos",
-	TimerBreathCD	= "Mostrar temporizador para el tiempo de reutilización de los alientos"
+	TimerBreathCD	= "Mostrar temporizador para el tiempo de reutilización de los alientos",
 	TimerBreathCD	= "Mostrar TdR de aliento",
 	TimerBreath		= "Mostrar lanzamiento de aliento",
 	TimerVulnCD		= "Mostrar TdR de Vulnerabilidad"
 }
 L:SetMiscLocalization{
 	Breath1	= "Primer aliento",
-	Breath2	= "Segundo aliento"
+	Breath2	= "Segundo aliento",
 	VulnEmote	= "%s flinches as its skin shimmers.",
 	Vuln		= "Vulnerabilidad",
 	Fire		= "Fuego",
