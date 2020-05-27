@@ -7,6 +7,7 @@
 ## Title-ptBR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Azeroth (Clássico)|r
 ## Title-koKR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0아제로스 (클래식)|r
 ## Title-zhTW:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0艾澤拉斯 (經典)|r
+## Title-zhCN:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0世界首领 (经典)|r
 ## LoadOnDemand: 1
 ## RequiredDeps: DBM-Core
 ## SavedVariables: DBMAzeroth_AllSavedVars
@@ -23,6 +24,7 @@
 ## X-DBM-Mod-Name-ptBR: Azeroth (Clássico)
 ## X-DBM-Mod-Name-koKR: 아제로스 (클래식)
 ## X-DBM-Mod-Name-zhTW: 艾澤拉斯 (經典)
+## X-DBM-Mod-Name-zhCN: 世界首领 (经典)
 ## X-DBM-Mod-Sort: 1107
 ## X-DBM-Mod-MapID: 0, 1
 ## X-DBM-Mod-LoadCID: 14889,14888,14887,14890,12397,6109
