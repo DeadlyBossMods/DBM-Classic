@@ -10,6 +10,9 @@ if not DBM_CORE_L then DBM_CORE_L = {} end
 
 local L = DBM_CORE_L
 
+L.DEADLY_BOSS_MODS				= "Deadly Boss Mods"
+L.DBM								= "DBM"
+
 L.HOW_TO_USE_MOD					= "欢迎使用DBM。在聊天框输入 /dbm help 以获取可用命令的帮助。输入 /dbm 可打开设置窗口，并对各个Boss模块进行设置，也可以浏览首领击杀记录。DBM 会自动按你的专精做出相应配置，但是你可以进行微调。"
 L.SILENT_REMINDER					= "提示：DBM 正处于安静模式。"
 
@@ -54,8 +57,8 @@ L.COMBAT_ENDED_AT			= "%s （%s）作战结束，用时%s。"
 L.COMBAT_ENDED_AT_LONG		= "%s （%s）作战结束，用时%s。该难度下总计失败%d次。"
 L.GUILD_COMBAT_ENDED_AT		= "公会版%s （%s）作战结束，用时%s。"
 L.COMBAT_STATE_RECOVERED		= "%s作战%s前开始，正在恢复计时条……"
-L.TRANSCRIPTOR_LOG_START		= "Transcriptor logging started."
-L.TRANSCRIPTOR_LOG_END		= "Transcriptor logging ended."
+L.TRANSCRIPTOR_LOG_START		= "Transcriptor 开始记录。"
+L.TRANSCRIPTOR_LOG_END		= "Transcriptor 结束记录。"
 
 L.MOVIE_SKIPPED				= "该场景已被跳过。"
 
@@ -323,6 +326,7 @@ L.AUTO_ANNOUNCE_OPTIONS.you				= "警报：中了%s时"
 L.AUTO_ANNOUNCE_OPTIONS.target			= "警报：$spell:%s的目标"
 L.AUTO_ANNOUNCE_OPTIONS.targetsource		= "警报：$spell:%s的目标(带来源)"
 L.AUTO_ANNOUNCE_OPTIONS.targetcount		= "警报：$spell:%s的目标(带计数)"
+L.AUTO_ANNOUNCE_OPTIONS.targetNF		= "警报：$spell:%s的目标(无视目标)" --
 L.AUTO_ANNOUNCE_OPTIONS.spell			= "警报：$spell:%s"
 L.AUTO_ANNOUNCE_OPTIONS.ends				= "警报：$spell:%s结束"
 L.AUTO_ANNOUNCE_OPTIONS.endtarget		= "警报：$spell:%s结束"
@@ -591,3 +595,10 @@ L.LDB_CAT_OTHER		= "其他首领"
 
 L.LDB_CAT_GENERAL		= "常规"
 L.LDB_ENABLE_BOSS_MOD	= "启用首领模块"
+--首领喊话应该没错吧
+L.WORLD_BUFFS.hordeOny		 = "部落的人民，奥格瑞玛的居民，来吧，聚集在一起，欢庆部落英雄的诞生"
+L.WORLD_BUFFS.allianceOny	 = "暴风城的城民和盟友们，今天，有人创造了历史"
+L.WORLD_BUFFS.hordeNef		 = "奈法利安被杀掉了！奥格瑞玛的居民"
+L.WORLD_BUFFS.allianceNef	 = "联盟的人民们，黑石领主已经被干掉了！"
+L.WORLD_BUFFS.zgHeart		 = "开始仪式，我的仆从们。我们必须把哈卡完全打回扭曲虚空中"
+L.WORLD_BUFFS.rendHead		 = "那个假的酋长，雷德·黑手，已经倒下了！"
