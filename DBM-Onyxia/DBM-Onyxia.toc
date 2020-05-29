@@ -30,5 +30,6 @@ localization.tw.lua
 localization.kr.lua
 localization.tw.lua
 localization.es.lua
+localization.mx.lua
 localization.cn.lua
 Onyxia.lua
