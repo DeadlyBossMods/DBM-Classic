@@ -106,6 +106,7 @@ L.MOD_DEFAULT_LOADED			= "将会使用默认设置来进行本场战斗"
 
 L.WORLDBOSS_ENGAGED			= "世界Boss-%s可能正在作战。当前还有%s的生命值。 (由%s的DBM发送)"
 L.WORLDBOSS_DEFEATED			= "世界Boss-%s可能战斗结束了。 (由%s的DBM发送)"
+L.WORLDBUFF_STARTED					= "世界增益 %s 已开始释放，阵营- %s  (由%s的DBM发送)."
 
 L.TIMER_FORMAT_SECS			= "%.2f秒"
 L.TIMER_FORMAT_MINS			= "%d分钟"
@@ -170,6 +171,8 @@ L.UPDATEREMINDER_MAJORPATCH		= "你的DBM已经过期,它已被禁用,直到你�
 L.UPDATEREMINDER_TESTVERSION		= "警告：你使用了不正确版本的DBM。请确保DBM版本和游戏版本一致。"
 L.VEM							= "你好像在使用VEM。DBM在这种情况下无法被载入。"
 L.OUTDATEDPROFILES					= "警告: DBM-Profiles已经无法和本版本DBM兼容。DBM核心已经自带配置文件管理系统，请移除DBM-Profiles避免冲突。"
+L.OUTDATEDSPELLTIMERS				= "警告: DBM-SpellTimers 干扰到 " .. L.DBM .. "。 DBM-SpellTimers 不再得到支持，必须将其删除。 " .. L.DBM .. " 才能正常运行。"
+L.OUTDATEDRLT						= "警告: DBM-RaidLeadTools 干扰到 " .. L.DBM .. "。 DBM-RaidLeadTools 不再得到支持，必须将其删除。 " .. L.DBM .. " 才能正常运行。"
 L.DPMCORE						= "警告: DBM-PVP已经已经很久没人维护了,并无法兼容。请移除DBM-PVP避免冲突。"
 L.DBMLDB							= "警告: DBM-LDB 已经集成入DBM核心。建议在插件目录删掉'DBM-LDB'。"
 L.UPDATE_REQUIRES_RELAUNCH		= "警告: 如果你不完全重启游戏，DBM可能会工作不正常。此次更新包含了新的文件，或者toc文件的改变，这是重载界面无法加载的。不重启游戏可能导致作战模块功能错误。"
