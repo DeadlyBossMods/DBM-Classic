@@ -157,6 +157,7 @@ L:SetOptionLocalization{
 	TimerClassCall		= "为职业点名持续时间显示计时器",
 	WarnAddsLeft		= "通报杀死的龙兽，直到进入第2阶段",
 	WarnClassCall		= "提示职业点名",
+	specwarnClassCall	= "警告：当职业点名是你的职业通知你。",
 	WarnPhase			= "提示转换阶段"
 }
 L:SetMiscLocalization{
