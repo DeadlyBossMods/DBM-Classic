@@ -116,6 +116,7 @@ L.AutoRespond 				= "在战斗中自动回复私聊"
 L.WhisperStats 				= "在回复的私聊中包含击杀或灭团次数统计信息"
 L.DisableStatusWhisper 		= "屏蔽全团成员的status私聊(需要团长权限)。只对普通/英雄/神话团队和挑战/神话五人小队有效。"
 L.DisableGuildStatus 		= "屏蔽通报团队进度信息到工会(需要团长权限)。"
+L.EnableWBSharing 			= "当世界增益BUFF的激活或者世界BOSS刷新/击杀；分享给在一个服务器战网上的朋友。 （此信息将始终与您的公会分享）"
 
 -- Tab: Barsetup
 L.BarSetup   				= "计时条设置"
@@ -199,6 +200,7 @@ L.SpecWarn_ClassColor		= "为特殊警报启用分职业着色"
 L.ShowSWarningsInChat 		= "在聊天窗口中显示特殊警报"
 L.SWarnNameInNote			= "使用自定义注记的特殊警报请选择SW5"
 L.SpecialWarningIcon		= "特殊警报使用技能图标"
+L.ShortTextSpellname		= "使用较短的技能名称 (当可行时)"  --
 L.SpecWarn_FlashFrameRepeat	= "重复 %d 次 (如果开启的话)"
 L.SpecWarn_Font				= "特殊警报字体"
 L.SpecWarn_FontSize			= "字体大小: %d"
@@ -324,6 +326,7 @@ L.Panel_ExtraFeatures		= "其他功能"
 L.Area_ChatAlerts			= "文字提示警告选项"
 L.CheckGear					= "当你身上的装备装等低于背包装等40点时显示警告。(可能没有装备某物品或装备了低等级的任务道具或没有装备主武器)"
 L.WorldBossAlert			= "当世界Boss进入战斗后发送警告，这个信息可能是你的朋友或者同工会成员发送的。 (由于跨服，卡位面等因素，可能不准确)"
+L.WorldBuffAlert			= "当世界增益BUFF激活后发送警告，这个信息可能是你的朋友或者同工会成员发送的。 (由于跨服，卡位面等因素，可能不准确)" 
 --
 L.Area_SoundAlerts			= "语音/闪动警告选项"
 L.LFDEnhance				= "当发起角色检查或随机团队/战场就绪时，在主声道播放准备音效(即使关闭了音效而且很大声！)并闪烁图标"
@@ -338,6 +341,7 @@ L.ShowQueuePop				= "显示随机小队/团队查找器确认计时条"
 --
 L.Area_AutoLogging			= "自动日志记录选项"
 L.AutologBosses				= "自动采用官方格式记录日志。 (使用 /dbm pull 可提前记录并使得记录更准确，如提前偷药水或是召唤大军。)"
+L.RecordOnlyBosses			= "只记录团队BOSS数据 (不记录其他数据，使用 /dbm pull 可提前记录并使得记录更准确，如提前偷药水或是召唤大军。)"
 L.AdvancedAutologBosses		= "自动采用 Transcriptor 记录日志"
 L.LogOnlyNonTrivial			= "只记录团队Boss，而不记录随机团队，5人本，场景战役。"
 --
