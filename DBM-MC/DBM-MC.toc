@@ -21,7 +21,6 @@
 ## X-DBM-Mod-MapID: 409
 ## X-DBM-Mod-Sort: 13
 ## X-DBM-Mod-MinCoreRevision: 14565
-
 localization.en.lua
 localization.es.lua
 localization.mx.lua
@@ -30,7 +29,6 @@ localization.de.lua
 localization.kr.lua
 localization.tw.lua
 localization.cn.lua
-
 Lucifron.lua
 Magmadar.lua
 Gehennas.lua
