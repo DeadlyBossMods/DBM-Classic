@@ -2,7 +2,7 @@
 -- yleaf(yaroot@gmail.com)
 -- sunlcy@NGA
 -- Mini Dragon(projecteurs@gmail.com)
--- Last update: 2019/02/22
+-- Last update: 2020/06/06
 
 if GetLocale() ~= "zhCN" then return end
 if not DBM_GUI_L then DBM_GUI_L = {} end
@@ -12,7 +12,7 @@ local L = DBM_GUI_L
 L.MainFrame 				= "Deadly Boss Mods"
 
 L.TranslationByPrefix		= "翻译:"
-L.TranslationBy 			= "Mini_Dragon(Brilla@金色平原) 原翻译：Diablohu & yleaf & sunlcy"
+L.TranslationBy 			= "Mini_Dragon(Brilla@金色平原) 枫聖@阿什坎迪 原翻译：Diablohu & yleaf & sunlcy"
 L.Website					= "拜访我们的Discord |cFF73C2FBhttps://discord.gg/deadlybossmods|r. 在Twitter上关注 @deadlybossmods 或 @MysticalOS"
 L.WebsiteButton				= "网页"
 
@@ -72,6 +72,11 @@ L.Button_RangeFrame			= "显示/隐藏距离雷达框体"
 L.Button_InfoFrame			= "显示/隐藏信息框体"
 L.Button_TestBars			= "测试计时条"
 L.Button_ResetInfoRange		= "重置信息/距离雷达框体"
+
+L.ResizeOptions			 	= "调整窗口大小"
+L.Button_ResetWindowSize	= "重置窗口大小"
+L.Editbox_WindowWidth		= "宽度"
+L.Editbox_WindowHeight		= "高度"
 
 -- Tab: Raidwarning
 L.Tab_RaidWarning 			= "团队警报"
@@ -207,11 +212,11 @@ L.SpecWarn_Font				= "特殊警报字体"
 L.SpecWarn_FontSize			= "字体大小: %d"
 L.SpecWarn_FontColor		= "字体颜色"
 L.SpecWarn_FontType			= "选择字体"
-L.SpecWarn_Flash			= "屏幕泛光"
-L.SpecWarn_FlashRepeat		= "重复泛光"
-L.SpecWarn_FlashColor		= "泛光颜色 (%d)"
-L.SpecWarn_FlashDur			= "泛光持续时间: %0.1f"
-L.SpecWarn_FlashAlpha		= "泛光透明度: %0.1f"
+L.SpecWarn_Flash			= "屏幕闪烁"
+L.SpecWarn_FlashRepeat		= "重复闪烁"
+L.SpecWarn_FlashColor		= "闪烁颜色 (%d)"
+L.SpecWarn_FlashDur			= "闪烁持续时间: %0.1f"
+L.SpecWarn_FlashAlpha		= "闪烁透明度: %0.1f"
 L.SpecWarn_DemoButton		= "测试警报"
 L.SpecWarn_MoveMe			= "设置位置"
 L.SpecWarn_ResetMe			= "重置"
