@@ -77,7 +77,7 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization("TalonGuards")
 
 L:SetGeneralLocalization{
-	name = "Guardias Garra"
+	name = "Guardias Garramortal"
 }
 L:SetWarningLocalization{
 	WarnVulnerable		= "%s Vulnerabilidad"
