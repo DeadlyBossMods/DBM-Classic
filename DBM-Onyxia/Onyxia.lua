@@ -93,6 +93,10 @@ do
 	function mod:FireballTarget(targetname, uId)
 		if not targetname then return end
 		warnFireball:Show(targetname)
+		if GetRaidTargetIndex(targetname) ~= 8 then
+			-- If another DBM/BigWigs client has not yet put a skull on said player, attempt to do so.
+			SetRaidTarget(targetname, 8) -- Automatically ignored if the user does not have raid assist.
+		end
 		if targetname == UnitName("player") then
 			yellFireball:Yell()
 		end
