@@ -82,7 +82,7 @@ L:SetGeneralLocalization{
 	name = "Senescal Executus"
 }
 L:SetTimerLocalization{
-	timerShieldCD		= "Escudo próximo"
+	timerShieldCD		= "Próximo escudo"
 }
 L:SetOptionLocalization{
 	timerShieldCD		= "Mostrar cronômetro para o próximo escudo de dano/reflexão"
