@@ -43,6 +43,10 @@ L:SetGeneralLocalization{
 	name	= "Señor de prole Capazote"
 }
 
+L:SetMiscLocalization{
+	Pull	= "None of your kind should be here!  You've doomed only yourselves!"
+}
+
 ---------------
 --  Firemaw  --
 ---------------
