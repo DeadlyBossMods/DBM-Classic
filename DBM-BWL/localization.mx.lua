@@ -43,6 +43,10 @@ L:SetGeneralLocalization{
 	name	= "Señor de linaje Capazote"
 }
 
+L:SetMiscLocalization{
+	Pull	= "None of your kind should be here!  You've doomed only yourselves!"
+}
+
 ---------------
 --  Firemaw  --
 ---------------
@@ -169,7 +173,7 @@ L:SetMiscLocalization{
 	YellWarlock	= "Brujos... No deberían estar jugando con magia que no comprenden. ¿Ven lo que pasa?",
 	YellHunter	= "¡Cazadores y sus molestas cerbatanas!",
 	YellMage	= "¿Magos también? Deberían tener más cuidado cuando juegan con la magia...",
-	YellDK		= "¡Caballeros de la Muerte... venid aquí!",
-	YellMonk	= "Monjes, ¿no os mareáis con tanta vuelta?",
-	YellDH		= "¿Cazadores de demonios? Qué raro eso de taparos los ojos así. ¿No os cuesta ver lo que tenéis alrededor?"--Demon Hunter call; I know this hasn't been implemented yet in DBM, but I added it just in case.
+--	YellDK		= "¡Caballeros de la Muerte... venid aquí!",
+--	YellMonk	= "Monjes, ¿no os mareáis con tanta vuelta?",
+--	YellDH		= "¿Cazadores de demonios? Qué raro eso de taparos los ojos así. ¿No os cuesta ver lo que tenéis alrededor?"--Demon Hunter call; I know this hasn't been implemented yet in DBM, but I added it just in case.
 }
