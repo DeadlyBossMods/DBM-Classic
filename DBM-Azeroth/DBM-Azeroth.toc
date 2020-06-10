@@ -4,6 +4,7 @@
 ## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Azeroth (Classic)|r
 ## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Azeroth (Clásico)|r
 ## Title-esMX:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Azeroth (Clásico)|r
+## Title-frFR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Azeroth (Classique)|r
 ## Title-ptBR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Azeroth (Clássico)|r
 ## Title-koKR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0아제로스 (클래식)|r
 ## Title-zhTW:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0艾澤拉斯 (經典)|r
@@ -21,6 +22,7 @@
 ## X-DBM-Mod-Name-deDE: Azeroth (Classic)
 ## X-DBM-Mod-Name-esES: Azeroth (Clásico)
 ## X-DBM-Mod-Name-esMX: Azeroth (Clásico)
+## X-DBM-Mod-Name-frFR: Azeroth (Classique)
 ## X-DBM-Mod-Name-ptBR: Azeroth (Clássico)
 ## X-DBM-Mod-Name-koKR: 아제로스 (클래식)
 ## X-DBM-Mod-Name-zhTW: 艾澤拉斯 (經典)
@@ -32,6 +34,8 @@
 localization.en.lua
 localization.de.lua
 localization.br.lua
+localization.fr.lua
+localization.es.lua
 localization.kr.lua
 localization.tw.lua
 localization.cn.lua
