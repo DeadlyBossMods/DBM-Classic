@@ -17,7 +17,7 @@ L.Website					= "拜访我们的Discord |cFF73C2FBhttps://discord.gg/deadlybossm
 L.WebsiteButton				= "网页"
 
 L.OTabBosses	            = "模块"--Deprecated and will be deleted once tabs no longer use this
-L.OTabRaids		            = "副本 & PVP"--Raids & PVP
+L.OTabRaids		            = "团队副本 & PVP"--Raids & PVP
 L.OTabDungeons	            = "地下城"--Dungeons only, classic doesn't have scenarios of any type, first scenario wasn't until Mists of Pandaria
 L.OTabPlugins	            = "插件"
 L.OTabOptions	            = "选项"
@@ -124,7 +124,7 @@ L.Panel_SpecWarnFrame		= "特殊团队警报"
 L.Area_SpecWarn				= "特殊警报设置"
 L.SpecWarn_ClassColor		= "为特殊警报启用分职业着色"
 L.ShowSWarningsInChat 		= "在聊天窗口中显示特殊警报"
-L.SWarnNameInNote			= "使用自定义注记的特殊警报请选择 SW5"
+L.SWarnNameInNote			= "使用自定义注记的特殊警报请选择 类型5"
 L.SpecialWarningIcon		= "特殊警报使用技能图标"
 L.ShortTextSpellname		= "使用较短的技能名称 (当可行时)"
 L.SpecWarn_FlashFrameRepeat	= "重复 %d 次 (如果开启的话)"
@@ -195,7 +195,7 @@ L.BarStartColorUI			= "初始颜色 (自定义)"
 L.BarEndColorUI				= "结束颜色 (自定义)"
 --Type 7 options
 L.Bar7Header				= "自定义计时条选项"
-L.Bar7ForceLarge			= "总是使用大型计时条r"
+L.Bar7ForceLarge			= "总是使用大型计时条"
 L.Bar7CustomInline			= "使用自定义 '!' 图标"
 L.Bar7Footer				= "(测试用计时条)"
 --Dropdown Options
@@ -283,7 +283,7 @@ L.SpamBlockNoSpecWarnSound	= "不播放特殊团队警报的声音（如果在�
 
 L.Area_SpamFilter_Timers	= "计时器过滤选项"
 L.SpamBlockNoShowTimers		= "不显示 DBM 原装计时条"
-L.SpamBlockNoShowUTimers	= "不显示用户自定生成的计时条"
+L.SpamBlockNoShowUTimers	= "不显示用户自定义生成的计时条(Custom/Pull/Break)"
 L.SpamBlockNoCountdowns		= "不要播放倒计时语音"
 
 L.Area_SpamFilter_Misc		= "全局过滤设置"
