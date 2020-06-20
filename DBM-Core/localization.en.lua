@@ -653,6 +653,7 @@ L.ENRAGE_ICON						= "|TInterface\\AddOns\\DBM-Core\\textures\\UI-EJ-Icons.blp:2
 --LDB
 L.LDB_TOOLTIP_HELP1					= "Left-click to open " .. L.DBM
 L.LDB_TOOLTIP_HELP2					= "Right-click to toggle Silent Mode"
+L.SilentModeis                      = "SilentMode is "
 
 L.LDB_LOAD_MODS						= "Load boss mods"
 
