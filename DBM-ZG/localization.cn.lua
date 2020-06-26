@@ -57,9 +57,9 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	PriestDied	= "%s死亡了。",
-	YellPhase2	= "Shirvallah, fill me with your RAGE!", --TBD
-	YellKill	= "Hakkar binds me no more!  Peace at last!", --TBD
+	PriestDied	= "%s死了。",
+	YellPhase2	= "西瓦尔拉，让我感受你的愤怒吧！", --TBD
+	YellKill	= "哈卡再也不能束缚我了！我终于可以安息了！", --TBD
 	Thekal		= "高阶祭司塞卡尔",
 	Zath		= "狂热者扎斯",
 	LorKhan		= "狂热者洛卡恩"
@@ -71,7 +71,7 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Arlokk")
 
 L:SetGeneralLocalization{
-	name = "高级祭祀阿罗可可"
+	name = "高阶祭司娅尔罗"
 }
 
 -------------------
@@ -80,7 +80,7 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization("Hakkar")
 
 L:SetGeneralLocalization{
-	name = "噬魂者哈卡"
+	name = "哈卡"
 }
 
 -------------------
