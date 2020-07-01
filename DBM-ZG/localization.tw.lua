@@ -25,7 +25,7 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization("Marli")
 
 L:SetGeneralLocalization{
-	name = "高階祭司瑪爾裏"
+	name = "哈卡萊安魂者"
 }
 
 -------------------
@@ -34,7 +34,7 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization("Thekal")
 
 L:SetGeneralLocalization{
-	name = "高階祭司塞卡爾"
+	name = "古拉巴什食腐者"
 }
 
 L:SetWarningLocalization({
@@ -51,12 +51,12 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	PriestDied	= "%s死了。",
-	YellPhase2	= "西瓦爾拉，讓我感受你的憤怒吧！", --TBD
-	YellKill	= "哈卡再也不能束縛我了！我終于可以安息了！", --TBD
-	Thekal		= "高階祭司塞卡爾",
-	Zath		= "狂熱者紮斯",
-	LorKhan		= "狂熱者洛卡恩"
+	 --PriestDied	= "%s死了。",
+	 --YellPhase2	= "西瓦爾拉，讓我感受你的憤怒吧！", --TBD
+	 --YellKill	= "哈卡再也不能束縛我了！我終于可以安息了！", --TBD
+	 --Thekal		= "高階祭司塞卡爾",
+	 --Zath		= "狂熱者紮斯",
+	 --LorKhan		= "狂熱者洛卡恩"
 })
 
 -------------------
@@ -65,7 +65,7 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Arlokk")
 
 L:SetGeneralLocalization{
-	name = "高階祭司娅爾羅"
+	name = "哈卡萊先知"
 }
 
 -------------------
