@@ -9,8 +9,12 @@ L.TranslationBy 			= "Whyvv@聖光之願"
 L.Website					= "在discord上拜訪我們:|cFF73C2FBhttps://discord.gg/deadlybossmods|r。請在推特上關注@deadlybossmods或@MysticalOS"
 L.WebsiteButton				= "論壇"
 
-L.OTabBosses	= "首領模組"
-L.OTabOptions	= GAMEOPTIONS_MENU
+L.OTabBosses	            = "模組"
+L.OTabRaids		            = "團隊"
+L.OTabDungeons	            = "隊伍/單獨"
+L.OTabPlugins	            = "核心插件"
+L.OTabOptions	            = "選項"
+L.OTabAbout		            = "關於"
 
 L.TabCategory_Options		= "綜合設置"
 L.TabCategory_OTHER			= "其它首領模組"
