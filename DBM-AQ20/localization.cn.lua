@@ -49,7 +49,7 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization("Buru")
 
 L:SetGeneralLocalization{
-	name 		= "『吞咽者』布鲁"
+	name 		= "吞咽者布鲁"
 }
 L:SetWarningLocalization{
 	WarnPursue		= ">%s<被追击了",
@@ -70,7 +70,7 @@ L:SetMiscLocalization{
 L = DBM:GetModLocalization("Ayamiss")
 
 L:SetGeneralLocalization{
-	name 		= "『狩猎者』阿亚米斯"
+	name 		= "狩猎者阿亚米斯"
 }
 
 --------------
@@ -79,7 +79,7 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization("Ossirian")
 
 L:SetGeneralLocalization{
-	name 		= "『无疤者』奥斯里安"
+	name 		= "无疤者奥斯里安"
 }
 L:SetWarningLocalization{
 	WarnVulnerable	= "%s"
