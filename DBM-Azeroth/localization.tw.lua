@@ -1,6 +1,6 @@
 ﻿if GetLocale() ~= "zhTW" then return end
 local L
-
+--Last update: 2020/07/03 （重新整理）
 -- Lord Kazzak (Badlands)
 L = DBM:GetModLocalization("KazzakClassic")
 
@@ -9,7 +9,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization({
-	Pull		= "為了軍團!為了基爾加德!"
+	Pull		= "為了軍團!為了基爾加德！"
 })
 
 -- Azuregos (Azshara)
@@ -31,7 +31,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization({
-	Pull		= "和平不過是短暫的夢想!讓夢魘統治整個世界吧!"
+	Pull		= "和平不過是短暫的夢想!讓夢魘統治整個世界吧！"
 })
 
 -- Ysondre (Feralas)
@@ -42,7 +42,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization({
-	Pull		= "生命的希冀已被切斷!夢遊者要展開報復!"
+	Pull		= "生命的希冀已被切斷!夢遊者要展開報復！"
 })
 
 -- Lethon (Hinterlands)
@@ -52,6 +52,10 @@ L:SetGeneralLocalization{
 	name = "雷索"
 }
 
+L:SetMiscLocalization({
+	Pull		= "我能感受到你內心的陰影。邪惡的侵蝕永遠不會停止！"
+})
+
 -- Emeriss (Duskwood)
 L = DBM:GetModLocalization("Emeriss")
 
@@ -60,5 +64,5 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization({
-	Pull		= "希望是靈魂染上的疾病!這片土地應該枯竭，從此死氣騰騰!"
+	Pull		= "希望是靈魂染上的疾病!這片土地應該枯竭，從此死氣騰騰！"
 })
