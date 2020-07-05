@@ -321,7 +321,7 @@ L.Always					= ALWAYS
 L.CombatOnly				= "在任何戰鬥中停用"
 L.RaidCombat				= "只在首領戰鬥中停用"
 
-- Tab: Privacy
+-- Tab: Privacy
 L.Tab_Privacy 				= "隱私"
 L.Area_WhisperMessages		= "密語訊息選項"
 L.AutoRespond 				= "啟用戰鬥中自動密語回覆"
