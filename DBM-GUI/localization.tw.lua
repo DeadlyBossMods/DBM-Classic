@@ -258,7 +258,7 @@ L.EventMusicCombined		= "允許在地城和戰鬥選擇的所有音效選項（�
 L.Area_EventSoundsFilters	= "事件音效過濾條件"
 
 -- Tab: Global Filter
-LL.Panel_SpamFilter			= "全局禁用及過濾"
+L.Panel_SpamFilter			= "全局禁用及過濾"
 L.Area_SpamFilter_Anounces	= "全局禁用及過濾通告選項"
 L.SpamBlockNoShowAnnounce	= "不顯示任何提示文字或播放警告音效"
 L.SpamBlockNoShowTgtAnnounce= "不顯示目標的提示文字或播放警告音效 (上列選項會覆蓋此選項)"
