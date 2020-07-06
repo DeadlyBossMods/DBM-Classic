@@ -4714,13 +4714,13 @@ do
 			if DBM.Options.WorldBuffAlert and #inCombat == 0 then
 				DBM:Debug("WBA sync processing")
 				local factionText = faction == "Alliance" and FACTION_ALLIANCE or faction == "Horde" and FACTION_HORDE or L.BOTH
-				local buffName = DBM:GetSpellInfo(tonumber(spellId) or 0) or L.UNKNOWN
-				DBM:AddMsg(L.WORLDBUFF_STARTED:format(buffName, factionText, sender))
+				local buffName, _, buffIcon = DBM:GetSpellInfo(tonumber(spellId) or 0)
+				DBM:AddMsg(L.WORLDBUFF_STARTED:format(buffName or L.UNKNOWN, factionText, sender))
 				DBM:PlaySound(DBM.Options.RaidWarningSound, true)
 				if DBM.Options.DebugMode or (time ~= 7 and time ~= 27) then
 					local timer = tonumber(time)
 					if timer then
-						DBM.Bars:CreateBar(timer, buffName, 136106)
+						DBM.Bars:CreateBar(timer, buffName or L.UNKNOWN, buffIcon or 136106)
 					end
 				end
 			end
@@ -4759,13 +4759,13 @@ do
 			if DBM.Options.WorldBuffAlert and #inCombat == 0 then
 				DBM:Debug("WBA sync processing")
 				local factionText = faction == "Alliance" and FACTION_ALLIANCE or faction == "Horde" and FACTION_HORDE or L.BOTH
-				local buffName = DBM:GetSpellInfo(tonumber(spellId) or 0) or L.UNKNOWN
-				DBM:AddMsg(L.WORLDBUFF_STARTED:format(buffName, factionText, sender))
+				local buffName, _, buffIcon = DBM:GetSpellInfo(tonumber(spellId) or 0)
+				DBM:AddMsg(L.WORLDBUFF_STARTED:format(buffName or L.UNKNOWN, factionText, sender))
 				DBM:PlaySound(DBM.Options.RaidWarningSound, true)
 				if DBM.Options.DebugMode or (time ~= 7 and time ~= 27) then
 					local timer = tonumber(time)
 					if timer then
-						DBM.Bars:CreateBar(timer, buffName, 136106)
+						DBM.Bars:CreateBar(timer, buffName or L.UNKNOWN, buffIcon or 136106)
 					end
 				end
 			end
