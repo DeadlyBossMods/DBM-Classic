@@ -17,14 +17,17 @@ local warningTrample			= mod:NewSpellAnnounce(5568, 2)
 local timerKnockoutCD			= mod:NewAITimer(180, 17307, nil, nil, nil, 5, nil, DBM_CORE_L.TANK_ICON)
 local timerTrampleCD			= mod:NewAITimer(180, 5568, nil, nil, nil, 2)
 
+mod:AddBoolOption("TimerGuards", true, "timer", nil, 1)
+
 function mod:OnCombatStart(delay)
 	timerKnockoutCD:Start(1-delay)
 	timerTrampleCD:Start(1-delay)
 end
 
 function mod:OnCombatEnd(wipe, isSecondRun)
-	if not wipe and not isSecondRun then
-		--do things
+	if not wipe and not isSecondRun and self.Options.TimerGuards then
+		-- Custom bar that's bound to core so timer doesn't stop when mod stops its own timers
+		DBM.Bars:CreateBar(92, self.localization.timers.TimerGuards, 136187, nil, nil, nil, nil, self.Options.TimerGuardsTColor, nil, nil, nil, self.Options.TimerGuardsCVoice)
 	end
 end
 

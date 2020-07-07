@@ -1242,6 +1242,12 @@ L = DBM:GetModLocalization(455)
 L:SetGeneralLocalization{
 	name 		= "Ramstein the Gorger"
 }
+L:SetTimerLocalization{
+	TimerGuards	= "Sentries Spawn"
+}
+L:SetOptionLocalization{
+	TimerGuards	= "Upon defeat of boss, show timer for the arrival of Black Guard Sentries"
+}
 
 -----------------------------
 --  Baron Rivendare  --
