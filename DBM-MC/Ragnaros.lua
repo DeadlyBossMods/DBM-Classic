@@ -33,7 +33,7 @@ local timerEmerge		= mod:NewTimer(90, "TimerEmerge", "Interface\\AddOns\\DBM-Cor
 --local timerCombatStart	= mod:NewCombatTimer(73)
 local timerCombatStart	= mod:NewTimer(73, "timerCombatStart", "132349", nil, nil, nil, nil, nil, 1, 3)
 
-mod:AddRangeFrameOption("10", nil, "-Melee")
+mod:AddRangeFrameOption("18", nil, "-Melee")
 
 mod.vb.addLeft = 0
 mod.vb.ragnarosEmerged = true
@@ -47,7 +47,7 @@ function mod:OnCombatStart(delay)
 	timerWrathRag:Start(26.7-delay)
 	timerSubmerge:Start(180-delay)
 	if self.Options.RangeFrame then
-		DBM.RangeCheck:Show(10)
+		DBM.RangeCheck:Show(18)
 	end
 end
 
