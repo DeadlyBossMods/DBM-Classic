@@ -5,6 +5,12 @@ local L = DBM_CORE_L
 L.DEADLY_BOSS_MODS					= "Deadly Boss Mods"
 L.DBM								= "DBM"
 
+local dateTable = date("*t")
+if dateTable.day and dateTable.month and dateTable.day == 1 and dateTable.month == 4 then
+	L.DEADLY_BOSS_MODS				= "Harmless Boss Mods"
+	L.DBM							= "HBM"
+end
+
 L.HOW_TO_USE_MOD					= "Welcome to " .. L.DBM .. ". Type /dbm help for a list of supported commands. To access options type /dbm in your chat to begin configuration. Load specific zones manually to configure any boss specific settings to your liking as well. DBM will setup defaults for your spec, but you may want to fine tune these."
 L.SILENT_REMINDER					= "Reminder: " .. L.DBM .. " is still in silent mode."
 
