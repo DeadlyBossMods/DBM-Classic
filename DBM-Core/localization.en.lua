@@ -677,5 +677,7 @@ L.WORLD_BUFFS = {
 	hordeNef						= "NEFARIAN IS SLAIN! People of Orgrimmar",
 	allianceNef						= "Citizens of the Alliance, the Lord of Blackrock is slain!",
 	zgHeart							= "Now, only one step remains to rid us of the Soulflayer's threat",
+	zgHeartBooty					= "The Blood God, the Soulflayer, has been defeated!  We are imperiled no longer!",
+	zgHeartYojamba					= "Begin the ritual, my servants.  We must banish the heart of Hakkar back into the void!",
 	rendHead						= "The false Warchief, Rend Blackhand, has fallen!"
 }
