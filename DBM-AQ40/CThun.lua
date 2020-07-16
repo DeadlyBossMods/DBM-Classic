@@ -56,7 +56,7 @@ function mod:OnCombatEnd(wipe)
 			local thisTime = GetServerTime() - firstBossMod.vb.firstEngageTime
 			if thisTime and thisTime > 0 then
 				--Not an eligable speed run, since all 3 optional bosses weren't defeated
-				if not firstBossMod.vb.OuroDefeated or not firstBossMod.vb.OuroDefeated or not firstBossMod.vb.OuroDefeated then
+				if not firstBossMod.vb.OuroDefeated or not firstBossMod.vb.ViscidusDefeated or not firstBossMod.vb.RoyaltyDefeated then
 					DBM:AddMsg(L.NotValid:format(DBM:strFromTime(thisTime)))
 				elseif not firstBossMod.Options.FastestClear then
 					--First clear, just show current clear time
