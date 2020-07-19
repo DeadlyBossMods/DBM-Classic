@@ -82,6 +82,12 @@ L = DBM:GetModLocalization("Majordomo")
 L:SetGeneralLocalization{
 	name = "Мажордом Экзекутус"
 }
+L:SetTimerLocalization{
+	timerShieldCD		= "Следующий Щит"
+}
+L:SetOptionLocalization{
+	timerShieldCD		= "Показывать таймер для следующего Щита (Damage/Reflect)"
+}
 
 ----------------
 --  Ragnaros  --
