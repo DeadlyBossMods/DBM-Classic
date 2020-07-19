@@ -9,7 +9,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization({
-	Pull		= "For the Legion! For Kil'Jaeden!"
+	Pull		= "За Легион! За Кил'джедена!"
 })
 
 -- Azuregos (Azshara)
@@ -20,7 +20,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization({
-	Pull		= "This place is under my protection. The mysteries of the arcane shall remain inviolate."
+	Pull		= "Это место под моей защитой. Тайные мистерии останутся неоскверненными."
 })
 
 -- Taerar (Ashenvale)
@@ -31,7 +31,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization({
-	Pull		= "Peace is but a fleeting dream! Let the NIGHTMARE reign!"
+	Pull		= "Мир – это всего лишь мимолетный сон. Пусть правит КОШМАР!"
 })
 
 -- Ysondre (Feralas)
@@ -42,7 +42,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization({
-	Pull		= "The strands of LIFE have been severed! The Dreamers must be avenged!"
+	Pull		= "Нити ЖИЗНИ разорваны! Отомстим за Спящих!"
 })
 
 -- Lethon (Hinterlands)
@@ -53,7 +53,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization({
---	Pull		= "The strands of LIFE have been severed! The Dreamers must be avenged!"--Does not have one :\
+	Pull		= "Я чувствую ТЕНЬ, нависшую над вашими сердцами. Нечестивцам не будет покоя!"
 })
 
 -- Emeriss (Duskwood)
@@ -64,5 +64,5 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization({
-	Pull		= "Hope is a DISEASE of the soul! This land shall wither and die!"
+	Pull		= "Надежда – это БОЛЕЗНЬ души! Эта земля зачахнет и умрет!"
 })
