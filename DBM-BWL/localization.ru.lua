@@ -155,7 +155,7 @@ L:SetWarningLocalization{
 	WarnClassCallSoon	= "Скоро вызов класса",
 	WarnClassCall		= "Дебафф на %s",
 	WarnPhaseSoon		= "Скоро фаза %s",
-	WarnPhase			= "Фаза %s"
+	WarnPhase			= "Фаза %s",
 	specwarnClassCall	= "Классовый зов на тебе!"
 }
 L:SetTimerLocalization{
@@ -166,7 +166,7 @@ L:SetOptionLocalization{
 	WarnClassCallSoon	= "Предупреждение классовых вызовов",
 	WarnClassCall		= "Объявлять классовый вызов",
 	WarnPhaseSoon		= "Объявлять, когда следующая фаза скоро начнется",
-	WarnPhase			= "Объявлять смену фаз"
+	WarnPhase			= "Объявлять смену фаз",
 	specwarnClassCall	= "Показывать специальное предупреждение, когда вы подвержены классовому зову"
 }
 L:SetMiscLocalization{
