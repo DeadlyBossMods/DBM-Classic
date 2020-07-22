@@ -91,3 +91,12 @@ L:SetOptionLocalization{
 	WarnVulnerable	= "提示虛弱",
 	TimerVulnerable	= "為虛弱顯示計時器"
 }
+
+----------------
+-- AQ20 Trash --
+----------------
+L = DBM:GetModLocalization("AQ20Trash")
+
+L:SetGeneralLocalization{
+	name = "AQ20 Trash"
+}

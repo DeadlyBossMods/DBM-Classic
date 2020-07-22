@@ -28,6 +28,7 @@ localization.ru.lua
 localization.kr.lua
 localization.tw.lua
 localization.cn.lua
+AQ20Trash.lua
 Kurinnaxx.lua
 Rajaxx.lua
 Moam.lua

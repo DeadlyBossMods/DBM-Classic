@@ -91,3 +91,12 @@ L:SetOptionLocalization{
 	WarnVulnerable	= "약화 알림 보기",
 	TimerVulnerable	= "약화 바 보기"
 }
+
+----------------
+-- AQ20 Trash --
+----------------
+L = DBM:GetModLocalization("AQ20Trash")
+
+L:SetGeneralLocalization{
+	name = "AQ20 Trash"
+}

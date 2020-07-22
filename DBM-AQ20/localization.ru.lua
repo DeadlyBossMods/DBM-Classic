@@ -97,3 +97,12 @@ L:SetOptionLocalization{
 	WarnVulnerable	= "Объявлять слабость",
 	TimerVulnerable	= "Показывать таймер до слабости"
 }
+
+----------------
+-- AQ20 Trash --
+----------------
+L = DBM:GetModLocalization("AQ20Trash")
+
+L:SetGeneralLocalization{
+	name = "AQ20 Trash"
+}
