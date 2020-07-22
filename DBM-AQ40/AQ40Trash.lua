@@ -28,9 +28,9 @@ mod.vb.ViscidusDefeated = false
 mod.vb.RoyaltyDefeated = false
 
 --Register all damage events on mod load
+local eventsRegistered = true
 mod:RegisterShortTermEvents(
 	"SPELL_DAMAGE",
-	"SPELL_MISSED",
 	"SWING_DAMAGE",
 	"SWING_MISSED",
 	"SPELL_PERIODIC_DAMAGE",
@@ -57,6 +57,7 @@ do
 			end
 			--Unregister high CPU combat log events
 			self:UnregisterShortTermEvents()
+			eventsRegistered = false
 		end
 	end
 
@@ -151,8 +152,8 @@ do-- Anubisath Reflect - keep in sync - AQ40/AQ40Trash.lua AQ20/AQ20Trash.lua
 				specWarnFireArcaneReflect:Show(destName)
 			end
 		end
-		if mod.SPELL_DAMAGE then-- for AQ40 timer
-			mod:SPELL_DAMAGE(nil, nil, nil, nil, destGUID)
+		if eventsRegistered then-- for AQ40 timer
+			self:SPELL_DAMAGE(nil, nil, nil, nil, destGUID)
 		end
 	end
 end
