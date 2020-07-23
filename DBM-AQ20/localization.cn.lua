@@ -98,5 +98,5 @@ L:SetOptionLocalization{
 L = DBM:GetModLocalization("AQ20Trash")
 
 L:SetGeneralLocalization{
-	name = "AQ20 Trash"
+	name = "AQ20：全程计时"
 }
