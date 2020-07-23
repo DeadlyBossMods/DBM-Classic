@@ -21,7 +21,7 @@ L:SetGeneralLocalization{
 L:SetMiscLocalization{
 	Yauj = "亞爾基公主",
 	Vem = "維姆",
-	Kri = "克里領主"
+	Kri = "克里勳爵"
 }
 
 -------------
@@ -64,7 +64,7 @@ L:SetMiscLocalization{
 	Frozen	= "變成冰凍的固體!",
 	Phase4 	= "開始爆裂!",
 	Phase5 	= "看來準備好毀滅了!",
-	Phase6 	= "Explodes."
+	Phase6 	= "爆炸。"
 }
 -------------
 -- Huhuran --
