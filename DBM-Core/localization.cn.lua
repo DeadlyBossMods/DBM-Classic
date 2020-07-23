@@ -610,7 +610,7 @@ L.DUR_FOOTER					= "未反馈此次检测的团员:%s"
 
 --LDB
 L.LDB_TOOLTIP_HELP1	            = "左键 打开" .. L.DBM
-L.LDB_TOOLTIP_HELP2	            = "Alt+右键 开启/关闭静音"
+L.LDB_TOOLTIP_HELP2	            = "Alt+右键点击 开启/关闭静音"
 L.SILENTMODE_IS					= "静音模式为："
 
 L.LDB_LOAD_MODS		            = "载入首领模块"
