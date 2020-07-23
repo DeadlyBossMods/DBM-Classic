@@ -11,6 +11,7 @@ mod.isTrashMod = true
 mod:RegisterEvents(
 	"ENCOUNTER_END",
 	"SPELL_AURA_APPLIED 22997",
+	"SPELL_AURA_REMOVED 22997",
 	"SPELL_MISSED"
 )
 
@@ -130,6 +131,14 @@ do-- Anubisath Plague - keep in sync - AQ40/AQ40Trash.lua AQ20/AQ20Trash.lua
 				end
 			else
 				warnPlague:Show(args.destName)
+			end
+		end
+	end
+
+	function mod:SPELL_AURA_REMOVED(args)
+		if args.spellName == Plague then
+			if args:IsPlayer() and self.Options.RangeFrame then
+				DBM.RangeCheck:Hide()
 			end
 		end
 	end

@@ -10,10 +10,13 @@ mod.isTrashMod = true
 
 mod:RegisterEvents(
 	"SPELL_AURA_APPLIED 22997",
+	"SPELL_AURA_REMOVED 22997",
 	"SPELL_MISSED"
 )
 
 mod:AddRangeFrameOption(10, 22997)
+
+local eventsRegistered = false
 
 do-- Anubisath Plague - keep in sync - AQ40/AQ40Trash.lua AQ20/AQ20Trash.lua
 	local warnPlague                    = mod:NewTargetAnnounce(22997, 2)--Not excempt from filter since it could be spammy
@@ -37,6 +40,14 @@ do-- Anubisath Plague - keep in sync - AQ40/AQ40Trash.lua AQ20/AQ20Trash.lua
 			end
 		end
 	end
+
+	function mod:SPELL_AURA_REMOVED(args)
+		if args.spellName == Plague then
+			if args:IsPlayer() and self.Options.RangeFrame then
+				DBM.RangeCheck:Hide()
+			end
+		end
+	end
 end
 
 do-- Anubisath Reflect - keep in sync - AQ40/AQ40Trash.lua AQ20/AQ20Trash.lua
@@ -56,8 +67,8 @@ do-- Anubisath Reflect - keep in sync - AQ40/AQ40Trash.lua AQ20/AQ20Trash.lua
 				specWarnFireArcaneReflect:Show(destName)
 			end
 		end
-		if mod.SPELL_DAMAGE then-- for AQ40 timer
-			mod:SPELL_DAMAGE(nil, nil, nil, nil, destGUID)
+		if eventsRegistered then-- for AQ40 timer
+			self:SPELL_DAMAGE(nil, nil, nil, nil, destGUID)
 		end
 	end
 end
