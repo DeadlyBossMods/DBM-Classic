@@ -19,7 +19,7 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization("ThreeBugs")
 
 L:SetGeneralLocalization{
-	name = "异种蝎皇族"
+	name = "安其拉三宝"
 }
 L:SetMiscLocalization{
 	Yauj = "亚尔基公主",
