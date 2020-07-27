@@ -112,7 +112,8 @@ L:SetOptionLocalization{
 }
 L:SetMiscLocalization{
 	Eye			= "克蘇恩之眼",
-	Weakened 	= "變弱了"
+	Weakened 	= "變弱了",
+	NotValid	= "AQ40 擊殺信息： %s 首領未擊殺。"
 }
 ----------------
 -- Ouro --
