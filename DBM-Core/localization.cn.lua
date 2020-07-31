@@ -35,9 +35,9 @@ L.NO_RANGE					    = "距离雷达在副本中无法使用，该功能会使用�
 L.NO_ARROW					    = "箭头在副本中无法使用"
 L.NO_HUD						= "HUDMap 在副本中无法使用"
 
-L.DYNAMIC_DIFFICULTY_CLUMP	    = "由于玩家数量不足，DBM 无法开启动态距离检测。"
-L.DYNAMIC_ADD_COUNT			    = "由于玩家数量不足，DBM 无法开启小怪计数。"
-L.DYNAMIC_MULTIPLE			    = "由于玩家数量不足，DBM 禁用了多个功能。"
+L.DYNAMIC_DIFFICULTY_CLUMP	    = "由于玩家数量不足，" .. L.DBM .. " 无法开启动态距离检测。"
+L.DYNAMIC_ADD_COUNT			    = "由于玩家数量不足，" .. L.DBM .. " 无法开启小怪计数。"
+L.DYNAMIC_MULTIPLE			    = "由于玩家数量不足，" .. L.DBM .. " 禁用了多个功能。"
 
 L.LOOT_SPEC_REMINDER			= "你当前的人物专精为 %s。你当前的拾取选择为 %s。"
 
@@ -182,6 +182,7 @@ L.DPMCORE						    = "警告: DBM-PVP已经已经很久没人维护了,并无法
 L.DBMLDB							= "警告: DBM-LDB 已经集成入" .. L.DEADLY_BOSS_MODS .. "核心。建议在插件目录删掉'DBM-LDB'。"
 L.UPDATE_REQUIRES_RELAUNCH		    = "警告: 如果你不完全重启游戏，" .. L.DEADLY_BOSS_MODS .. "可能会工作不正常。此次更新包含了新的文件，或者toc文件的改变，这是重载界面无法加载的。不重启游戏可能导致作战模块功能错误。"
 L.OUT_OF_DATE_NAG				    = "你的" .. L.DEADLY_BOSS_MODS .. "已经过期并且你决定不弹出升级提示窗口。这可能导致你或其他团队成员出错。千万不要成为害群之马！"
+L.CLASSIC_ONLY						= "警告: 你所用的 " .. L.DBM .. " 是正式服的版本，请删除这个，去下载怀旧服使用的 " .. L.DBM .. " 版本。"
 
 L.MOVABLE_BAR				        = "拖动我！"
 
