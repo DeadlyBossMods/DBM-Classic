@@ -14,7 +14,7 @@ L.DEADLY_BOSS_MODS				= "Deadly Boss Mods"
 L.DBM							= "DBM"
 
 L.HOW_TO_USE_MOD				= "欢迎使用" .. L.DBM .. "。在聊天框输入 /dbm help 以获取可用命令的帮助。输入 /dbm 可打开设置窗口，并对各个Boss模块进行设置，也可以浏览首领击杀记录。" .. L.DBM .. " 会自动按你的专精做出相应配置，但是你可以进行微调。"
-L.SILENT_REMINDER				= "提示：" .. L.DBM .. "正处于安静模式。"
+L.SILENT_REMINDER				= "提示：" .. L.DBM .. "正处于静音模式。"
 
 L.LOAD_MOD_ERROR			    = "读取%s模块时发生错误：%s"
 L.LOAD_MOD_SUCCESS			    = "'%s' 模块已加载。在聊天框输入 /dbm 可设置自定义语音或注记等选项。"
@@ -43,7 +43,7 @@ L.LOOT_SPEC_REMINDER			= "你当前的人物专精为 %s。你当前的拾取选
 
 L.BIGWIGS_ICON_CONFLICT		    = L.DBM .. "检测到你同时开启了Bigwigs,请关闭自动标记以避免冲突。"
 
-L.MOD_AVAILABLE				    = L.DBM .. "已经为%s制作了相关模块。你可以在 deadlybossmods.com 或Curse上找到新版本。"
+L.MOD_AVAILABLE				    = L.DBM .. "已经为%s制作了相关模块。你可以在Curse/Twitch和WoWI 上找到下载。"
 
 L.COMBAT_STARTED				= "%s作战开始，祝你走运 :)"
 L.COMBAT_STARTED_IN_PROGRESS	= "已进行的战斗-%s正在作战。祝你走运 :)"
