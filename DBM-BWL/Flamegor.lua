@@ -49,9 +49,9 @@ do
 	local Frenzy = DBM:GetSpellInfo(23342)
 	function mod:SPELL_CAST_SUCCESS(args)
 		--if args.spellId == 23342 then
-		if args.spellName == Frenzy and args:IsSrcTypeHostile() then
+		if args.spellName == Frenzy and args:IsDestTypeHostile() then
 			if self.Options.SpecWarn23342dispel then
-				specWarnFrenzy:Show()
+				specWarnFrenzy:Show(args.destName)
 				specWarnFrenzy:Play("enrage")
 			else
 				warnFrenzy:Show()
