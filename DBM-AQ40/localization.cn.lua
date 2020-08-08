@@ -1,5 +1,6 @@
-﻿-- Mini Dragon(projecteurs AT gmail.com) Brilla@金色平原
--- Last update: 2019/08/22
+-- Mini Dragon(projecteurs AT gmail.com) Brilla@金色平原
+-- 枫聖@光芒
+-- Last update: 2020/08/08
 
 if GetLocale() ~= "zhCN" then return end
 local L
@@ -132,12 +133,12 @@ L:SetWarningLocalization{
 	WarnEmerge			= "现身"
 }
 L:SetTimerLocalization{
-	TimerSubmerge		= "钻地",
+	TimerSubmerge		= "强制钻地",
 	TimerEmerge			= "现身"
 }
 L:SetOptionLocalization{
 	WarnSubmerge		= "为钻地显示警告",
-	TimerSubmerge		= "为钻地显示计时器",
+	TimerSubmerge		= "为钻地显示计时器，确定何时将强制执行合并。 注意：如果近战离开目标范围，他仍然可以随时钻地。",
 	WarnEmerge			= "为现身显示警告",
 	TimerEmerge			= "为现身显示计时器"
 }
