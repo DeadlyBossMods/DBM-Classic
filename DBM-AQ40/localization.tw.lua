@@ -128,12 +128,12 @@ L:SetWarningLocalization{
 	WarnEmerge			= "現身"
 }
 L:SetTimerLocalization{
-	TimerSubmerge		= "鑽地",
+	TimerSubmerge		= "強制鑽地",
 	TimerEmerge			= "現身"
 }
 L:SetOptionLocalization{
 	WarnSubmerge		= "為鑽地顯示警告",
-	TimerSubmerge		= "為鑽地顯示計時器",
+	TimerSubmerge		= "為鑽地顯示計時器，確定何時將強制執行合併。 注意：如果近戰離開目標範圍，他仍然可以隨時鑽地。",
 	WarnEmerge			= "為現身顯示警告",
 	TimerEmerge			= "為現身顯示計時器"
 }
