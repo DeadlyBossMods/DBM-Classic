@@ -67,7 +67,7 @@ end
 
 function ResourceTracker:Update(value)
 	self.value = value
-	self.percentage = math.floor(value/self.max)
+	self.percentage = math.abs(math.floor(value/self.max))
 end
 
 function ResourceTracker:GetValue()
@@ -79,8 +79,7 @@ function ResourceTracker:GetPercentage()
  end
 
 function ResourceTracker:CalculatePercentageChange(value)
-	-- Not returning absolute value in case heal / damage difference is needed
-   return self.percentage - math.floor(value/self.max)
+   return self.percentage - math.abs(math.floor(value/self.max))
 end
 
 mod.vb.phase = 1
@@ -181,7 +180,6 @@ function mod:UNIT_DIED(args)
 	local cid = self:GetCIDFromGUID(args.destGUID)
 	if cid == 15589 then -- Eye of C'Thun
 		self.vb.phase = 2
-		mod.vb.fleshTentacles.visible = true
 		warnPhase2:Show()
 		timerDarkGlareCD:Stop()
 		timerEyeTentacle:Stop()
@@ -204,6 +202,11 @@ function mod:OnSync(msg)
 		specWarnWeakened:Show()
 		specWarnWeakened:Play("targetchange")
 		timerWeakened:Start()
+
+		if self.Options.InfoFrame then
+			DBM.InfoFrame:Hide()
+		end
+
 	elseif (target == COMMS.TENTACLES) then
 		if (event == COMMS.CREATE) then
 			-- Create: spawnUid unitName health maxHealth
