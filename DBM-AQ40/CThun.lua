@@ -165,7 +165,8 @@ do
 	function mod:SPELL_CAST_START(args)
 		local spellName = args.spellName
 		if spellName == EyeBeam and args:IsSrcTypeHostile() and DBM.Options.DebugMode then
-			self:BossTargetScanner(args.sourceGUID, "EyeBeamTarget", 0.1, 8)
+			-- the eye target can change to the correct target a tiny bit after the cast starts
+			self:ScheduleMethod(0.1, "BossTargetScanner", args.sourceGUID, "EyeBeamTarget", 0.1, 3)
 		end
 	end
 end
