@@ -251,8 +251,6 @@ function mod:UNIT_HEALTH(uid)
 			local unitName = GetUnitName(uid)
 			local health = UnitHealth(uid)
 			local maxHealth = UnitHealthMax(uid)
-			self.vb.fleshTentacles.trackers[spawnUid] = ResourceTracker.new(unitName, maxHealth)
-			self.vb.fleshTentacles.trackers[spawnUid]:Update(health)
 			-- Create: spawnUid unitName health maxHealth
 			self:SendSync(COMMS.TENTACLES, COMMS.CREATE, spawnUid, unitName, health, maxHealth)
 		end
@@ -269,7 +267,6 @@ function mod:UNIT_HEALTH(uid)
 
 		local health = UnitHealth(uid)
 		if current:CalculatePercentageChange(health) >= step then
-			current:Update(health)
 			-- Update: spawnUid health
 			self:SendSync(COMMS.TENTACLES, COMMS.UPDATE, spawnUid, tostring(current:GetValue()))
 		end
