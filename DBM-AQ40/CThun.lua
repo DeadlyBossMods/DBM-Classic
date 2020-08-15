@@ -203,6 +203,7 @@ function mod:OnSync(msg)
 		specWarnWeakened:Play("targetchange")
 		timerWeakened:Start()
 
+		mod.vb.fleshTentacles.trackers = {}
 		if self.Options.InfoFrame then
 			DBM.InfoFrame:Hide()
 		end
