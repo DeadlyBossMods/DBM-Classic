@@ -243,7 +243,7 @@ function mod:UNIT_HEALTH(uid)
 
 	if self:GetUnitCreatureId(uid) == 15802 then -- 15802 Flesh Tentacle
 		local spawnUid = self:GetSpawnIdFromGUID(UnitGUID(uid))
-		
+
 		if not self.vb.fleshTentacles.trackers[spawnUid] and UnitHealth(uid) > 0 then
 			local unitName = GetUnitName(uid)
 			local health = UnitHealth(uid)
@@ -253,9 +253,9 @@ function mod:UNIT_HEALTH(uid)
 			-- Create: spawnUid unitName health maxHealth
 			self:SendSync(COMMS.TENTACLES..COMMS.DELIMITER..COMMS.CREATE..COMMS.DELIMITER..spawnUid..COMMS.DELIMITER..unitName..COMMS.DELIMITER..health..COMMS.DELIMITER..maxHealth)
 		end
-			
+
 		local current = self.vb.fleshTentacles.trackers[spawnUid]
-		local step = 100
+		local step
 		if current:GetPercentage() > 33 then
 			step = 5
 		elseif current:GetPercentage() > 10 then
