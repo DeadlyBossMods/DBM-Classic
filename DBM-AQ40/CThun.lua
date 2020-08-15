@@ -43,7 +43,7 @@ local firstBossMod = DBM:GetModByName("AQ40Trash")
 local COMMS = {	CTHUN = "C", TENTACLES = "T", CREATE = "C", UPDATE = "U", REMOVE = "R" }
 
 local ResourceTracker = {}
-ResourceTracker.__index = ResourceTracker -- failed table lookups on the instances should fallback to the class table, to get methods
+ResourceTracker.__index = ResourceTracker
 
 function ResourceTracker.new(name, max)
 	local self = setmetatable({}, ResourceTracker)
@@ -61,10 +61,6 @@ end
 function ResourceTracker:Update(value)
 	self.value = tonumber(value) or 0
 	self.percentage = math.abs(math.floor(value/self.max))
-end
-
-function ResourceTracker:GetValue()
-   return self.value
 end
 
 function ResourceTracker:GetPercentage()
@@ -91,7 +87,7 @@ do
 		table.wipe(lines)
 		table.wipe(sortedLines)
 		for _,v in pairs(mod.vb.fleshTentacles) do
-			local line = v:GetName()..": "..tostring(v:GetPercentage()).."%"
+			local line = v:GetName()..": "..tostring(v:GetPercentage()).."%%"
 			addLine(line, "")
 		end
 		return lines, sortedLines
