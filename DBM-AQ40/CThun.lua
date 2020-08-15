@@ -40,13 +40,7 @@ mod:AddRangeFrameOption("10")
 mod:AddSetIconOption("SetIconOnEyeBeam", 26134, true, false, {1})
 local firstBossMod = DBM:GetModByName("AQ40Trash")
 
-local COMMS = {
-	CTHUN = "C",
-	TENTACLES = "T",
-	CREATE = "C",
-	UPDATE = "U",
-	REMOVE = "R"
-}
+local COMMS = {	CTHUN = "C", TENTACLES = "T", CREATE = "C", UPDATE = "U", REMOVE = "R" }
 
 local ResourceTracker = {}
 ResourceTracker.__index = ResourceTracker -- failed table lookups on the instances should fallback to the class table, to get methods
@@ -101,6 +95,49 @@ do
 			addLine(line, "")
 		end
 		return lines, sortedLines
+	end
+end
+
+local function handleFleshTentacleSync(event, param1, param2, param3, param4)
+	local spawnUid = tonumber(param1)
+	if not spawnUid then return end
+	if (event == COMMS.CREATE) then
+		-- Create: param1:spawnUid param2:unitName param3:health param4:maxHealth
+		local unitName = param2
+		local health = tonumber(param3)
+		local maxHealth = tonumber(param4)
+
+		if not (unitName and health and maxHealth) then return end
+		if health == 0 or maxHealth == 0 then return end
+		if health > maxHealth then return end
+
+		if not mod.vb.fleshTentacles.trackers[spawnUid] then
+			mod.vb.fleshTentacles.trackers[spawnUid] = ResourceTracker.new(unitName, maxHealth)
+			mod.vb.fleshTentacles.trackers[spawnUid]:Update(health)
+		end
+	elseif (event == COMMS.UPDATE) then
+		-- Update: param1:spawnUid  param2:health
+		local health = tonumber(param2)
+		if not health then return end
+		if mod.vb.fleshTentacles.trackers[spawnUid] then
+			mod.vb.fleshTentacles.trackers[spawnUid]:Update(health)
+		end
+	elseif (event == COMMS.REMOVE) then
+		-- Remove: param1:spawnUid
+		if mod.vb.fleshTentacles.trackers[spawnUid] then
+			mod.vb.fleshTentacles.trackers[spawnUid] = nil
+		end
+	else
+		return
+	end
+
+	if mod.Options.InfoFrame then
+		if not DBM.InfoFrame:IsShown() then
+			DBM.InfoFrame:SetHeader(L.Stomach)
+			DBM.InfoFrame:Show(2, "function", updateInfoFrame, false, false, true)
+		else
+			DBM.InfoFrame:Update()
+		end
 	end
 end
 
@@ -208,35 +245,7 @@ function mod:OnSync(target, event, param1, param2, param3, param4)
 		end
 
 	elseif (target == COMMS.TENTACLES) then
-		if (event == COMMS.CREATE) then
-			-- Create: spawnUid unitName health maxHealth
-			if not self.vb.fleshTentacles.trackers[param1] then
-				self.vb.fleshTentacles.trackers[param1] = ResourceTracker.new(param2, param4)
-				self.vb.fleshTentacles.trackers[param1]:Update(param3)
-			end
-		elseif (event == COMMS.UPDATE) then
-			-- Update: spawnUid health
-			if self.vb.fleshTentacles.trackers[param1] then
-				self.vb.fleshTentacles.trackers[param1]:Update(param2)
-			end
-		elseif (event == COMMS.REMOVE) then
-			-- Remove: spawnUid
-			if self.vb.fleshTentacles.trackers[param1] then
-				self.vb.fleshTentacles.trackers[param1] = nil
-			end
-		else
-			return
-		end
-
-		if self.Options.InfoFrame then
-			if not DBM.InfoFrame:IsShown() then
-				DBM.InfoFrame:SetHeader(L.Stomach)
-				DBM.InfoFrame:Show(2, "function", updateInfoFrame, false, false, true)
-			else
-				DBM.InfoFrame:Update()
-			end
-		end
-
+		handleFleshTentacleSync(event, param1, param2, param3, param4)
 	end
 end
 
@@ -247,28 +256,28 @@ function mod:UNIT_HEALTH(uid)
 	if self:GetUnitCreatureId(uid) == 15802 then -- 15802 Flesh Tentacle
 		local spawnUid = self:GetSpawnIdFromGUID(UnitGUID(uid))
 
-		if not self.vb.fleshTentacles.trackers[spawnUid] and UnitHealth(uid) > 0 then
+		if not self.vb.fleshTentacles.trackers[spawnUid] then
 			local unitName = GetUnitName(uid)
 			local health = UnitHealth(uid)
 			local maxHealth = UnitHealthMax(uid)
 			-- Create: spawnUid unitName health maxHealth
 			self:SendSync(COMMS.TENTACLES, COMMS.CREATE, spawnUid, unitName, health, maxHealth)
-		end
-
-		local current = self.vb.fleshTentacles.trackers[spawnUid]
-		local step
-		if current:GetPercentage() > 33 then
-			step = 5
-		elseif current:GetPercentage() > 10 then
-			step = 3
 		else
-			step = 1
-		end
+			local current = self.vb.fleshTentacles.trackers[spawnUid]
+			local step
+			if current:GetPercentage() > 33 then
+				step = 5
+			elseif current:GetPercentage() > 10 then
+				step = 3
+			else
+				step = 1
+			end
 
-		local health = UnitHealth(uid)
-		if current:CalculatePercentageChange(health) >= step then
-			-- Update: spawnUid health
-			self:SendSync(COMMS.TENTACLES, COMMS.UPDATE, spawnUid, tostring(current:GetValue()))
+			local health = UnitHealth(uid)
+			if current:CalculatePercentageChange(health) >= step then
+				-- Update: spawnUid health
+				self:SendSync(COMMS.TENTACLES, COMMS.UPDATE, spawnUid, tostring(health))
+			end
 		end
 	end
 end
