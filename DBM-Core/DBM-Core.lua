@@ -3182,6 +3182,14 @@ function DBM:GetCIDFromGUID(guid)
 	return 0
 end
 
+function DBM:GetSpawnIdFromGUID(guid)
+	local type, _, playerdbID, _, _, cid, creationbits = strsplit("-", guid or "")
+	if type and (type == "Creature" or type == "Vehicle" or type == "Pet") then
+		return tostring(creationbits)
+	end
+	return ""
+end
+
 function DBM:IsCreatureGUID(guid)
 	local type = strsplit("-", guid or "")
 	if type and (type == "Creature" or type == "Vehicle") then--To determine, add pet or not?

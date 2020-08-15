@@ -113,6 +113,7 @@ L:SetOptionLocalization{
 	RangeFrame				= "Mostrar marco de distancia (10 m)"
 }
 L:SetMiscLocalization{
+	Stomach		= "Estómago de C'Thun",
 	Eye			= "Ojo de C'Thun",
 	Weakened 	= "está débil!",
 	NotValid	= "AQ40 parcialmente limpiado. Quedan %s jefes opcionales."

@@ -110,6 +110,7 @@ L:SetOptionLocalization{
 	RangeFrame				= "거리 창 보기(10m)"
 }
 L:SetMiscLocalization{
+	Stomach		= "크툰의 위",
 	Eye			= "쑨의 눈",
 	Weakened 	= "약해집니다!",
 	NotValid	= "안퀴40 레이드를 일부만 클리어 했습니다. 부차적인 네임드가 %s마리 남아있습니다."

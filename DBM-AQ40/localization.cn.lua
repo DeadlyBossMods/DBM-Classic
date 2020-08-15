@@ -116,6 +116,7 @@ L:SetOptionLocalization{
 	RangeFrame				= "显示距离框架(10码)"
 }
 L:SetMiscLocalization{
+	Stomach		= "克图恩的肚子",
 	Eye			= "克苏恩之眼",
 	Weakened 	= "削弱了",
     NotValid	= "AQ40 击杀信息： %s 首领未击杀。"

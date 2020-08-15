@@ -111,6 +111,7 @@ L:SetOptionLocalization{
 	RangeFrame				= "Afficher le cadre de portée (10 m)"
 }
 L:SetMiscLocalization{
+	Stomach		= "Ctomach de C'Thun",
 	Eye			= "Œil de C'Thun",
 	Weakened 	= "affaibli",
 	NotValid	= "AQ40 partiellement effacé. %s bosses optionnels restent."

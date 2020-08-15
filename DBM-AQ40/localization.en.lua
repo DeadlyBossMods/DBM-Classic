@@ -110,6 +110,7 @@ L:SetOptionLocalization{
 	RangeFrame				= "Show range frame (10)"
 }
 L:SetMiscLocalization{
+	Stomach		= "Stomach of C'Thun",
 	Eye			= "Eye of C'Thun",
 	Weakened 	= "weaken",
 	NotValid	= "AQ40 partially cleared. %s optional bosses remain."

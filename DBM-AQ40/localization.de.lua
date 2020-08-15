@@ -111,8 +111,10 @@ L:SetOptionLocalization{
 	RangeFrame				= "Zeige Abstandsfenster (10m)"
 }
 L:SetMiscLocalization{
+	Stomach		= "Magen of C'Thun",
 	Eye			= "Auge von C'Thun",--needs to be verified (guessed)
-	Weakened 	= "C'Thun ist geschwächt!"
+	Weakened 	= "C'Thun ist geschwächt!",
+	NotValid	= "AQ40 teilweise gelöscht. % s optionale Bosse bleiben erhalten."
 }
 ----------------
 -- Ouro --
