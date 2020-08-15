@@ -47,10 +47,10 @@ ResourceTracker.__index = ResourceTracker -- failed table lookups on the instanc
 
 function ResourceTracker.new(name, max)
 	local self = setmetatable({}, ResourceTracker)
-	self.name = name
-	self.value = max
+	self.name = tostring(name) or ""
+	self.value = tonumber(max) or 0
 	self.percentage = 100
-	self.max = max
+	self.max = self.value
 	return self
 end
 
@@ -59,7 +59,7 @@ function ResourceTracker:GetName()
 end
 
 function ResourceTracker:Update(value)
-	self.value = value
+	self.value = tonumber(value) or 0
 	self.percentage = math.abs(math.floor(value/self.max))
 end
 
@@ -72,11 +72,11 @@ function ResourceTracker:GetPercentage()
  end
 
 function ResourceTracker:CalculatePercentageChange(value)
-   return self.percentage - math.abs(math.floor(value/self.max))
+   return self.percentage - math.abs(math.floor((tonumber(value) or 0)/self.max))
 end
 
 mod.vb.phase = 1
-mod.vb.fleshTentacles = { trackers = {} }
+mod.vb.fleshTentacles = {}
 
 local updateInfoFrame
 do
@@ -90,7 +90,7 @@ do
 	updateInfoFrame = function()
 		table.wipe(lines)
 		table.wipe(sortedLines)
-		for _,v in pairs(mod.vb.fleshTentacles.trackers) do
+		for _,v in pairs(mod.vb.fleshTentacles) do
 			local line = v:GetName()..": "..tostring(v:GetPercentage()).."%"
 			addLine(line, "")
 		end
@@ -111,21 +111,21 @@ local function handleFleshTentacleSync(event, param1, param2, param3, param4)
 		if health == 0 or maxHealth == 0 then return end
 		if health > maxHealth then return end
 
-		if not mod.vb.fleshTentacles.trackers[spawnUid] then
-			mod.vb.fleshTentacles.trackers[spawnUid] = ResourceTracker.new(unitName, maxHealth)
-			mod.vb.fleshTentacles.trackers[spawnUid]:Update(health)
+		if not mod.vb.fleshTentacles[spawnUid] then
+			mod.vb.fleshTentacles[spawnUid] = ResourceTracker.new(unitName, maxHealth)
 		end
+		mod.vb.fleshTentacles[spawnUid]:Update(health)
 	elseif (event == COMMS.UPDATE) then
 		-- Update: param1:spawnUid  param2:health
 		local health = tonumber(param2)
 		if not health then return end
-		if mod.vb.fleshTentacles.trackers[spawnUid] then
-			mod.vb.fleshTentacles.trackers[spawnUid]:Update(health)
+		if mod.vb.fleshTentacles[spawnUid] then
+			mod.vb.fleshTentacles[spawnUid]:Update(health)
 		end
 	elseif (event == COMMS.REMOVE) then
 		-- Remove: param1:spawnUid
-		if mod.vb.fleshTentacles.trackers[spawnUid] then
-			mod.vb.fleshTentacles.trackers[spawnUid] = nil
+		if mod.vb.fleshTentacles[spawnUid] then
+			mod.vb.fleshTentacles[spawnUid] = nil
 		end
 	else
 		return
@@ -224,10 +224,8 @@ function mod:UNIT_DIED(args)
 		self:UnscheduleMethod("DarkGlare")
 	elseif cid == 15802 then -- Flesh Tentacle
 		local spawnUid = DBM:GetSpawnIdFromGUID(args.destGUID)
-		if self.fleshTentacles.trackers[spawnUid] then
-			self.fleshTentacles.trackers[spawnUid] = nil;
-			-- Remove: spawnUid
-			self:SendSync(COMMS.TENTACLES, COMMS.REMOVE, self:GetSpawnIdFromGUID(args.destGUID))
+		if self.fleshTentacles[spawnUid] then
+			self:SendSync(COMMS.TENTACLES, COMMS.REMOVE, spawnUid)
 		end
 	end
 end
@@ -239,7 +237,7 @@ function mod:OnSync(target, event, param1, param2, param3, param4)
 		specWarnWeakened:Play("targetchange")
 		timerWeakened:Start()
 
-		mod.vb.fleshTentacles.trackers = {}
+		mod.vb.fleshTentacles = {}
 		if self.Options.InfoFrame then
 			DBM.InfoFrame:Hide()
 		end
@@ -255,15 +253,11 @@ function mod:UNIT_HEALTH(uid)
 
 	if self:GetUnitCreatureId(uid) == 15802 then -- 15802 Flesh Tentacle
 		local spawnUid = self:GetSpawnIdFromGUID(UnitGUID(uid))
-
-		if not self.vb.fleshTentacles.trackers[spawnUid] then
-			local unitName = GetUnitName(uid)
-			local health = UnitHealth(uid)
-			local maxHealth = UnitHealthMax(uid)
-			-- Create: spawnUid unitName health maxHealth
-			self:SendSync(COMMS.TENTACLES, COMMS.CREATE, spawnUid, unitName, health, maxHealth)
+		if not spawnUid or spawnUid == "" then return end
+		if not self.vb.fleshTentacles[spawnUid] then
+			self:SendSync(COMMS.TENTACLES, COMMS.CREATE, spawnUid, GetUnitName(uid), UnitHealth(uid), UnitHealthMax(uid))
 		else
-			local current = self.vb.fleshTentacles.trackers[spawnUid]
+			local current = self.vb.fleshTentacles[spawnUid]
 			local step
 			if current:GetPercentage() > 33 then
 				step = 5
@@ -275,7 +269,6 @@ function mod:UNIT_HEALTH(uid)
 
 			local health = UnitHealth(uid)
 			if current:CalculatePercentageChange(health) >= step then
-				-- Update: spawnUid health
 				self:SendSync(COMMS.TENTACLES, COMMS.UPDATE, spawnUid, tostring(health))
 			end
 		end
