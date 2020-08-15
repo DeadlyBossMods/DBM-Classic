@@ -45,8 +45,7 @@ local COMMS = {
 	TENTACLES = "T",
 	CREATE = "C",
 	UPDATE = "U",
-	REMOVE = "R",
-	DELIMITER = "|"
+	REMOVE = "R"
 }
 
 local ResourceTracker = {}
@@ -173,7 +172,7 @@ end
 
 function mod:CHAT_MSG_MONSTER_EMOTE(msg)
 	if msg == L.Weakened or msg:find(L.Weakened) then
-		self:SendSync(COMMS.CTHUN..COMMS.DELIMITER..COMMS.UPDATE)
+		self:SendSync(COMMS.CTHUN, COMMS.UPDATE)
 	end
 end
 
@@ -191,14 +190,13 @@ function mod:UNIT_DIED(args)
 		if self.fleshTentacles.trackers[spawnUid] then
 			self.fleshTentacles.trackers[spawnUid] = nil;
 			-- Remove: spawnUid
-			self:SendSync(COMMS.TENTACLES..COMMS.DELIMITER..COMMS.REMOVE..COMMS.DELIMITER..self:GetSpawnIdFromGUID(args.destGUID))
+			self:SendSync(COMMS.TENTACLES, COMMS.REMOVE, self:GetSpawnIdFromGUID(args.destGUID))
 		end
 	end
 end
 
-function mod:OnSync(msg)
+function mod:OnSync(target, event, param1, param2, param3, param4)
 	if not self:IsInCombat() then return end
-	local target, event, param1, param2, param3, param4 = strsplit(COMMS.DELIMITER, msg)
 	if target == COMMS.CTHUN and event == COMMS.UPDATE then
 		specWarnWeakened:Show()
 		specWarnWeakened:Play("targetchange")
@@ -256,7 +254,7 @@ function mod:UNIT_HEALTH(uid)
 			self.vb.fleshTentacles.trackers[spawnUid] = ResourceTracker.new(unitName, maxHealth)
 			self.vb.fleshTentacles.trackers[spawnUid]:Update(health)
 			-- Create: spawnUid unitName health maxHealth
-			self:SendSync(COMMS.TENTACLES..COMMS.DELIMITER..COMMS.CREATE..COMMS.DELIMITER..spawnUid..COMMS.DELIMITER..unitName..COMMS.DELIMITER..health..COMMS.DELIMITER..maxHealth)
+			self:SendSync(COMMS.TENTACLES, COMMS.CREATE, spawnUid, unitName, health, maxHealth)
 		end
 
 		local current = self.vb.fleshTentacles.trackers[spawnUid]
@@ -273,7 +271,7 @@ function mod:UNIT_HEALTH(uid)
 		if current:CalculatePercentageChange(health) >= step then
 			current:Update(health)
 			-- Update: spawnUid health
-			self:SendSync(COMMS.TENTACLES..COMMS.DELIMITER..COMMS.UPDATE..COMMS.DELIMITER..spawnUid..COMMS.DELIMITER..tostring(current:GetValue()))
+			self:SendSync(COMMS.TENTACLES, COMMS.UPDATE, spawnUid, tostring(current:GetValue()))
 		end
 	end
 end
