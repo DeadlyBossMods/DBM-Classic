@@ -105,7 +105,7 @@ L:SetWarningLocalization{
 }
 L:SetTimerLocalization{
 	TimerEyeTentacle		= "下一次眼球触须",
-	TimerWeakened			= "虛弱結束"
+	TimerWeakened			= "虚弱结束"
 }
 L:SetOptionLocalization{
 	WarnEyeTentacle			= "为眼球触须显示警告",
