@@ -8029,7 +8029,7 @@ do
 			["CasterDps"] = true,
 			["RemoveCurse"] = true,
 		},
-		["DRUID2"] = {	--Feral Druid
+		["DRUID2"] = { --Feral Druid
 			["Dps"] = true,
 			["Tank"] = true,
 			["Melee"] = true,
@@ -8037,7 +8037,7 @@ do
 			["Physical"] = true,
 			["RemoveCurse"] = true,
 		},
-		["DRUID3"] = {	-- Restoration Druid
+		["DRUID3"] = { -- Restoration Druid
 			["Healer"] = true,
 			["Ranged"] = true,
 			["ManaUser"] = true,
@@ -8090,7 +8090,7 @@ do
 			["RemoveMagic"] = true,
 			["HasInterrupt"] = IsSpellKnown(15487) and true or false,--Silence is a talent tree talent
 		},
-		["ROGUE1"] = {	--Assassination Rogue
+		["ROGUE1"] = { --Assassination Rogue
 			["Dps"] = true,
 			["Melee"] = true,
 			["MeleeDps"] = true,
@@ -8120,7 +8120,7 @@ do
 			["ManaUser"] = true,
 			["SpellCaster"] = true,
 		},
-		["WARLOCK1"] = {	--Affliction Warlock
+		["WARLOCK1"] = { --Affliction Warlock
 			["Dps"] = true,
 			["Ranged"] = true,
 			["RangedDps"] = true,
