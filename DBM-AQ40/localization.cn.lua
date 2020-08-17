@@ -1,6 +1,6 @@
 -- Mini Dragon(projecteurs AT gmail.com) Brilla@金色平原
--- 枫聖@光芒
--- Last update: 2020/08/08
+-- 枫聖@光芒 and Aoikaze@无畏
+-- Last update: 2020/08/17
 
 if GetLocale() ~= "zhCN" then return end
 local L
@@ -101,17 +101,29 @@ L:SetGeneralLocalization{
 }
 L:SetWarningLocalization{
 	WarnEyeTentacle			= "眼球触须",
+	WarnClawTentacle		= "利爪触须",
+	WarnGiantEyeTentacle	= "巨眼触须",
+	WarnGiantClawTentacle	= "巨钩触须",
 	SpecWarnWeakened		= "克苏恩的力量被削弱了！"
 }
 L:SetTimerLocalization{
 	TimerEyeTentacle		= "下一次眼球触须",
+	TimerClawTentacle		= "下一次利爪触须",
+	TimerGiantEyeTentacle	= "下一次巨眼触须",
+	TimerGiantClawTentacle	= "下一次巨钩触须",
 	TimerWeakened			= "虚弱结束"
 }
 L:SetOptionLocalization{
 	WarnEyeTentacle			= "为眼球触须显示警告",
+	WarnClawTentacle		= "为利爪触须显示警告",
+	WarnGiantEyeTentacle	= "为巨眼触须显示警告",
+	WarnGiantClawTentacle	= "为巨钩触须显示警告",
 	WarnWeakened			= "当首领虚弱時显示警告",
 	SpecWarnWeakened		= "当首领虚弱時显示特別警告",
 	TimerEyeTentacle		= "为下一次眼球触须显示计时器",
+	TimerClawTentacle		= "为下一次利爪触须显示计时器",
+	TimerGiantEyeTentacle	= "为下一次巨眼触须显示计时器",
+	TimerGiantClawTentacle	= "为下一次巨钩触须显示计时器",
 	TimerWeakened			= "为首领虚弱時间显示计时器",
 	RangeFrame				= "显示距离框架(10码)"
 }
