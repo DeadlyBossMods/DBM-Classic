@@ -96,16 +96,28 @@ L:SetGeneralLocalization{
 }
 L:SetWarningLocalization{
 	WarnEyeTentacle			= "Eye Tentacle",
+	WarnClawTentacle		= "Claw Tentacle",
+	WarnGiantEyeTentacle	= "Giant Eye Tentacle",
+	WarnGiantClawTentacle	= "Giant Claw Tentacle",
 	SpecWarnWeakened		= "C'Thun Weaken!"
 }
 L:SetTimerLocalization{
 	TimerEyeTentacle		= "Next Eye Tentacle",
+	TimerClawTentacle		= "Next Claw Tentacle",
+	TimerGiantEyeTentacle	= "Next Giant Eye Tentacle",
+	TimerGiantClawTentacle	= "Next Giant Claw Tentacle",
 	TimerWeakened			= "Weaken ends"
 }
 L:SetOptionLocalization{
 	WarnEyeTentacle			= "Show warning for Eye Tentacle",
+	WarnClawTentacle		= "Show warning for Claw Tentacle",
+	WarnGiantEyeTentacle	= "Show warning for Giant Eye Tentacle",
+	WarnGiantClawTentacle	= "Show warning for Giant Claw Tentacle",
 	SpecWarnWeakened		= "Show special warning when boss weaken",
 	TimerEyeTentacle		= "Show timer for next Eye Tentacle",
+	TimerClawTentacle		= "Show timer for next Claw Tentacle",
+	TimerGiantEyeTentacle	= "Show timer for next Giant Eye Tentacle",
+	TimerGiantClawTentacle	= "Show timer for next Giant Claw Tentacle",
 	TimerWeakened			= "Show timer for boss weaken duration",
 	RangeFrame				= "Show range frame (10)"
 }
