@@ -2,7 +2,7 @@ local mod	= DBM:NewMod("CThun", "DBM-AQ40", 1)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision("@file-date-integer@")
-mod:SetCreatureID(15589, 15727)
+mod:SetCreatureID(15589, 15727, 15725, 15726, 15334, 15728, 15802) -- if not add those cids, mod:SPELL_CAST_SUCCESS cann't work. and maybe mod:UNIT_HEALTH and mod:UNIT_DIED.
 mod:SetEncounterID(717)
 mod:SetHotfixNoticeRev(20200817000000)--2020, 8, 17
 mod:SetMinSyncRevision(20200817000000)--2020, 8, 17
@@ -49,7 +49,7 @@ mod.vb.fleshTentacles = {}
 
 function mod:OnCombatStart(delay)
 	self.vb.phase = 1
-	timerEyeTentacle:Start(9-delay) -- Combatlog told me, the first Claw Tentacle spawn in 00:00:09, but need more test.
+	timerClawTentacle:Start(9-delay) -- Combatlog told me, the first Claw Tentacle spawn in 00:00:09, but need more test. -- Miss type.
 	timerEyeTentacle:Start(45-delay)
 	timerDarkGlareCD:Start(48-delay)
 	self:ScheduleMethod(48-delay, "DarkGlare")
