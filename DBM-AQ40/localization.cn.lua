@@ -63,12 +63,12 @@ L:SetOptionLocalization{
 	WarnShatter	= "提示打碎状态"
 }
 L:SetMiscLocalization{
-	Slow	= "开始减速!",
-	Freezing= "冻住了",
-	Frozen	= "变成冰冻的固体!",
-	Phase4 	= "开始爆裂!",
-	Phase5 	= "看來准备好毁灭了!",
-	Phase6 	= "爆炸."
+	Slow	 = "的速度慢下来了！",
+	Freezing = "冻结了！",
+	Frozen	 = "变成了坚硬的固体！",
+	Phase4 	 = "开始出现裂缝！",
+	Phase5 	 = "看起来就要碎裂了！",
+	--Phase6 	 = "爆炸." --Checked the battle video but did not find this shout.
 }
 -------------
 -- Huhuran --
