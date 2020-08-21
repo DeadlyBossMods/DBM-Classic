@@ -150,9 +150,9 @@ function mod:UNIT_DIED(args)
 		timerDarkGlareCD:Stop()
 		timerEyeTentacle:Stop()
 		timerClawTentacle:Stop() -- Claw Tentacle never respawns in phase2
-		timerEyeTentacle:Start(40)
-		timerGiantClawTentacle:Start(10) -- Start Giant Claw Tentacle Spawn Timer, After Entering Phase 2
-		timerGiantEyeTentacle:Start(41) -- Start Giant Eye Tentacle Spawn Timer, After Entering Phase 2, Giant Eye spawn in 1 second after Eye Spawn.
+		timerEyeTentacle:Start(40.5) -- 40->40.5
+		timerGiantClawTentacle:Start(10.5) -- Start Giant Claw Tentacle Spawn Timer, After Entering Phase 2 (10->10.5)
+		timerGiantEyeTentacle:Start(41.3) -- Start Giant Eye Tentacle Spawn Timer, After Entering Phase 2, Giant Eye spawn a litter later than Eye Spawned. (40->41.3)
 		self:UnscheduleMethod("DarkGlare")
 	elseif cid == 15802 then -- Flesh Tentacle
 		local spawnUid = DBM:GetSpawnIdFromGUID(args.destGUID)
@@ -216,9 +216,10 @@ do
 			timerEyeTentacle:Stop() -- Stop Eye Tentacle Timer, casused by C'Thun be Weakened
 			timerGiantClawTentacle:Stop() -- Stop Giant Claw Tentacle Timer, casused by C'Thun be Weakened
 			timerGiantEyeTentacle:Stop() -- Stop Giant Eye Tentacle Timer, casused by C'Thun be Weakened
-			timerEyeTentacle:Start(85)
-			timerGiantClawTentacle:Start(55) -- Renew Giant Claw Tentacle Spawn Timer, After C'Thun be Weakened
-			timerGiantEyeTentacle:Start(86) -- Renew Giant Eye Tentacle Spawn Timer, After C'Thun be Weakened, A litter later than Eye Tentacles Spawn.
+			timerWeakened:Start() -- It was forgotten.
+			timerEyeTentacle:Start(83) -- 53+30
+			timerGiantClawTentacle:Start(53) -- Renew Giant Claw Tentacle Spawn Timer, After C'Thun be Weakened, 54->53
+			timerGiantEyeTentacle:Start(83.7) -- Renew Giant Eye Tentacle Spawn Timer, After C'Thun be Weakened, A litter later than Eye Tentacles Spawn.(0.7s)
 
 			fleshTentacles = {}
 			if self.Options.InfoFrame then
