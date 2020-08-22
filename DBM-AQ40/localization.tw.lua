@@ -60,10 +60,10 @@ L:SetOptionLocalization{
 }
 L:SetMiscLocalization{
 	Slow	= "開始減速!",
-	Freezing= "凍住了",
+	Freezing= "凍住了！",
 	Frozen	= "變成冰凍的固體!",
 	Phase4 	= "開始爆裂!",
-	Phase5 	= "看來準備好毀滅了!",
+	Phase5 	= "看來準備好毀滅了！",
 	Phase6 	= "爆炸。"
 }
 -------------
@@ -97,22 +97,35 @@ L:SetGeneralLocalization{
 }
 L:SetWarningLocalization{
 	WarnEyeTentacle			= "眼球觸鬚",
+	WarnClawTentacle		= "利爪觸鬚",
+	WarnGiantEyeTentacle	= "巨型眼球觸鬚",
+	WarnGiantClawTentacle	= "巨型利爪觸鬚",
 	WarnWeakened			= "克蘇恩變得虛弱了"
 }
 L:SetTimerLocalization{
 	TimerEyeTentacle		= "下一次眼球觸鬚",
+	TimerClawTentacle		= "下一次利爪觸鬚",
+	TimerGiantEyeTentacle	= "下一次巨型眼球觸鬚",
+	TimerGiantClawTentacle	= "下一次巨型利爪觸鬚",
 	TimerWeakened			= "虛弱結束"
 }
 L:SetOptionLocalization{
 	WarnEyeTentacle			= "為眼球觸鬚顯示警告",
+	WarnClawTentacle		= "為利爪觸鬚顯示警告",
+	WarnGiantEyeTentacle	= "為巨型眼球觸鬚顯示警告",
+	WarnGiantClawTentacle	= "為巨型利爪觸鬚顯示警告",
 	SpecWarnWeakened		= "當首領虛弱時顯示特別警告",
 	TimerEyeTentacle		= "為下一次眼球觸鬚顯示計時器",
+	TimerClawTentacle		= "為下一次利爪觸鬚顯示計時器",
+	TimerGiantEyeTentacle	= "為下一次巨型眼球觸鬚顯示計時器",
+	TimerGiantClawTentacle	= "為下一次巨型利爪觸鬚顯示計時器",
 	TimerWeakened			= "為首領虛弱時間顯示計時器",
 	RangeFrame				= "顯示距離框架(10碼)"
 }
 L:SetMiscLocalization{
-	Stomach		= "克图恩的肚子",
+	Stomach		= "克蘇恩的胃",
 	Eye			= "克蘇恩之眼",
+	FleshTent	= "血肉觸鬚",--Localized so it shows on frame in users language, not senders
 	Weakened 	= "變弱了",
 	NotValid	= "AQ40 擊殺信息： %s 首領未擊殺。"
 }
