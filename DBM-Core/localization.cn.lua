@@ -218,8 +218,10 @@ L.RANGERADAR_IN_RANGE_TEXTONE       = "%s (%0.1f 码)"--One target
 
 L.INFOFRAME_SHOW_SELF		        = "总是显示你的能量"		-- Always show your own power value even if you are below the threshold
 L.INFOFRAME_SETLINES			    = "设置最大行数"
+L.INFOFRAME_SETCOLS					= "设置最大列数"
 L.INFOFRAME_LINESDEFAULT		    = "由模组设置"
 L.INFOFRAME_LINES_TO			    = "%d 行"
+L.INFOFRAME_COLS_TO					= "%d 列"
 L.INFOFRAME_POWER			        = "能量"
 L.INFOFRAME_AGGRO			        = "仇恨"
 L.INFOFRAME_MAIN				    = "主能量:"--Main power
