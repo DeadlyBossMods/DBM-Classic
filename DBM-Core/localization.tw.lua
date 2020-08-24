@@ -212,8 +212,10 @@ L.RANGERADAR_IN_RANGE_TEXTONE= "%s(%0.1f碼)"--One target
 
 L.INFOFRAME_SHOW_SELF		= "總是顯示你的能量"
 L.INFOFRAME_SETLINES			= "設定最大行數"
+L.INFOFRAME_SETCOLS					= "設定最大列數"
 L.INFOFRAME_LINESDEFAULT		= "由插件設定"
 L.INFOFRAME_LINES_TO			= "%d 行"
+L.INFOFRAME_COLS_TO					= "%d 列"
 L.INFOFRAME_POWER			= "能量"
 L.INFOFRAME_AGGRO			= "仇恨"
 L.INFOFRAME_MAIN				= "主要能量:"--Main power
