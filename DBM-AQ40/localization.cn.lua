@@ -128,7 +128,7 @@ L:SetOptionLocalization{
 	RangeFrame				= "显示距离框架(10码)"
 }
 L:SetMiscLocalization{
-	Stomach		= "克图恩的胃",
+	Stomach		= "克苏恩的胃",
 	Eye			= "克苏恩之眼",
 	FleshTent	= "血肉触须",--Localized so it shows on frame in users language, not senders
 	Weakened 	= "削弱了",
