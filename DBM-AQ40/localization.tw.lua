@@ -59,10 +59,10 @@ L:SetOptionLocalization{
 	WarnShatter	= "提示打碎狀態"
 }
 L:SetMiscLocalization{
-	Slow	= "開始減速!",
+	Slow	= "開始減速!",  --Translation question, here is the English exclamation mark.
 	Freezing= "凍住了！",
-	Frozen	= "變成冰凍的固體!",
-	Phase4 	= "開始爆裂!",
+	Frozen	= "變成冰凍的固體!", --Translation question, here is the English exclamation mark.
+	Phase4 	= "開始爆裂!", --Translation question, here is the English exclamation mark.
 	Phase5 	= "看來準備好毀滅了！",
 	Phase6 	= "爆炸。"
 }
@@ -123,7 +123,7 @@ L:SetOptionLocalization{
 	RangeFrame				= "顯示距離框架(10碼)"
 }
 L:SetMiscLocalization{
-	Stomach		= "克蘇恩的胃",
+	Stomach		= "內場",
 	Eye			= "克蘇恩之眼",
 	FleshTent	= "血肉觸鬚",--Localized so it shows on frame in users language, not senders
 	Weakened 	= "變弱了",
