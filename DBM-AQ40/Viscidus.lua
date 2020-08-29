@@ -53,13 +53,13 @@ function mod:OnCombatStart(delay)
 	self.vb.volleyCount = 0
 	timerPoisonBoltVolleyCD:Start(12.9, 1)
 	hits = 200
-	table.wipe(creatureIDCache)
+	twipe(creatureIDCache)
 	BossVisible(self)
 end
 
 function mod:OnCombatEnd(delay)
 	self:UnregisterShortTermEvents()
-	table.wipe(creatureIDCache)
+	twipe(creatureIDCache)
 	if DBM.InfoFrame:IsShown() then
 		DBM.InfoFrame:Hide()
 	end
