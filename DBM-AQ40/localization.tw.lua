@@ -59,10 +59,10 @@ L:SetOptionLocalization{
 	WarnShatter	= "提示打碎狀態"
 }
 L:SetMiscLocalization{
-	Slow	= "開始減速！",
+	Slow	= "開始減速!",   --Translation problem, here is the English exclamation mark, please do not modify it.
 	Freezing= "凍住了！",
-	Frozen	= "變成冰凍的固體！",
-	Phase4 	= "開始爆裂！",
+	Frozen	= "變成冰凍的固體!",  --Translation problem, here is the English exclamation mark, please do not modify it.
+	Phase4 	= "開始爆裂!",  --Translation problem, here is the English exclamation mark, please do not modify it.
 	Phase5 	= "看來準備好毀滅了！",
 	Phase6 	= "爆炸。"
 }
