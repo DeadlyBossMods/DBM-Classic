@@ -110,7 +110,7 @@ do
 	-- function mod:SPELL_DAMAGE(sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId, spellName, spellSchool, amount)
 	function mod:SPELL_DAMAGE(_, _, _, _, destGUID, _, _, _, _, _, spellSchool)
 		local creatureID = creatureIDCache[destGUID]
-		if creatureID == nil then
+		if not creatureID then
 			creatureID = DBM:GetCIDFromGUID(destGUID)
 			creatureIDCache[destGUID] = creatureID
 		end
