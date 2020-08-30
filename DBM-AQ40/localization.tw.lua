@@ -65,6 +65,10 @@ L:SetMiscLocalization{
 	Phase4 	= "開始爆裂!",  --Translation problem, here is the English exclamation mark, please do not modify it.
 	Phase5 	= "看來準備好毀滅了！",
 	Phase6 	= "爆炸。"
+	
+	HitsRemain	= "剩餘攻擊次數",
+	Frost		= "冰霜",
+	Physical	= "物理"
 }
 -------------
 -- Huhuran --
