@@ -1,6 +1,6 @@
 -- Mini Dragon(projecteurs AT gmail.com) Brilla@金色平原
 -- 枫聖@光芒 & Aoikaze@无畏
--- Last update: 2020/08/17
+-- Last update: 2020/08/30
 
 if GetLocale() ~= "zhCN" then return end
 local L
@@ -67,8 +67,11 @@ L:SetMiscLocalization{
 	Freezing = "冻结了！",
 	Frozen	 = "变成了坚硬的固体！",
 	Phase4 	 = "开始出现裂缝！",
-	Phase5 	 = "看起来就要碎裂了！"
-	--Phase6 	 = "爆炸." --Checking the battle video, I didn't find this sentence.
+	Phase5 	 = "看起来就要碎裂了！",
+    --Phase6   = "爆炸." --Checking the battle video, I didn't find this sentence.
+	HitsRemain	= "剩余攻击",
+	Frost		= "冰霜",
+	Physical	= "物理"
 }
 -------------
 -- Huhuran --
