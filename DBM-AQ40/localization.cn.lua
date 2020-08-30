@@ -67,8 +67,12 @@ L:SetMiscLocalization{
 	Freezing = "冻结了！",
 	Frozen	 = "变成了坚硬的固体！",
 	Phase4 	 = "开始出现裂缝！",
-	Phase5 	 = "看起来就要碎裂了！"
+	Phase5 	 = "看起来就要碎裂了！",
 	--Phase6 	 = "爆炸." --Checking the battle video, I didn't find this sentence.
+	
+	HitsRemain	= "剩余攻击",
+	Frost		= "冰霜",
+	Physical	= "物理"
 }
 -------------
 -- Huhuran --
