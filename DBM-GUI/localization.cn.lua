@@ -2,7 +2,7 @@
 -- yleaf(yaroot@gmail.com)
 -- sunlcy@NGA
 -- Mini Dragon(projecteurs@gmail.com)
--- Last update: 2020/06/08
+-- Last update: 2020/09/01
 
 if GetLocale() ~= "zhCN" then return end
 if not DBM_GUI_L then DBM_GUI_L = {} end
@@ -162,6 +162,9 @@ L.ShowGuildMessages 		= "在聊天窗口中显示公会开战，击杀，灭团�
 L.Area_ChatAlerts			= "其他警告选项"
 L.WorldBossAlert			= "当世界Boss进入战斗后发送警告，这个信息可能是你的朋友或者同工会成员发送的。 (由于跨服，位面等因素，可能不准确)"
 L.WorldBuffAlert			= "当世界增益BUFF激活后发送警告，这个信息可能是你的朋友或者同工会成员发送的。 (由于跨服，位面等因素，可能不准确)"
+
+L.Area_BugAlerts			= "错误报告警报选项"
+L.BadTimerAlert				= "当DBM检测到计时器错误且至少有2秒不正确时显示聊天消息"
 
 -- Tab: Barsetup
 L.BarSetup					= "计时条设置"
