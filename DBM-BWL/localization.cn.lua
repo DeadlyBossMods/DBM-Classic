@@ -87,10 +87,10 @@ L:SetGeneralLocalization{
 	name = "龙人护卫"
 }
 L:SetWarningLocalization{
-	WarnVulnerable		= "%s 弱点"
+	WarnVulnerable		= "%s易伤"
 }
 L:SetOptionLocalization{
-	WarnVulnerable		= "为法术弱点显示警告"
+	WarnVulnerable		= "为法术易伤显示提示"
 }
 L:SetMiscLocalization{
 	Fire		= "火焰",
@@ -111,19 +111,19 @@ L:SetGeneralLocalization{
 }
 L:SetWarningLocalization{
 	WarnBreath		= "%s",
-	WarnVulnerable	= "%s 弱点"
+	WarnVulnerable	= "%s易伤"
 }
 L:SetTimerLocalization{
 	TimerBreathCD	= "%s冷却",
 	TimerBreath		= "%s施法",
-	TimerVulnCD		= "弱点冷却"
+	TimerVulnCD		= "易伤切换"
 }
 L:SetOptionLocalization{
 	WarnBreath		= "为克洛玛古斯其中一个吐息显示警告",
-	WarnVulnerable	= "为弱点显示警告",
+	WarnVulnerable	= "为易伤显示警告",
 	TimerBreathCD	= "显示吐息冷却",
 	TimerBreath		= "显示吐息施法",
-	TimerVulnCD		= "显示弱点CD"
+	TimerVulnCD		= "显示易伤周期"
 }
 L:SetMiscLocalization{
 	Breath1	= "第一次吐息",
@@ -147,18 +147,18 @@ L:SetGeneralLocalization{
 }
 L:SetWarningLocalization{
 	WarnAddsLeft		= "还剩%d个小怪",
-	WarnClassCall		= "%s呼喊",
-	specwarnClassCall	= "你中了职业点名！"
+	WarnClassCall		= "点名%s",
+	specwarnClassCall	= "你的职业被点名！"
 }
 L:SetTimerLocalization{
-	TimerClassCall		= "%s 点名结束"
+	TimerClassCall		= "点名%s结束"
 }
 L:SetOptionLocalization{
-	TimerClassCall		= "为职业点名持续时间显示计时器",
-	WarnAddsLeft		= "通报杀死的龙兽，直到进入第2阶段",
+	TimerClassCall		= "为点名持续时间显示计时器",
+	WarnAddsLeft		= "通报杀死的龙兽数量，直到进入第2阶段",
 	WarnClassCall		= "提示职业点名",
-	specwarnClassCall	= "警告：当职业点名是你的职业通知你。",
-	WarnPhase			= "提示转换阶段"
+	specwarnClassCall	= "警报：当你的职业被点名时显示警报。",
+	WarnPhase			= "提示阶段转换"
 }
 L:SetMiscLocalization{
 	YellP1		= "比赛开始！",
