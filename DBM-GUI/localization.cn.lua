@@ -160,8 +160,8 @@ L.ShowDefeatMessage 		= "在聊天窗口中显示击杀信息"
 L.ShowGuildMessages 		= "在聊天窗口中显示公会开战，击杀，灭团信息"
 
 L.Area_ChatAlerts			= "其他警告选项"
-L.WorldBossAlert			= "当世界Boss进入战斗后发送警告，这个信息可能是你的朋友或者同工会成员发送的。 (由于跨服，位面等因素，可能不准确)"
-L.WorldBuffAlert			= "当世界增益BUFF激活后发送警告，这个信息可能是你的朋友或者同工会成员发送的。 (由于跨服，位面等因素，可能不准确)"
+L.WorldBossAlert			= "当世界Boss进入战斗后发送警告，这个信息可能是你的朋友或者同公会成员发送的。 (由于跨服，位面等因素，可能不准确)"
+L.WorldBuffAlert			= "当世界增益BUFF激活后发送警告，这个信息可能是你的朋友或者同公会成员发送的。 (由于跨服，位面等因素，可能不准确)"
 
 L.Area_BugAlerts			= "错误报告警报选项"
 L.BadTimerAlert				= "当DBM检测到计时器错误且至少有2秒不正确时显示聊天消息"
@@ -298,7 +298,7 @@ L.SpamBlockNoNameplate		= "不显示姓名面板高亮"
 L.SpamBlockNoYells			= "不再战斗中大喊"
 L.SpamBlockNoNoteSync		= "不接受别人分享的自定义备注"
 
-L.Area_Restore				= "DBM战斗结束重置设置（在模块完成后，DBM 是否还原先前的用户状态）"
+L.Area_Restore				= "DBM战斗结束重置设置（在模块完成后，DBM 是否还原先前的设置）"
 L.SpamBlockNoIconRestore	= "当战斗结束后不保存团队标记状态并重置"
 L.SpamBlockNoRangeRestore	= "当Boss模块隐藏距离窗体时不重置窗体位置"
 
@@ -347,8 +347,8 @@ L.WhisperStats 				= "在回复的私聊中包含击杀或灭团次数统计信�
 L.DisableStatusWhisper 		= "屏蔽全团成员的密语(需要团长权限)。只对普通/英雄/神话团队和挑战/神话五人小队有效。"
 
 L.Area_SyncMessages			= "信息同步设置"
-L.EnableWBSharing 			= "当世界增益BUFF的激活或者世界BOSS刷新/击杀；分享给在一个服务器战网上的朋友。 （此信息将始终与您的公会分享）"
-L.DisableGuildStatus 		= "屏蔽通报团队进度信息到工会(需要团长权限)"
+L.EnableWBSharing 			= "当世界增益BUFF的激活或者世界BOSS刷新/击杀；分享给在同服务器的战网好友。 （此信息将始终与您的公会分享）"
+L.DisableGuildStatus 		= "屏蔽通报团队进度信息到公会(需要团长权限)"
 
 -- Tab: Extra Features
 L.Panel_ExtraFeatures		= "其他功能"
