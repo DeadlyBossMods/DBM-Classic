@@ -141,11 +141,11 @@ L.SpecWarn_DemoButton		= "测试警报"
 L.SpecWarn_MoveMe			= "设置位置"
 L.SpecWarn_ResetMe			= "重置"
 L.SpecialWarnSoundOption	= "设置默认声音"
-L.SpecialWarnHeader1		= "类型 1: 设置影响您或您的操作的普通优先级警告选项"
-L.SpecialWarnHeader2		= "类型 2: 设置影响每个人的正常优先级警告选项"
-L.SpecialWarnHeader3		= "类型 3: 设置高优先级警告的选项"
-L.SpecialWarnHeader4		= "类型 4: 设置“高优先级”选项会避免特殊警告"
-L.SpecialWarnHeader5		= "类型 5: 设置警告选项，并包含玩家姓名"
+L.SpecialWarnHeader1		= "类型 1: 设置影响您或您的操作的普通优先级警报选项"
+L.SpecialWarnHeader2		= "类型 2: 设置影响每个人的正常优先级警报选项"
+L.SpecialWarnHeader3		= "类型 3: 设置高优先级警报的选项"
+L.SpecialWarnHeader4		= "类型 4: 设置“高优先级”选项会避免特殊警报"
+L.SpecialWarnHeader5		= "类型 5: 设置警报选项，并包含玩家姓名"
 
 -- Tab: Generalwarnings
 L.Tab_GeneralMessages 		= "综合信息"
@@ -159,12 +159,13 @@ L.ShowEngageMessage 		= "在聊天窗口中显示开战信息"
 L.ShowDefeatMessage 		= "在聊天窗口中显示击杀信息"
 L.ShowGuildMessages 		= "在聊天窗口中显示公会开战，击杀，灭团信息"
 
-L.Area_ChatAlerts			= "其他警告选项"
-L.WorldBossAlert			= "当世界Boss进入战斗后发送警告，这个信息可能是你的朋友或者同公会成员发送的。 (由于跨服，位面等因素，可能不准确)"
-L.WorldBuffAlert			= "当世界增益BUFF激活后发送警告，这个信息可能是你的朋友或者同公会成员发送的。 (由于跨服，位面等因素，可能不准确)"
+L.Area_ChatAlerts			= "其他警报选项"
+L.WorldBossAlert			= "当世界Boss进入战斗后发送警报，这个信息可能是你的朋友或者同公会成员发送的。 (由于跨服，位面等因素，可能不准确)"
+L.WorldBuffAlert			= "当世界增益BUFF激活后发送警报，这个信息可能是你的朋友或者同公会成员发送的。 (由于跨服，位面等因素，可能不准确)"
 
 L.Area_BugAlerts			= "错误报告警报选项"
 L.BadTimerAlert				= "当DBM检测到计时器错误且至少有2秒不正确时显示聊天消息"
+L.BadIDAlert				= "当DBM检测到使用中的无效技能或日志ID时显示聊天消息"
 
 -- Tab: Barsetup
 L.BarSetup					= "计时条设置"
@@ -242,7 +243,7 @@ L.KeepBar2					= "(当被模组支持时)"
 L.FadeBar					= "隐藏超出技能范围的计时条"
 
 -- Tab: Spoken Alerts Frame
-L.Panel_SpokenAlerts		= "语音警告"
+L.Panel_SpokenAlerts		= "语音警报"
 L.Area_VoiceSelection		= "语音选择"
 L.CountdownVoice			= "设置第一倒计时语音"
 L.CountdownVoice2			= "设置第二倒计时语音"
@@ -254,7 +255,7 @@ L.SpecWarn_NoSoundsWVoice	= "当技能存在语音包语音时，屏蔽播放特
 L.SWFNever					= "从不"
 L.SWFDefaultOnly			= "当特殊警报使用默认声音时(允许自定义语音包播放)"
 L.SWFAll					= "当特殊警报使用任何默认声音时"
-L.SpecWarn_AlwaysVoice		= "总是播放所有语音警告(覆盖Boss特定的选项,建议指挥使用)"
+L.SpecWarn_AlwaysVoice		= "总是播放所有语音警报(覆盖Boss特定的选项,建议指挥使用)"
 --TODO, maybe add URLS right to GUI panel on where to acquire 3rd party voice packs?
 L.Area_GetVEM				= "获取夏一可语音包(普通话最新)"
 L.VEMDownload				= "|cFF73C2FBhttps://curseforge.com/wow/addons/dbm-voicepack-yike|r"
@@ -305,7 +306,7 @@ L.SpamBlockNoRangeRestore	= "当Boss模块隐藏距离窗体时不重置窗体�
 -- Tab: Spam Filter
 L.Area_SpamFilter			= "信息过滤选项"
 L.DontShowFarWarnings		= "不为过远的事件显示计时条/警报"
-L.StripServerName			= "警告和计时器中不显示服务器名"
+L.StripServerName			= "警报和计时器中不显示服务器名"
 
 L.Area_SpecFilter			= "角色过滤选项"
 L.FilterTankSpec			= "当非坦克专精时，过滤掉给予坦克的专用信息"
@@ -352,7 +353,7 @@ L.DisableGuildStatus 		= "屏蔽通报团队进度信息到公会(需要团长�
 
 -- Tab: Extra Features
 L.Panel_ExtraFeatures		= "其他功能"
-L.Area_SoundAlerts			= "语音/闪烁警告选项"
+L.Area_SoundAlerts			= "语音/闪烁警报选项"
 L.LFDEnhance				= "当发起角色检查或随机团队/战场就绪时，在主声道播放准备音效(即使关闭了音效而且很大声！)并闪烁图标"
 L.WorldBossNearAlert		= "当世界附近的Boss进入战斗时播放准备音效(覆盖单独BOSS设置)并闪烁图标"
 L.RLReadyCheckSound			= "在主声道/对话声道播放检查准备音效并闪烁图标。"
@@ -374,7 +375,7 @@ L.LogOnlyNonTrivial			= "只记录团队Boss，而不记录随机团队，5人�
 --L.BigBrotherAnnounceToRaid	= "报告Big Brother的检测结果给团队"
 L.Area_Invite				= "组队邀请选项"
 L.AutoAcceptFriendInvite	= "自动接受来自好友列表里的好友的组队邀请"
-L.AutoAcceptGuildInvite		= "自动接受同工会成员的组队邀请"
+L.AutoAcceptGuildInvite		= "自动接受同公会成员的组队邀请"
 L.Area_Advanced				= "高级选项"
 L.FakeBW					= "当检查Bigwig时，假装DBM就是Bigwig"
 L.AITimer					= "DBM为没遇见过的战斗使用人工智能自动产生计时器(在初期的Beta或PTR的Boss测试非常有帮助)。此功能不会对多目标技能生效。"
