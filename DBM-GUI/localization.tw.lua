@@ -148,6 +148,10 @@ L.Area_ChatAlerts			= "額外警告選項"
 L.WorldBossAlert			= "當你的工會成員或是朋友可能在你的伺服器上開戰世界首領時顯示警告訊息(如果發送者是被戰復的會不準確)"
 L.WorldBuffAlert				= "當世界buff 已在您的伺服器啟動時顯示警報訊息和計時器"
 
+L.Area_BugAlerts			= "錯誤回報警報選項"
+L.BadTimerAlert				= "當DBM檢測到計時器錯誤且至少有2秒不正確時顯示聊天訊息"
+L.BadIDAlert				= "當DBM檢測到使用的是無效法術或紀錄ID時顯示聊天訊息"
+
 -- Tab: Barsetup
 L.BarSetup   				= "計時條樣式"
 L.BarTexture 				= "計時條材質"
@@ -317,7 +321,7 @@ L.DisableSFX				= "首領戰鬥時禁用音效頻道"
 --L.DisableCinematics			= "禁用遊戲中的過場動畫"
 --L.OnlyFight					= "只有戰鬥中，每次動畫播放一次之後"
 --L.AfterFirst				= "在副本中，每次動畫播放一次之後"
-L.Always					= ALWAYS
+L.Always					= "總是跳過"
 L.CombatOnly				= "在任何戰鬥中停用"
 L.RaidCombat				= "只在首領戰鬥中停用"
 
