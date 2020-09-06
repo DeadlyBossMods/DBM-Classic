@@ -112,7 +112,7 @@ L.Warn_FontShadow			= "阴影"
 L.Warn_FontSize				= "字体大小: %d"
 L.Warn_Duration				= "警告持续时间: %0.1f 秒"
 L.None						= "无"
-L.Random					= "Random"
+L.Random					= "随即"
 L.Outline					= "描边"
 L.ThickOutline				= "加粗描边"
 L.MonochromeOutline			= "单色描边"
@@ -164,8 +164,8 @@ L.WorldBossAlert			= "当世界Boss进入战斗后发送警报，这个信息可
 L.WorldBuffAlert			= "当世界增益BUFF激活后发送警报，这个信息可能是你的朋友或者同公会成员发送的。 (由于跨服，位面等因素，可能不准确)"
 
 L.Area_BugAlerts			= "错误报告警报选项"
-L.BadTimerAlert				= "当DBM检测到计时器错误且至少有2秒不正确时显示聊天消息"
-L.BadIDAlert				= "当DBM检测到使用中的无效技能或日志ID时显示聊天消息"
+L.BadTimerAlert				= "在聊天窗口中显示当DBM检测到计时器错误且至少有1秒不正确的信息"
+L.BadIDAlert				= "在聊天窗口中显示当DBM检测到使用中的无效技能或日志ID的信息"
 
 -- Tab: Barsetup
 L.BarSetup					= "计时条设置"
