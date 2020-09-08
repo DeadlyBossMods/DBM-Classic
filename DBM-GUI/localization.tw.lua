@@ -136,7 +136,7 @@ L.ShowDefeatMessage 		= "在聊天視窗顯示戰勝/滅團訊息"
 L.ShowGuildMessages 		= "在聊天視窗顯示公會的開戰/戰勝/滅團的訊息"
 
 L.Area_ChatAlerts			= "額外警告選項"
-L.WorldBossAlert			= "當你的工會成員或是朋友可能在你的伺服器上開戰世界首領時顯示警告訊息(如果發送者是被戰復的會不準確)"
+L.WorldBossAlert			= "當你的公會成員或是朋友可能在你的伺服器上開戰世界首領時顯示警告訊息(如果發送者是被戰復的會不準確)"
 L.WorldBuffAlert				= "當世界buff 已在您的伺服器啟動時顯示警報訊息和計時器"
 
 L.Area_BugAlerts			= "錯誤回報警報選項"
