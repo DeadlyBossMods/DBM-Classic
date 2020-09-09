@@ -66,13 +66,16 @@ L.Statistic_BestRank		= "最佳排名:"
 
 -- Tab: General Options
 L.TabCategory_Options	 	= "常规设置"
+L.Area_BasicSetup			= "初始 DBM 设置提示"
+L.Area_ModulesForYou		= "哪些 DBM 模块适合您？"
+L.Area_ProfilesSetup		= "DBM 配置文件指南"
 -- Panel: Core & GUI
 L.Core_GUI 					= "DBM核心设置"
 L.General 					= "DBM核心综合设置"
 L.EnableMiniMapIcon			= "显示小地图按钮"
 L.UseSoundChannel			= "设置DBM使用的声道"
-L.UseMasterChannel			= "主声道。"
-L.UseDialogChannel			= "对话声道。"
+L.UseMasterChannel			= "主声道"
+L.UseDialogChannel			= "对话声道"
 L.UseSFXChannel				= "音效声道"
 L.Latency_Text				= "设定团队之间DBM最高延迟阈值：%d"
 
@@ -98,19 +101,19 @@ L.Panel_ExtraFeatures		= "其他功能"
 L.Area_SoundAlerts			= "语音/闪烁警报选项"
 L.LFDEnhance				= "当发起角色检查或随机团队/战场就绪时，在主声道播放准备音效(即使关闭了音效而且很大声！)并闪烁图标"
 L.WorldBossNearAlert		= "当世界附近的Boss进入战斗时播放准备音效(覆盖单独BOSS设置)并闪烁图标"
-L.RLReadyCheckSound			= "在主声道/对话声道播放检查准备音效并闪烁图标。"
+L.RLReadyCheckSound			= "在主声道/对话声道播放检查准备音效并闪烁图标"
 L.AFKHealthWarning			= "当你在挂机/暂离受到伤害时播放音效并闪烁图标(你会死)"
 --
 L.TimerGeneral 				= "计时器选项"
 L.SKT_Enabled				= "总是显示最速胜利计时条(覆盖单独BOSS设置)"
 L.ShowRespawn				= "Boss战斗未完成时显示Boss刷新计时条"
-L.ShowQueuePop				= "显示随机小队/团队查找器确认计时条"
+L.ShowQueuePop				= "显示随机小队/团队查找器确认计时条"--Classic has no random copy and team finder
 --
 L.Area_AutoLogging			= "自动战斗日志选项"
 L.AutologBosses				= "自动采用官方格式记录日志。"
 L.AdvancedAutologBosses		= "自动采用 Transcriptor 记录日志"
 L.RecordOnlyBosses			= "只记录团队BOSS数据 (不记录其他数据，使用 /dbm pull 可提前记录并使得记录更准确，如提前偷药水或是召唤大军。)"
-L.LogOnlyNonTrivial			= "只记录团队Boss，而不记录随机团队，5人本，场景战役。"
+L.LogOnlyNonTrivial			= "只记录团队Boss，而不记录随机团队/5人本/场景战役"
 --
 --L.Area_3rdParty				= "第三方插件选项"
 --L.ShowBBOnCombatStart		= "战斗开始时使用Big Brother的buff检测"
@@ -146,6 +149,9 @@ L.SelectModProfileDelete	= "删除 Boss 模块设置："
 
 -- Tab: Alerts
 L.TabCategory_Alerts	 	= "警报"
+L.Area_SpecAnnounceConfig	= "特殊警报提示和声音指南"
+L.Area_SpecAnnounceNotes	= "特殊警报自定义指南"
+L.Area_VoicePackInfo		= "所有 DBM 语音包信息"
 -- Panel: Raidwarning
 L.Tab_RaidWarning 			= "团队警报"
 L.RaidWarning_Header		= "团队警报设置"
@@ -156,7 +162,7 @@ L.RaidWarnColor_3		 	= "颜色 3"
 L.RaidWarnColor_4 			= "颜色 4"
 L.InfoRaidWarning			= [[你可以对团队警报的文本颜色及其位置进行设定。
 在这里会显示诸如“玩家X受到了Y效果的影响”之类的信息。]]
-L.ColorResetted 			= "该颜色设置已重置。"
+L.ColorResetted 			= "该颜色设置已重置"
 L.ShowWarningsInChat 		= "在聊天窗口中显示警报"
 L.WarningIconLeft 			= "左侧显示图标"
 L.WarningIconRight 			= "右侧显示图标"
@@ -204,7 +210,7 @@ L.ShowReminders				= "显示建议消息，缺少的模块和需要修补程序�
 L.CombatMessages			= "战斗信息设置"
 L.ShowEngageMessage 		= "在聊天窗口中显示开战信息"
 L.ShowDefeatMessage 		= "在聊天窗口中显示击杀信息"
-L.ShowGuildMessages 		= "在聊天窗口中显示公会开战，击杀，灭团信息"
+L.ShowGuildMessages 		= "在聊天窗口中显示公会开战/击杀/灭团信息"
 
 L.Area_ChatAlerts			= "其他警报选项"
 L.WorldBossAlert			= "当世界Boss进入战斗后发送警报，这个信息可能是你的朋友或者同公会成员发送的。 (由于跨服，位面等因素，可能不准确)"
@@ -250,6 +256,7 @@ L.Area_EventSoundsFilters	= "事件音效过滤条件"
 
 -- Tab: Timers
 L.TabCategory_Timers		= "计时条"
+L.Area_ColorBytype			= "计时条分类着色指南"
 -- Panel: Color by Type
 L.Panel_ColorByType	 		= "计时条分类着色"
 L.AreaTitle_BarColors		= "计时条颜色"
@@ -327,6 +334,8 @@ L.FadeBar					= "隐藏超出技能范围的计时条"
 
 -- Tab: Global Disables & Filters
 L.TabCategory_Filters	 	= "禁用及过滤选项"
+L.Area_DBMFiltersSetup		= "DBM 信息过滤指南"
+L.Area_BlizzFiltersSetup	= "暴雪信息过滤指南"
 -- Panel: DBM Features
 L.Panel_SpamFilter			= "DBM 全局过滤选项"
 L.Area_SpamFilter_Anounces	= "警报过滤选项"
@@ -403,6 +412,7 @@ L.DisableGuildStatus 		= "屏蔽通报团队进度信息到公会(需要团长�
 
 -- Tab: Frames & Integrations
 L.TabCategory_Frames		= "框体及其它"
+L.Area_NamelateInfo			= "DBM 姓名板光环信息"
 -- Panel: InfoFrame
 L.Panel_InfoFrame			= "信息框"
 
