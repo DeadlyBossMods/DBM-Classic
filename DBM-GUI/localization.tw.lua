@@ -1,6 +1,7 @@
 if GetLocale() ~= "zhTW" then return end
 if not DBM_GUI_L then DBM_GUI_L = {} end
 local L = DBM_GUI_L
+-- Last update: 2020/09/10
 
 L.MainFrame	= "Deadly Boss Mods"
 
@@ -52,9 +53,9 @@ L.Statistic_BestRank		= "最佳排名："
 
 -- Tab: General Options
 L.TabCategory_Options	 	= "一般選項"
-L.Area_BasicSetup			= "Initial DBM Setup Tips"
-L.Area_ModulesForYou		= "What DBM modules are right for you?"
-L.Area_ProfilesSetup		= "DBM Profiles usage guide"
+L.Area_BasicSetup			= "初始DBM設置提示"
+L.Area_ModulesForYou		= "哪些DBM模組適合您？"
+L.Area_ProfilesSetup		= "DBM配置檔使用指南"
 -- Panel: Core & GUI
 L.Core_GUI 					= "核心 & 圖形界面"
 L.General 					= "一般DBM核心選項"
@@ -134,9 +135,9 @@ L.SelectModProfileDelete	= "刪除模組設定"
 
 -- Tab: Alerts
 L.TabCategory_Alerts	 	= "警告"
-L.Area_SpecAnnounceConfig	= "Special Announce visuals and sound guide"
-L.Area_SpecAnnounceNotes	= "Special Announce Notes guide"
-L.Area_VoicePackInfo		= "Information on DBM Voice Packs"
+L.Area_SpecAnnounceConfig	= "特別警告視覺和聲音指南"
+L.Area_SpecAnnounceNotes	= "特別警告註記指南"
+L.Area_VoicePackInfo		= "有關DBM語音包的訊息"
 -- Panel: Raidwarning
 L.Tab_RaidWarning 			= "警告"
 L.RaidWarning_Header		= "警告選項"
@@ -317,8 +318,8 @@ L.FadeBar					= "淡出已超出距離技能的計時器"
 
 -- Tab: Global Disables & Filters
 L.TabCategory_Filters	 	= "全局禁用及過濾"
-L.Area_DBMFiltersSetup		= "DBM Filters guide"
-L.Area_BlizzFiltersSetup	= "Blizzard Filters guide"
+L.Area_DBMFiltersSetup		= "DBM過濾器指南"
+L.Area_BlizzFiltersSetup	= "暴雪過濾器指南"
 -- Panel: DBM Features
 L.Panel_SpamFilter			= "DBM特性"
 L.Area_SpamFilter_Anounces	= "全局警告禁用及過濾選項"
@@ -395,7 +396,7 @@ L.EnableWBSharing 			= "當同個伺服器的公會與戰網好友開怪/擊敗�
 
 -- Tab: Frames & Integrations
 L.TabCategory_Frames		= "框架 & 整合"
-L.Area_NamelateInfo			= "DBM Nameplate Auras Info"
+L.Area_NamelateInfo			= "DBM名條光環資訊"
 -- Panel: InfoFrame
 L.Panel_InfoFrame			= "訊息框架"
 
