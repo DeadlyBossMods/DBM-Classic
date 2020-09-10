@@ -2,7 +2,7 @@
 -- Diablohu(diablohudream@gmail.com)
 -- yleaf(yaroot@gmail.com)
 -- Mini Dragon(projecteurs@gmail.com)
--- Last update: 2020/06/08 （重新整理）
+-- Last update: 2020/09/10 （重新整理）
 
 if GetLocale() ~= "zhCN" then return end
 
@@ -165,14 +165,12 @@ L.VOICE_COUNT_MISSING		        = "在 %d 语音包中找不到倒计时语音。
 L.BIG_WIGS					        = "BigWigs"
 
 L.UPDATEREMINDER_HEADER			    = "您的" .. L.DEADLY_BOSS_MODS .. "版本已过期。\n您可以在Curse/Twitch, WOWI, 或者GitHub Releases页面下载到新版本：%s（%s）。如果您使用整合包，请使用更新器更新。"
-L.UPDATEREMINDER_HEADER_ALPHA	    = "您正在使用Alpha的" .. L.DEADLY_BOSS_MODS .. " 的版本已至少落后主干%d个版本。\n 我们建议使用Alpha版本的用户时刻追随主干更新，否则请切换到正式发行版。Alpha版的版本检查会比正式发行版严格。"
 L.UPDATEREMINDER_FOOTER			    = "按下 " .. (IsMacClient() and "Cmd-C" or "Ctrl-C")  ..  "复制下载地址到剪切板。"
 L.UPDATEREMINDER_FOOTER_GENERIC	    = "按下 " .. (IsMacClient() and "Cmd-C" or "Ctrl-C")  ..  "复制链接到剪切板。"
 L.UPDATEREMINDER_DISABLE			= "警告：你的" .. L.DEADLY_BOSS_MODS .. "已经过期太久，它已被强制禁用，直到你更新。这是为了确保它不会导致你或其他团队成员出错。"
 L.UPDATEREMINDER_HOTFIX			    = "你的" .. L.DEADLY_BOSS_MODS .. "版本会在这首领战斗中有问题。最新版的" .. L.DBM .. "已经修复了这个问题。"
 L.UPDATEREMINDER_HOTFIX_ALPHA	    = "你的" .. L.DEADLY_BOSS_MODS .. "版本会在这首领战斗中有问题。最新版的" .. L.DBM .. "（或Alpha版本）已经修复了这个问题。"
 L.UPDATEREMINDER_MAJORPATCH		    = "你的" .. L.DEADLY_BOSS_MODS .. "已经过期,它已被禁用,直到你更新.这是为了确保它不会导致你或其他团队成员出错.这次更新是一个非常重要的补丁,请确保你得到的是最新版."
-L.UPDATEREMINDER_TESTVERSION		= "警告：你使用了不正确版本的" .. L.DEADLY_BOSS_MODS .. "。请确保" .. L.DBM .. "版本和游戏版本一致。"
 L.VEM							    = "你好像在使用VEM。" .. L.DEADLY_BOSS_MODS .. "在这种情况下无法被载入。"
 L.OUTDATEDPROFILES					= "警告: DBM-Profiles已经无法和本版本" .. L.DBM .. "兼容。" .. L.DEADLY_BOSS_MODS .. "核心已经自带配置文件管理系统，请移除DBM-Profiles避免冲突。"
 L.OUTDATEDSPELLTIMERS				= "警告: DBM-SpellTimers 干扰到 " .. L.DBM .. "。 DBM-SpellTimers 不再得到支持，必须将其删除。 " .. L.DBM .. " 才能正常运行。"
@@ -180,7 +178,7 @@ L.OUTDATEDRLT						= "警告: DBM-RaidLeadTools 干扰到 " .. L.DBM .. "。 DBM
 L.DPMCORE						    = "警告: DBM-PVP已经已经很久没人维护了,并无法兼容。请移除DBM-PVP避免冲突。"
 L.DBMLDB							= "警告: DBM-LDB 已经集成入" .. L.DEADLY_BOSS_MODS .. "核心。建议在插件目录删掉'DBM-LDB'。"
 L.UPDATE_REQUIRES_RELAUNCH		    = "警告: 如果你不完全重启游戏，" .. L.DEADLY_BOSS_MODS .. "可能会工作不正常。此次更新包含了新的文件，或者toc文件的改变，这是重载界面无法加载的。不重启游戏可能导致作战模块功能错误。"
-L.OUT_OF_DATE_NAG				    = "你的" .. L.DEADLY_BOSS_MODS .. "已经过期并且你决定不弹出升级提示窗口。这可能导致你或其他团队成员出错。千万不要成为害群之马！"
+L.OUT_OF_DATE_NAG				    = "你的" .. L.DBM .. "版本已经过期，新版本针对特定的首领战斗增加新的功能和错误的修复。建议您进行更新来改善您的游戏体验。"
 L.CLASSIC_ONLY						= "警告: 你所用的 " .. L.DBM .. " 是正式服的版本，请删除这个，去下载怀旧服使用的 " .. L.DBM .. " 版本。"
 
 L.MOVABLE_BAR				        = "拖动我！"
