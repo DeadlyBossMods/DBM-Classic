@@ -1,7 +1,7 @@
 local L = DBM_GUI_L
 
 DBM_GUI = {
-	frameTypes = {}
+	tabs = {}
 }
 
 local next, type, pairs, strsplit, tonumber, tostring, ipairs, tinsert, tsort, mfloor = next, type, pairs, strsplit, tonumber, tostring, ipairs, table.insert, table.sort, math.floor
