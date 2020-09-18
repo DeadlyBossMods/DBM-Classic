@@ -17,7 +17,7 @@
 ## X-DBM-Mod: 1
 ## X-DBM-Mod-Type: RAID
 ## X-DBM-Mod-Category: Classic
-## X-DBM-Mod-Has-Single-Format: 1
+## X-DBM-StatTypes: normal
 ## X-DBM-Mod-MapID: 531
 ## X-DBM-Mod-Sort: 9
 ## X-DBM-Mod-MinCoreRevision: 12473

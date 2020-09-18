@@ -20,7 +20,7 @@
 ## X-DBM-Mod: 1
 ## X-DBM-Mod-Type: PARTY
 ## X-DBM-Mod-Category: Classic
-## X-DBM-Mod-Has-Single-Format: 1
+## X-DBM-StatTypes: normal
 
 ## X-DBM-Mod-SubCategoriesID: 48,230,229|Lower,229|Upper,36,429,90,349,389,129,47,189,289,33,34,329,109,70,43,209
 ## X-DBM-Mod-SubCategoriesID-deDE: 48,230,229|Untere,229|Obere,36,429,90,349,389,129,47,189,289,33,34,329,109,70,43,209

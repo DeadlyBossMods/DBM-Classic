@@ -18,7 +18,7 @@
 ## X-DBM-Mod-Type: RAID
 ## X-DBM-Mod-Category: Classic
 ## X-DBM-Mod-World-Boss: 1
-## X-DBM-Mod-Has-Single-Format: 1
+## X-DBM-StatTypes: normal
 ## X-DBM-Mod-Name: Azeroth (Classic)
 ## X-DBM-Mod-Name-deDE: Azeroth (Classic)
 ## X-DBM-Mod-Name-esES: Azeroth (Clásico)

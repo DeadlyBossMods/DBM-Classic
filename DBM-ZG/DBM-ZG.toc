@@ -17,7 +17,7 @@
 ## SavedVariablesPerCharacter: DBMZG_SavedStats
 ## X-DBM-Mod: 1
 ## X-DBM-Mod-Category: Classic
-## X-DBM-Mod-Has-Single-Format: 1
+## X-DBM-StatTypes: normal
 ## X-DBM-Mod-Sort: 11
 ## X-DBM-Mod-MapID: 309
 ## X-DBM-Mod-MinCoreRevision: 12473
