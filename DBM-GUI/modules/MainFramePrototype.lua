@@ -133,7 +133,6 @@ function frame:DisplayFrame(frame)
 		DBM_GUI.currentViewing:Hide()
 	end
 	DBM_GUI.currentViewing = frame
-	_G["DBM_GUI_OptionsFramePanelContainerHeaderText"]:SetText(frame.displayName)
 	_G["DBM_GUI_DropDown"]:Hide()
 	local FOV = _G["DBM_GUI_OptionsFramePanelContainerFOV"]
 	FOV:SetScrollChild(frame)
