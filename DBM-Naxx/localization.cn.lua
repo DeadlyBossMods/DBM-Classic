@@ -105,6 +105,7 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	Pull				= "我要没收你的生命!", --TBD
+	AddsYell			= "起来吧，我的战士们！起来，再为主人尽忠一次！",
 	Adds				= "召唤出骷髅战士！",
 	AddsTwo				= "召唤出更多的骷髅！"
 })
@@ -224,7 +225,8 @@ L:SetMiscLocalization({
 L:SetOptionLocalization({
 	WarningChargeChanged		= "当你的极性改变时显示特别警报",
 	WarningChargeNotChanged		= "当你的极性没有改变时显示特别警报",
-	ArrowsEnabled			= "显示箭头 (正常 \"两边\" 站位打法)",
+	ArrowsEnabled			= "显示箭头 $spell:28089",
+	TwoCamp					= "显示箭头 (正常 \"两边\" 站位打法)",
 	ArrowsRightLeft			= "显示左/右箭头 给 \"四角\" 站位打法 (如果极性改变显示左箭头, 没变显示右箭头)",
 	ArrowsInverse			= "显示反转的 \"四角\" 站位打法 (如果极性改变显示右箭头, 没变显示左箭头)"
 })
