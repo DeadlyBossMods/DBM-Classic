@@ -47,7 +47,7 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Pull					= "跪下求饶吧，诺夫！"--Not actually pull trigger, but often said on pull
+	Pull					= "跪下求饶吧，懦夫！"--Not actually pull trigger, but often said on pull
 })
 ---------------
 --  Maexxna  --
