@@ -108,21 +108,21 @@ L:SetWarningLocalization{
 }
 L:SetTimerLocalization{
 	TimerEyeTentacle	= "Глазной отросток",
-	TimerGiantEyeTentacle	= "Гигантский глазной отросток",
+	TimerGiantEyeTentacle	= "Огромное глазастое щупальце",
 	TimerClawTentacle	= "Когтещупальце",
-	TimerGiantClawTentacle	= "Гигантское когтещупальце",
+	TimerGiantClawTentacle	= "Гигантский когтещуп",
 	TimerWeakened		= "Ослаблен закончен"
 }
 L:SetOptionLocalization{
 	WarnEyeTentacle			= "Показывать предупреждение для Глазного отростка",
 	WarnClawTentacle2		= "Показывать предупреждение для Когтещупальца",
-	WarnGiantEyeTentacle	= "Показывать предупреждение для Гигантского глазного отростка",
-	WarnGiantClawTentacle	= "Показывать предупреждение для Гигантского когтещупальца",
+	WarnGiantEyeTentacle	= "Показывать предупреждение для Огромного глазастого щупальца",
+	WarnGiantClawTentacle	= "Показывать предупреждение для Гигантского когтещупа",
 	SpecWarnWeakened		= "Показывать специальное предупреждение, когда босс ослаблен",
 	TimerEyeTentacle		= "Показывать таймер до следующего Глазного отростка",
 	TimerClawTentacle		= "Показывать таймер до следующего Когтещупальца",
-	TimerGiantEyeTentacle	= "Показывать таймер до следующего Гигантского глазного отростка",
-	TimerGiantClawTentacle	= "Показывать таймер до следующего Гигантского когтещупальца",
+	TimerGiantEyeTentacle	= "Показывать таймер до следующего Огромного глазастого щупальца",
+	TimerGiantClawTentacle	= "Показывать таймер до следующего Гигантского когтещупа",
 	TimerWeakened			= "Показывать таймер продолжительности ослабления босса",
 	RangeFrame				= "Показывать индикатор расстояния (10)"
 }
