@@ -210,9 +210,10 @@ L:SetMiscLocalization({
 L:SetOptionLocalization({
 	WarningChargeChanged	= "극성이 바뀔때 특수 알림 보기",
 	WarningChargeNotChanged	= "극성이 바뀌지 않으면 특수 알림 보기",
-	ArrowsEnabled			= "기본 화살표 보기 (일반 \"2점\" 공략용)",
-	ArrowsRightLeft			= "\"4점\" 공략용 왼쪽/오른쪽 화살표 보기 (극성이 바뀌면 왼쪽 화살표가 나오고 바뀌지 않으면 오른쪽이 나옴)",
-	ArrowsInverse			= "역 \"4점\" 공략 (극성이 바뀌면 오른쪽 화살표가 나오고 바뀌지 않으면 왼쪽이 나옴)"
+	ArrowsEnabled			= "$spell:28089 동안 화살표 보기",
+	TwoCamp					= "화살표 보기 (일반 \"2점\" 택틱)",
+	ArrowsRightLeft			= "\"4점\" 택틱 왼쪽/오른쪽 화살표 보기 (극성이 바뀌면 왼쪽 화살표가 나오고 바뀌지 않으면 오른쪽이 나옴)",
+	ArrowsInverse			= "역 \"4점\" 택틱 (극성이 바뀌면 오른쪽 화살표가 나오고 바뀌지 않으면 왼쪽이 나옴)"
 })
 
 L:SetWarningLocalization({
