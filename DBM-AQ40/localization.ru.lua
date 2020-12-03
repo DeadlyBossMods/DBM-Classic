@@ -52,11 +52,11 @@ L:SetGeneralLocalization{
 }
 L:SetWarningLocalization{
 	WarnFreeze	= "Заморожен: %d/3",
-	WarnShatter	= "Shatter: %d/3"
+	WarnShatter	= "Расколот: %d/3"
 }
 L:SetOptionLocalization{
-	WarnFreeze	= "Announce Freeze status",
-	WarnShatter	= "Announce Shatter status"
+	WarnFreeze	= "Объявлять статус Заморозки",
+	WarnShatter	= "Объявлять статус Раскола"
 }
 L:SetMiscLocalization{
 	Slow 		= "замедляется!",
@@ -66,9 +66,9 @@ L:SetMiscLocalization{
 	Phase5 		= "едва держится!",
 	Phase6 		= "взрывается!",
 
-	HitsRemain	= "Hits Remaining",
-	Frost		= "Frost",
-	Physical	= "Physical"
+	HitsRemain	= "Ударов Осталось",
+	Frost		= "Лёд",
+	Physical	= "Физический урон"
 }
 -------------
 -- Huhuran --
@@ -107,31 +107,31 @@ L:SetWarningLocalization{
 	WarnWeakened 		= "К'Тун ослаблен!"
 }
 L:SetTimerLocalization{
-	TimerEyeTentacle	= "Глазных отроски",
-	TimerGiantEyeTentacle	= "Гигантский глазной отросток",
+	TimerEyeTentacle	= "Глазной отросток",
+	TimerGiantEyeTentacle	= "Огромное глазастое щупальце",
 	TimerClawTentacle	= "Когтещупальце",
-	TimerGiantClawTentacle	= "Гигантское когтещупальце",
+	TimerGiantClawTentacle	= "Гигантский когтещуп",
 	TimerWeakened		= "Ослаблен закончен"
 }
 L:SetOptionLocalization{
-	WarnEyeTentacle			= "Show warning for Eye Tentacle",
-	WarnClawTentacle2		= "Show warning for Claw Tentacle",
-	WarnGiantEyeTentacle	= "Show warning for Giant Eye Tentacle",
-	WarnGiantClawTentacle	= "Show warning for Giant Claw Tentacle",
-	SpecWarnWeakened		= "Show special warning when boss weaken",
-	TimerEyeTentacle		= "Show timer for next Eye Tentacle",
-	TimerClawTentacle		= "Show timer for next Claw Tentacle",
-	TimerGiantEyeTentacle	= "Show timer for next Giant Eye Tentacle",
-	TimerGiantClawTentacle	= "Show timer for next Giant Claw Tentacle",
-	TimerWeakened			= "Show timer for boss weaken duration",
-	RangeFrame				= "Show range frame (10)"
+	WarnEyeTentacle			= "Показывать предупреждение для Глазного отростка",
+	WarnClawTentacle2		= "Показывать предупреждение для Когтещупальца",
+	WarnGiantEyeTentacle	= "Показывать предупреждение для Огромного глазастого щупальца",
+	WarnGiantClawTentacle	= "Показывать предупреждение для Гигантского когтещупа",
+	SpecWarnWeakened		= "Показывать специальное предупреждение, когда босс ослаблен",
+	TimerEyeTentacle		= "Показывать таймер до следующего Глазного отростка",
+	TimerClawTentacle		= "Показывать таймер до следующего Когтещупальца",
+	TimerGiantEyeTentacle	= "Показывать таймер до следующего Огромного глазастого щупальца",
+	TimerGiantClawTentacle	= "Показывать таймер до следующего Гигантского когтещупа",
+	TimerWeakened			= "Показывать таймер продолжительности ослабления босса",
+	RangeFrame				= "Показывать индикатор расстояния (10)"
 }
 L:SetMiscLocalization{
-	Stomach		= "Живота",
+	Stomach		= "Живот",
 	Eye			= "Око К'Туна",
 	FleshTent	= "Мясистое щупальце",--Localized so it shows on frame in users language, not senders
 	Weakened 	= "ослаблен!",
-	NotValid	= "AQ40 partially cleared. %s optional bosses remain."
+	NotValid	= "АК40 частично зачищен. %s необязательные боссы остались."
 }
 ----------------
 -- Ouro --

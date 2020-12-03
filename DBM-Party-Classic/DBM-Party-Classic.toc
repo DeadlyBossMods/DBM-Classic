@@ -1,4 +1,4 @@
-## Interface: 11305
+## Interface: 11306
 ## X-Min-Interface: 11302
 
 ## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Dungeons (Classic)|r

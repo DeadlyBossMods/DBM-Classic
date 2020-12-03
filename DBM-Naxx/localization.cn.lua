@@ -1,7 +1,7 @@
 ﻿-- author: callmejames @《凤凰之翼》 一区藏宝海湾
 -- commit by: yaroot <yaroot AT gmail.com>
 -- Mini Dragon(projecteurs AT gmail.com) Brilla@《流浪者酒馆》-金色平原
--- Last update: 2019/08/22
+-- Last update: 2020/11/13
 
 if GetLocale() ~= "zhCN" then return end
 
@@ -83,7 +83,7 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Noth")
 
 L:SetGeneralLocalization({
-	name 					= "瘟疫使者诺斯"
+	name 					= "药剂师诺斯"
 })
 
 L:SetWarningLocalization({
@@ -327,7 +327,7 @@ L:SetWarningLocalization({
 
 L:SetMiscLocalization({
 	Korthazz			= "库尔塔兹领主",
-	Rivendare			= "瑞文戴尔男爵",
+	Rivendare			= "大领主莫格莱尼",
 	Blaumeux			= "女公爵布劳缪克丝",
 	Zeliek				= "瑟里耶克爵士"
 })

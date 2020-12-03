@@ -33,7 +33,7 @@ L.LOOT_SPEC_REMINDER			= "현재 전문화는 %s입니다. 현재 지정한 전�
 
 L.BIGWIGS_ICON_CONFLICT		= L.DBM .. "이 BigWigs와" .. L.DBM .. " 모두 공격대 징표 기능을 사용하고 있음을 감지했습니다. 충돌을 방지하기 위해 공대장이 두 애드온중 하나의 징표 설정을 비활성화해야 합니다."
 
-L.MOD_AVAILABLE				= "이 지역에서 %s|1을;를; 사용할 수 있습니다. Curse/Twitch 또는 WoWI에서 다운로드 받으실 수 있습니다."
+L.MOD_AVAILABLE				= "이 지역에서 %s|1을;를; 사용할 수 있습니다. Curse 또는 WoWI에서 다운로드 받으실 수 있습니다."
 
 L.COMBAT_STARTED				= "%s 전투 시작. 행운을 빕니다! :)";
 L.COMBAT_STARTED_IN_PROGRESS	= "%s 전투 진행 도중 참가했습니다. 행운을 빕니다! :)"
@@ -147,13 +147,13 @@ L.VERSIONCHECK_HEADER		= "보스 모드 - 버전"
 L.VERSIONCHECK_ENTRY_NO_DBM	= "%s: 설치된 보스 모드 없음"
 L.VERSIONCHECK_FOOTER		= L.DBM .. "을 설치한 플레이어 %d명과 Bigwigs를 설치한 플레이어 %d명을 발견했습니다."
 L.VERSIONCHECK_OUTDATED		= "다음 %d명의 플레이어가 구버전 보스 모드를 사용중: %s"
-L.YOUR_VERSION_OUTDATED      = "사용중인 " .. L.DEADLY_BOSS_MODS .. " 버전이 사용 기한을 지났습니다. Curse/Twitch, WoWI 또는 GitHub 릴리즈 페이지에서 최신 버전을 받으세요."
+L.YOUR_VERSION_OUTDATED      = "사용중인 " .. L.DEADLY_BOSS_MODS .. " 버전이 사용 기한을 지났습니다. Curse, WoWI 또는 GitHub 릴리즈 페이지에서 최신 버전을 받으세요."
 L.VOICE_PACK_OUTDATED		= "선택한 " .. L.DBM .. " 음성팩에 일부 음성이 들어있지 않습니다. 몇가지 경고 음성이 기본 효과음으로 재생됩니다. 최신 음성팩을 다운로드 받거나 제작자에게 누락된 음성 파일 업데이트를 요청하시기 바랍니다"
 L.VOICE_MISSING				= "선택한 " .. L.DBM .. " 음성팩을 찾을 수 없습니다. 오류일 경우 음성팩이 제대로 설치되어 있고 애드온 목록에서 활성화되어 있는지 확인해 보시기 바랍니다."
 L.VOICE_DISABLED				= "현재 " .. L.DBM .. " 음성팩이 한 개 이상 설치되어 있지만 사용하고 있는게 없습니다. 음성팩을 사용하려면 '음성 경고' 항목에서 음성팩이 지정되어 있는지 확인하세요. 음성팩을 사용할 의사가 없으면 음성팩을 삭제하시면 이 메시지는 더이상 출력되지 않습니다"
 L.VOICE_COUNT_MISSING		= "초읽기 음성 %d번으로 설정된 음성/초읽기 팩을 찾을 수 없습니다. 기본 설정으로 초기화 되었습니다: %s"
 
-L.UPDATEREMINDER_HEADER			= "사용중인 " .. L.DEADLY_BOSS_MODS .. " 버전의 사용 기한이 지났습니다.\n Curse/Twitch, WoWI, GitHub 릴리즈 페이지 등에서 %s (%s) 버전을 다운로드 할 수 있습니다."
+L.UPDATEREMINDER_HEADER			= "사용중인 " .. L.DEADLY_BOSS_MODS .. " 버전의 사용 기한이 지났습니다.\n Curse, WoWI, GitHub 릴리즈 페이지 등에서 %s (%s) 버전을 다운로드 할 수 있습니다."
 L.UPDATEREMINDER_FOOTER			= (IsMacClient() and "Cmd-C" or "Ctrl-C").. "를 누르면 주소를 복사할 수 있습니다."
 L.UPDATEREMINDER_FOOTER_GENERIC	= (IsMacClient() and "Cmd-C" or "Ctrl-C").. "를 누르면 주소를 복사할 수 있습니다."
 L.UPDATEREMINDER_DISABLE			= "경고: 지금 사용중인 " .. L.DEADLY_BOSS_MODS .. "가 지나치게 오래되어 강제로 비활성화되며 업데이트 전까진 사용할 수 없습니다. 이는 오래되고 호환되지 않는 모드가 당신과 파티/공대원의 플레이에 악영향을 미치지 않게 하기 위함입니다."

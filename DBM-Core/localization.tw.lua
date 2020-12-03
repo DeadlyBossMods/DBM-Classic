@@ -34,7 +34,7 @@ L.LOOT_SPEC_REMINDER			= "你目前的專精為:%s。而你目前的拾取選擇
 
 L.BIGWIGS_ICON_CONFLICT		= L.DBM .. "偵測到你同時開啟BigWigs和" .. L.DBM .. "的團隊圖示。請關閉其中之一的團隊圖示功能以免與產生衝突。"
 
-L.MOD_AVAILABLE				= "%s的DBM插件已經可供使用。你可以在Curse/Twitch或WoWI上找到。"
+L.MOD_AVAILABLE				= "%s的DBM插件已經可供使用。你可以在Curse或WoWI上找到。"
 
 L.COMBAT_STARTED				= "%s開戰。祝好運與盡興! :)"
 L.COMBAT_STARTED_IN_PROGRESS	= "與%s開戰已進行的戰鬥。祝好運與盡興! :)"
@@ -151,13 +151,13 @@ L.VERSIONCHECK_ENTRY_TWO		= "%s: %s (%s) & %s (%s)"--Two Boss mods
 L.VERSIONCHECK_ENTRY_NO_DBM	= "%s：尚未安裝任何團隊首領模組"
 L.VERSIONCHECK_FOOTER		= "找到有%d玩家正在使用DBM且有%d玩家正在使用Bigwigs"
 L.VERSIONCHECK_OUTDATED		= "下列有%d玩家正在使用過期的首領模組:%s"
-L.YOUR_VERSION_OUTDATED		= "你的 " .. L.DEADLY_BOSS_MODS .. " 已經過期。請透由Curse/Twitch，WoWI或從GitHub Releases頁面下載最新版本。"
+L.YOUR_VERSION_OUTDATED		= "你的 " .. L.DEADLY_BOSS_MODS .. " 已經過期。請透由Curse，WoWI或從GitHub Releases頁面下載最新版本。"
 L.VOICE_PACK_OUTDATED		= "你所選的" .. L.DBM .. "語音包可能缺少一些DBM支援的的語音。部分警告音效仍然會使用預設音效播放。請下載新版本的語音包或是聯絡語音包作者更新並加入缺少的語音。"
 L.VOICE_MISSING				= L.DBM .. "找不到你所選取的語音包。你的語音包選項已經被重置為'None'。請確定你的語音包已正確的安裝與啟用。"
 L.VOICE_DISABLED				= "你的語音包已安裝但是尚未啟用。如果你想使用語音包，請確定語言包已在語音警告中被選取，或是刪除不使用的語音包去隱藏此訊息。"
 L.VOICE_COUNT_MISSING		= "所選取的語音/倒數語音包%d找不到倒數語音。設定已被重置回預設值。"
 
-L.UPDATEREMINDER_HEADER			= "你的".. L.DEADLY_BOSS_MODS .. "已經過期。\n你可以在Curse/Twitch，WoWI或從GitHub Releases頁面下載到最新版本：%s(%s)"
+L.UPDATEREMINDER_HEADER			= "你的".. L.DEADLY_BOSS_MODS .. "已經過期。\n你可以在Curse，WoWI或從GitHub Releases頁面下載到最新版本：%s(%s)"
 L.UPDATEREMINDER_FOOTER			= "按下" .. (IsMacClient() and "Cmd-C" or "Ctrl-C")  ..  "：複製下載網址到剪貼簿。"
 L.UPDATEREMINDER_FOOTER_GENERIC	= "按下" .. (IsMacClient() and "Cmd-C" or "Ctrl-C")  ..  "：複製網址到剪貼簿。"
 L.UPDATEREMINDER_DISABLE			= "警告：你的" .. L.DEADLY_BOSS_MODS .. "版本已過期並且已被強制禁用了而不能啟用除非更新至最新版本。這是為了確保過時或不相容的模組不會對你自己或團隊夥伴造成低落的遊戲體驗。"

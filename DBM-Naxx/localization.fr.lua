@@ -254,7 +254,7 @@ L:SetWarningLocalization({
 L = DBM:GetModLocalization("Gothik")
 
 L:SetGeneralLocalization({
-	name = "Gothik"
+	name = "Gothik le Moissonneur"
 })
 
 L:SetOptionLocalization({
@@ -296,7 +296,7 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Horsemen")
 
 L:SetGeneralLocalization({
-	name = "Les quatre Cavaliers"
+	name = "Les Quatre Cavaliers"
 })
 
 L:SetOptionLocalization({

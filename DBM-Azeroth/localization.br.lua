@@ -9,7 +9,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization({
-	Pull		= "For the Legion! For Kil'Jaeden!"
+	Pull		= "Pela Legião! Por Kil'Jaeden!"
 })
 
 -- Azuregos (Azshara)

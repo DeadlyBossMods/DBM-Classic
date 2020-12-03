@@ -18,6 +18,10 @@ mod:RegisterEventsInCombat(
 	"UNIT_TARGETABLE_CHANGED"
 )
 
+--[[
+ability.id = 27810 or ability.id = 27819 or ability.id = 27808 and type = "cast"
+ or (source.type = "NPC" and source.firstSeen = timestamp) or (target.type = "NPC" and target.firstSeen = timestamp)
+--]]
 local warnAddsSoon			= mod:NewAnnounce("warnAddsSoon", 1, "134321")
 local warnPhase2			= mod:NewPhaseAnnounce(2, 3)
 local warnBlastTargets		= mod:NewTargetAnnounce(27808, 2)
@@ -30,16 +34,17 @@ local specWarnManaBomb		= mod:NewSpecialWarningMoveAway(27819, nil, nil, nil, 1,
 local specWarnBlast			= mod:NewSpecialWarningTarget(27808, "Healer", nil, nil, 1, 2)
 local yellManaBomb			= mod:NewShortYell(27819)
 
-local blastTimer			= mod:NewBuffActiveTimer(4, 27808, nil, nil, nil, 5, nil, DBM_CORE_L.HEALER_ICON)
-local timerManaBomb			= mod:NewCDTimer(20, 27819, nil, nil, nil, 3)--20-50
-local timerFrostBlast		= mod:NewCDTimer(40.1, 27808, nil, nil, nil, 3, nil, DBM_CORE_L.DEADLY_ICON)--40-46
+--Fissure timer is 13-30 or something pretty wide, so no timer
+local timerManaBomb			= mod:NewCDTimer(20, 27819, nil, nil, nil, 3)--20-50 (still true in vanilla, kind of shitty variation too)
+local timerFrostBlastCD		= mod:NewCDTimer(33.5, 27808, nil, nil, nil, 3, nil, DBM_CORE_L.DEADLY_ICON)--33-46
+local timerfrostBlast		= mod:NewBuffActiveTimer(4, 27808, nil, nil, nil, 5, nil, DBM_CORE_L.HEALER_ICON)
 local timerMC				= mod:NewBuffActiveTimer(20, 28410, nil, nil, nil, 3)
 --local timerMCCD			= mod:NewCDTimer(90, 28410, nil, nil, nil, 3)--actually 60 second cdish but its easier to do it this way for the first one.
-local timerPhase2			= mod:NewTimer(218, "TimerPhase2", "136116", nil, nil, 6)
+local timerPhase2			= mod:NewTimer(305, "TimerPhase2", "136116", nil, nil, 6)
 
 mod:AddSetIconOption("SetIconOnMC", 28410, true, false, {1, 2, 3})
 mod:AddSetIconOption("SetIconOnManaBomb", 27819, false, false, {8})
-mod:AddSetIconOption("SetIconOnFrostTomb", 28169, true, false, {1, 2, 3, 4, 5, 6, 7, 8})
+mod:AddSetIconOption("SetIconOnFrostTomb", 27808, true, false, {1, 2, 3, 4, 5, 6, 7, 8})
 mod:AddRangeFrameOption(10, 27819)
 
 mod.vb.phase = 1
@@ -61,7 +66,7 @@ local function AnnounceBlastTargets(self)
 	else
 		warnBlastTargets:Show(table.concat(frostBlastTargets, "< >"))
 	end
-	blastTimer:Start(3.5)
+	timerfrostBlast:Start(3.5)
 	if self.Options.SetIconOnFrostTomb then
 		for i = #frostBlastTargets, 1, -1 do
 			self:SetIcon(frostBlastTargets[i], 8 - i, 4.5)
@@ -84,12 +89,11 @@ function mod:OnCombatStart(delay)
 	table.wipe(frostBlastTargets)
 	self.vb.warnedAdds = false
 	self.vb.MCIcon = 1
-	specwarnP2Soon:Schedule(215-delay)
+	specwarnP2Soon:Schedule(295-delay)
 	timerPhase2:Start()
-	--Schedule backup P2 stuff because classic can't rely on UNIT_TARGETABLE_CHANGED
-	warnPhase2:Schedule(225)
+	warnPhase2:Schedule(305)
 	if self.Options.ShowRange then
-		self:Schedule(225-delay, RangeToggle, true)
+		self:Schedule(305-delay, RangeToggle, true)
 	end
 end
 
@@ -111,7 +115,7 @@ do
 			timerManaBomb:Start()
 		--elseif args.spellId == 27808 then
 		elseif args.spellName == FrostBlast then
-			timerFrostBlast:Start()
+			timerFrostBlastCD:Start()
 		end
 	end
 
@@ -145,7 +149,7 @@ do
 			end
 			self.vb.MCIcon = self.vb.MCIcon + 1
 			self:Unschedule(AnnounceChainsTargets)
-			if #chainsTargets >= 3 then
+			if #chainsTargets >= 5 then--Not sure max targets on 40 man but def more than 3, looked like 5
 				AnnounceChainsTargets(self)
 			else
 				self:Schedule(1.0, AnnounceChainsTargets, self)
