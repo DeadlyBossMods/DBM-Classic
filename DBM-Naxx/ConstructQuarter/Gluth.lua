@@ -15,19 +15,19 @@ mod:RegisterEventsInCombat(
 
 --TODO, is it really nessesarly to use SPELL_DAMAGE here?
 local warnEnrage		= mod:NewTargetNoFilterAnnounce(19451, 3, nil , "Healer|Tank|RemoveEnrage", 2)
-local warnDecimateSoon	= mod:NewSoonAnnounce(28374, 2)
+--local warnDecimateSoon	= mod:NewSoonAnnounce(28374, 2)
 local warnDecimateNow	= mod:NewSpellAnnounce(28374, 3)
 
 local specWarnEnrage	= mod:NewSpecialWarningDispel(19451, "RemoveEnrage", nil, nil, 1, 6)
 
 local timerEnrage		= mod:NewBuffActiveTimer(8, 19451, nil, nil, nil, 5, nil, DBM_CORE_L.ENRAGE_ICON)
-local timerDecimate		= mod:NewCDTimer(120, 28374, nil, nil, nil, 2)--120-182
+--local timerDecimate		= mod:NewCDTimer(120, 28374, nil, nil, nil, 2)--120-182
 local enrageTimer		= mod:NewBerserkTimer(420)
 
 function mod:OnCombatStart(delay)
 	enrageTimer:Start(420 - delay)
-	timerDecimate:Start(110 - delay)
-	warnDecimateSoon:Schedule(100 - delay)
+--	timerDecimate:Start(110 - delay)
+--	warnDecimateSoon:Schedule(100 - delay)
 end
 
 do
@@ -59,8 +59,8 @@ do
 		--if spellId == 28375 and self:AntiSpam(20) then
 		if spellName == Decimate and self:AntiSpam(20) then
 			warnDecimateNow:Show()
-			timerDecimate:Start()
-			warnDecimateSoon:Schedule(96)
+--			timerDecimate:Start()
+--			warnDecimateSoon:Schedule(96)
 		end
 	end
 end

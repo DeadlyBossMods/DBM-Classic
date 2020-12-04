@@ -523,6 +523,9 @@ L = DBM:GetModLocalization(416)
 L:SetGeneralLocalization{
 	name 		= "Чо'Раш Наблюдатель"
 }
+L:SetMiscLocalization{
+    Defeat	= "Король мертв – О НЕТ! Зови Миззла Хитрюгу! Он знает, что делать!"
+}
 ----------------
 -- King Gordok --
 ----------------

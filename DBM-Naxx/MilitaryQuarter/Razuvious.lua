@@ -13,6 +13,9 @@ mod:RegisterEventsInCombat(
 )
 
 --TODO, find out if args:IsPetSource() actually works, or find something else that does
+--[[
+ability.id = 29107 and type = "cast"
+--]]
 local warnShoutNow		= mod:NewSpellAnnounce(29107, 1)
 local warnShoutSoon		= mod:NewSoonAnnounce(29107, 3)
 local warnShieldWall	= mod:NewAnnounce("WarningShieldWallSoon", 3, 29061)
@@ -22,8 +25,8 @@ local timerTaunt		= mod:NewCDTimer(60, 29060, nil, nil, nil, 5, nil, DBM_CORE_L.
 local timerShieldWall	= mod:NewBuffFadesTimer(20, 29061, nil, nil, nil, 5, nil, DBM_CORE_L.TANK_ICON)
 
 function mod:OnCombatStart(delay)
-	timerShout:Start(22 - delay)
-	warnShoutSoon:Schedule(17 - delay)
+	timerShout:Start(24 - delay)--It is 22-26 variation, but since users complained, using the median instead of the minimum
+	warnShoutSoon:Schedule(19 - delay)
 end
 
 do
