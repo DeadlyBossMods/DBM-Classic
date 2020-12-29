@@ -44,14 +44,14 @@ do
 	local MindControl = DBM:GetSpellInfo(20604)
 	function mod:MCTarget(targetname, uId)
 		if not targetname then return end
+		if self.Options.SetIconOnMC then
+			self:SetIcon(targetname, self.vb.lastIcon)
+		end
 		warnMC:CombinedShow(1, targetname)
 		if targetname == UnitName("player") then
 			specWarnMC:Show()
 			specWarnMC:Play("targetyou")
 			yellMC:Yell()
-		end
-		if self.Options.SetIconOnMC then
-			self:SetIcon(targetname, self.vb.lastIcon)
 		end
 		--Alternate icon between 1 and 2
 		if self.vb.lastIcon == 1 then

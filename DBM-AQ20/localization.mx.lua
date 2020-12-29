@@ -26,10 +26,10 @@ L:SetOptionLocalization{
 L:SetMiscLocalization{
 	Wave12		= "Ahí vienen. Intenta que no te maten,",--Followed by 'chico' or 'chica'
 	Wave12Alt	= "Rajaxx, ¿recuerdas que te dije que serías el último en morir?",
-	Wave3		= "¡La hora de las recompensas está próxima! ¡Que la oscuridad gobierne el corazón de nuestros enemigos!",
-	Wave4		= "¡No volveremos a esperar detrás de rejas y paredes de piedra! ¡Nunca más podrán negarnos nuestra venganza! ¡Hasta los dragones temblarán frente a nuestra ira!",
+	Wave3		= "¡La hora de las recompensas está próxima! ¡Que la oscuridad reine en el corazón de nuestros enemigos!",
+	Wave4		= "¡No volveremos a esperar detrás de rejas y muros de piedra! ¡Nunca más podrán negarnos nuestra venganza! ¡Hasta los dragones temblarán frente a nuestra ira!",
 	Wave5		= "¡El miedo es para el enemigo! ¡Miedo y muerte!",
-	Wave6		= "¡Corzocelada lloriqueará y rogará por su vida, igual que hizo su débil hijo! ¡Hoy acabará un milenio de injusticia!",
+	Wave6		= "¡Corzocelada llorará y rogará por su vida, igual que lo hizo su débil hijo! ¡Hoy acabará un milenio lleno de injusticia!",
 	Wave7		= "¡Fandral! ¡Ha llegado tu hora! ¡Ve y escóndete en el Sueño Esmeralda y reza para que nunca te encontremos!",
 	Wave8		= "¡Loco imprudente! ¡Acabaré contigo yo mismo!"
 }
@@ -62,7 +62,7 @@ L:SetOptionLocalization{
 	WarnDismember	= DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.spell:format(96)
 }
 L:SetMiscLocalization{
-	PursueEmote 	= "¡%s fija su mirada en"
+	PursueEmote 	= "¡%s mira a"
 }
 
 -------------

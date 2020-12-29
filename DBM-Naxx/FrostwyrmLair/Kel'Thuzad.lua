@@ -38,9 +38,8 @@ local yellManaBomb			= mod:NewShortYell(27819)
 local timerManaBomb			= mod:NewCDTimer(20, 27819, nil, nil, nil, 3)--20-50 (still true in vanilla, kind of shitty variation too)
 local timerFrostBlastCD		= mod:NewCDTimer(33.5, 27808, nil, nil, nil, 3, nil, DBM_CORE_L.DEADLY_ICON)--33-46
 local timerfrostBlast		= mod:NewBuffActiveTimer(4, 27808, nil, nil, nil, 5, nil, DBM_CORE_L.HEALER_ICON)
-local timerMC				= mod:NewBuffActiveTimer(20, 28410, nil, nil, nil, 3)
 --local timerMCCD			= mod:NewCDTimer(90, 28410, nil, nil, nil, 3)--actually 60 second cdish but its easier to do it this way for the first one.
-local timerPhase2			= mod:NewTimer(305, "TimerPhase2", "136116", nil, nil, 6)
+local timerPhase2			= mod:NewTimer(330, "TimerPhase2", "136116", nil, nil, 6)
 
 mod:AddSetIconOption("SetIconOnMC", 28410, true, false, {1, 2, 3})
 mod:AddSetIconOption("SetIconOnManaBomb", 27819, false, false, {8})
@@ -60,6 +59,12 @@ local function AnnounceChainsTargets(self)
 end
 
 local function AnnounceBlastTargets(self)
+	if self.Options.SetIconOnFrostTomb then
+		for i = #frostBlastTargets, 1, -1 do
+			self:SetIcon(frostBlastTargets[i], 8 - i, 4.5)
+			frostBlastTargets[i] = nil
+		end
+	end
 	if self.Options.SpecWarn27808target then
 		specWarnBlast:Show(table.concat(frostBlastTargets, "< >"))
 		specWarnBlast:Play("healall")
@@ -67,12 +72,6 @@ local function AnnounceBlastTargets(self)
 		warnBlastTargets:Show(table.concat(frostBlastTargets, "< >"))
 	end
 	timerfrostBlast:Start(3.5)
-	if self.Options.SetIconOnFrostTomb then
-		for i = #frostBlastTargets, 1, -1 do
-			self:SetIcon(frostBlastTargets[i], 8 - i, 4.5)
-			frostBlastTargets[i] = nil
-		end
-	end
 end
 
 local function RangeToggle(show)
@@ -89,11 +88,11 @@ function mod:OnCombatStart(delay)
 	table.wipe(frostBlastTargets)
 	self.vb.warnedAdds = false
 	self.vb.MCIcon = 1
-	specwarnP2Soon:Schedule(295-delay)
+	specwarnP2Soon:Schedule(320-delay)
 	timerPhase2:Start()
-	warnPhase2:Schedule(305)
+	warnPhase2:Schedule(330)
 	if self.Options.ShowRange then
-		self:Schedule(305-delay, RangeToggle, true)
+		self:Schedule(330-delay, RangeToggle, true)
 	end
 end
 
@@ -141,7 +140,6 @@ do
 		elseif args.spellName == ChainsofKT then
 			chainsTargets[#chainsTargets + 1] = args.destName
 			if self:AntiSpam() then
-				timerMC:Start()
 				--timerMCCD:Start(60)--60 seconds?
 			end
 			if self.Options.SetIconOnMC then

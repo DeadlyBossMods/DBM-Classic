@@ -298,7 +298,6 @@ L:SetGeneralLocalization({
 
 L:SetOptionLocalization({
 	WarningMarkSoon				= "Exibir aviso prévio para marcas",
-	WarningMarkNow				= "Exibir aviso para marcas",
 	SpecialWarningMarkOnPlayer	= "Exibir um aviso especial quando você for afetado por mais de quatro marcas"
 })
 
@@ -306,8 +305,7 @@ L:SetTimerLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningMarkSoon				= "Marca %d em 3 s",
-	WarningMarkNow				= "Marca %d",
+	WarningMarkSoon				= "Mark soon",--FIXME
 	SpecialWarningMarkOnPlayer	= "%s: %s"
 })
 

@@ -536,7 +536,8 @@ L.AUTO_YELL_OPTION_TEXT = {
 	fade							= "Yell (with countdown and spell name) when $spell:%s is fading",
 	shortfade						= "Yell (with countdown) when $spell:%s is fading",
 	iconfade						= "Yell (with countdown and icon) when $spell:%s is fading",
-	position						= "Yell (with position) when you are affected by $spell:%s",
+	position						= "Yell (with position and player name) when you are affected by $spell:%s",
+	shortposition					= "Yell (with position) when you are affected by $spell:%s",
 	combo							= "Yell (with custom text) when you are affected by $spell:%s and other spells at same time"
 }
 L.AUTO_YELL_ANNOUNCE_TEXT = {
@@ -547,6 +548,7 @@ L.AUTO_YELL_ANNOUNCE_TEXT = {
 	shortfade						= "%%d",
 	iconfade						= "{rt%%2$d}%%1$d",
 	position 						= "%s %%s on {rt%%d}"..UnitName("player").."{rt%%d}",
+	shortposition 					= "{rt%%1$d}%s %%2$d",--Icon, Spellname, number
 	combo							= "%s and %%s"--Spell name (from option, plus spellname given in arg)
 }
 L.AUTO_YELL_CUSTOM_POSITION			= "{rt%d}%s{"--Doesn't need translating. Has no strings

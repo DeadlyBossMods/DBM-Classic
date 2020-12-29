@@ -26,11 +26,11 @@ local specialWarningLocust	= mod:NewSpecialWarningSpell(28785, nil, nil, nil, 2,
 local yellImpale			= mod:NewYell(28783)
 
 local timerLocustIn			= mod:NewCDTimer(80, 28785, nil, nil, nil, 6)-- 80-104
-local timerLocustFade 		= mod:NewBuffActiveTimer(26, 28785, nil, nil, nil, 6)
+local timerLocustFade 		= mod:NewBuffActiveTimer(23, 28785, nil, nil, nil, 6)
 
 function mod:OnCombatStart(delay)
-	timerLocustIn:Start(90 - delay)
-	warningLocustSoon:Schedule(80 - delay)
+	timerLocustIn:Start(80 - delay)--80-100
+	warningLocustSoon:Schedule(75 - delay)
 end
 
 do
@@ -58,8 +58,8 @@ do
 		--if args:IsSpellID(28785, 54021) and args.auraType == "BUFF" then
 		if args.spellName == LocustSwarm and args:IsDestTypeHostile() then--Want it removing from boss, not players, without ID we check hostility of affected unit
 			warningLocustFaded:Show()
-			timerLocustIn:Start()
-			warningLocustSoon:Schedule(62)
+			timerLocustIn:Start(69.2)--More consistent
+			warningLocustSoon:Schedule(54.2)
 		end
 	end
 end

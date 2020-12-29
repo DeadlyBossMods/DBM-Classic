@@ -135,13 +135,13 @@ do
 	local EyeBeam = DBM:GetSpellInfo(26134)
 	function mod:EyeBeamTarget(targetname, uId)
 		if not targetname then return end
+		if self.Options.SetIconOnEyeBeam then
+			self:SetIcon(targetname, 1, 3)
+		end
 		if targetname == UnitName("player") then
 			specWarnEyeBeam:Show()
 			specWarnEyeBeam:Play("targetyou")
 			yellEyeBeam:Yell()
-		end
-		if self.Options.SetIconOnEyeBeam then
-			self:SetIcon(targetname, 1, 3)
 		end
 	end
 

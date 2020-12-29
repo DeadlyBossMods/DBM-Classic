@@ -63,16 +63,16 @@ do
 		--if args.spellId == 28169 then
 		if args.spellName == Injection then
 			timerInjection:Start(args.destName)
+			if self.Options.SetIconOnInjectionTarget then
+				table.insert(mutateIcons, args.destName)
+				addIcon()
+			end
 			if args:IsPlayer() then
 				specWarnInjection:Show()
 				specWarnInjection:Play("runout")
 				yellInjection:Yell()
 			else
 				warnInjection:Show(args.destName)
-			end
-			if self.Options.SetIconOnInjectionTarget then
-				table.insert(mutateIcons, args.destName)
-				addIcon()
 			end
 		end
 	end

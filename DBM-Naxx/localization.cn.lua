@@ -312,7 +312,6 @@ L:SetGeneralLocalization({
 
 L:SetOptionLocalization({
 	WarningMarkSoon			= "为印记显示提前警报",
-	WarningMarkNow			= "为印记显示警报",
 	SpecialWarningMarkOnPlayer	= "当你印记叠加多于四层时显示特别警报"
 })
 
@@ -320,8 +319,7 @@ L:SetTimerLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningMarkSoon			= "3秒后 印记 %d",
-	WarningMarkNow			= "印记 #%d",
+	WarningMarkSoon				= "Mark soon",--FIXME
 	SpecialWarningMarkOnPlayer	= "%s: %s"
 })
 

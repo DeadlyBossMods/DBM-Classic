@@ -297,7 +297,6 @@ L:SetGeneralLocalization({
 
 L:SetOptionLocalization({
 	WarningMarkSoon				= "징표 사전 경고 보기",
-	WarningMarkNow				= "징표 경고 보기",
 	SpecialWarningMarkOnPlayer	= "징표가 4중첩 이상이 되면 특수 알림 보기"
 })
 
@@ -305,8 +304,7 @@ L:SetTimerLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningMarkSoon				= "3초 후 징표 %d",
-	WarningMarkNow				= "징표 %d",
+	WarningMarkSoon				= "Mark soon",--FIXME
 	SpecialWarningMarkOnPlayer	= "%s: %s"
 })
 

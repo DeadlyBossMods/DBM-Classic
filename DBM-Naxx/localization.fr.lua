@@ -302,7 +302,6 @@ L:SetGeneralLocalization({
 L:SetOptionLocalization({
 	TimerMark					= "Afficher le timer des Marques",
 	WarningMarkSoon				= "Activer le pré-avertissement des Marques",
-	WarningMarkNow				= "Activer l'avertissement des Marques",
 	SpecialWarningMarkOnPlayer	= "Avertissement spécial quand vous avez plus de 4 marques sur vous"
 })
 
@@ -311,8 +310,7 @@ L:SetTimerLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningMarkSoon				= "Marque %d dans 3 sec",
-	WarningMarkNow				= "Marque %d!",
+	WarningMarkSoon				= "Mark soon",--FIXME
 	SpecialWarningMarkOnPlayer	= "%s: %s"
 })
 

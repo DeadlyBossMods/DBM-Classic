@@ -72,8 +72,8 @@ end
 
 DBM = {
 	Revision = parseCurseDate("@project-date-integer@"),
-	DisplayVersion = "1.13.63 alpha", -- the string that is shown as version
-	ReleaseRevision = releaseDate(2020, 12, 1) -- the date of the latest stable version that is available, optionally pass hours, minutes, and seconds for multiple releases in one day
+	DisplayVersion = "1.13.65 alpha", -- the string that is shown as version
+	ReleaseRevision = releaseDate(2020, 12, 25) -- the date of the latest stable version that is available, optionally pass hours, minutes, and seconds for multiple releases in one day
 }
 DBM.HighestRelease = DBM.ReleaseRevision --Updated if newer version is detected, used by update nags to reflect critical fixes user is missing on boss pulls
 
@@ -309,6 +309,7 @@ DBM.DefaultOptions = {
 	ShortTimerText = true,
 	ChatFrame = "DEFAULT_CHAT_FRAME",
 	CoreSavedRevision = 1,
+	SilentMode = false,
 }
 
 DBM.Bars = DBT:New()
@@ -2420,8 +2421,6 @@ do
 		else
 			if DBM:HasMapRestrictions() then
 				DBM:AddMsg(L.NO_RANGE)
-			elseif IsInInstance() then
-				DBM:AddMsg(L.NO_RANGE_SOON)
 			end
 			if r and (r < 201) then
 				DBM.RangeCheck:Show(r, nil, true, nil, reverse)
@@ -3140,7 +3139,11 @@ do
 	end
 
 	function DBM:GetRaidClass(name)
-		return (raid[name] and raid[name].class) or "UNKNOWN"
+		if raid[name] then
+			return raid[name].class or "UNKNOWN", raid[name].id and GetRaidTargetIndex(raid[name].id) or 0
+		else
+			return "UNKNOWN", 0
+		end
 	end
 
 	function DBM:GetRaidUnitId(name)
@@ -7017,6 +7020,7 @@ do
 				mod = not v.isCustomMod and v
 			end
 			mod = mod or inCombat[1]
+			if mod.noStatistics then return end
 			local hp = mod.highesthealth and mod:GetHighestBossHealth() or mod:GetLowestBossHealth()
 			local hpText = mod.CustomHealthUpdate and mod:CustomHealthUpdate() or hp and ("%d%%"):format(hp) or L.UNKNOWN
 			if mod.vb.phase then
@@ -7036,6 +7040,7 @@ do
 				mod = not v.isCustomMod and v
 			end
 			mod = mod or inCombat[1]
+			if mod.noStatistics then return end
 			local hp = mod.highesthealth and mod:GetHighestBossHealth() or mod:GetLowestBossHealth()
 			local hpText = mod.CustomHealthUpdate and mod:CustomHealthUpdate() or hp and ("%d%%"):format(hp) or L.UNKNOWN
 			if mod.vb.phase then
@@ -8585,7 +8590,7 @@ function DBM:GetBossHP(cIdOrGUID, onlyHighest)
 	if (self:GetCIDFromGUID(guid) == cIdOrGUID or guid == cIdOrGUID) and UnitHealthMax(uId) ~= 0 then
 		if bossHealth[cIdOrGUID] and (UnitHealth(uId) == 0 and not UnitIsDead(uId)) then return bossHealth[cIdOrGUID], uId, UnitName(uId) end--Return last non 0 value if value is 0, since it's last valid value we had.
 		local hp = UnitHealth(uId) / UnitHealthMax(uId) * 100
-		if not onlyHighest or onlyHighest and hp > bossHealth[cIdOrGUID] then
+		if not onlyHighest or onlyHighest and hp > (bossHealth[cIdOrGUID] or 0) then
 			bossHealth[cIdOrGUID] = hp
 		end
 		return hp, uId, UnitName(uId)
@@ -8593,7 +8598,7 @@ function DBM:GetBossHP(cIdOrGUID, onlyHighest)
 	--[[elseif (self:GetCIDFromGUID(UnitGUID("focus")) == cIdOrGUID or UnitGUID("focus") == cIdOrGUID) then--and UnitHealthMax("focus") ~= 0
 		if bossHealth[cIdOrGUID] and (UnitHealth("focus") == 0  and not UnitIsDead("focus")) then return bossHealth[cIdOrGUID], "focus", UnitName("focus") end--Return last non 0 value if value is 0, since it's last valid value we had.
 		local hp = UnitHealth("focus") / UnitHealthMax("focus") * 100
-		if not onlyHighest or onlyHighest and hp > bossHealth[cIdOrGUID] then
+		if not onlyHighest or onlyHighest and hp > (bossHealth[cIdOrGUID] or 0) then
 			bossHealth[cIdOrGUID] = hp
 		end
 		return hp, "focus", UnitName("focus")--]]
@@ -8605,7 +8610,7 @@ function DBM:GetBossHP(cIdOrGUID, onlyHighest)
 			if (self:GetCIDFromGUID(bossguid) == cIdOrGUID or bossguid == cIdOrGUID) and UnitHealthMax(unitID) ~= 0 then
 				if bossHealth[cIdOrGUID] and (UnitHealth(unitID) == 0 and not UnitIsDead(unitID)) then return bossHealth[cIdOrGUID], unitID, UnitName(unitID) end--Return last non 0 value if value is 0, since it's last valid value we had.
 				local hp = UnitHealth(unitID) / UnitHealthMax(unitID) * 100
-				if not onlyHighest or onlyHighest and hp > bossHealth[cIdOrGUID] then
+				if not onlyHighest or onlyHighest and hp > (bossHealth[cIdOrGUID] or 0) then
 					bossHealth[cIdOrGUID] = hp
 				end
 				bossHealthuIdCache[cIdOrGUID] = unitID
@@ -8622,7 +8627,7 @@ function DBM:GetBossHP(cIdOrGUID, onlyHighest)
 				if bossHealth[cIdOrGUID] and (unitHealth == 0 and not UnitIsDead(unitId)) then return bossHealth[cIdOrGUID], unitId, UnitName(unitId) end--Return last non 0 value if value is 0, since it's last valid value we had.
 				if bossHealth[cIdOrGUID] and unitHealth == 100 and bossHealth[cIdOrGUID] < 100 then return bossHealth[cIdOrGUID], unitId, UnitName(unitId) end--Returned 100 when last value was under 100, return last value
 				local hp = UnitHealth(unitId) / UnitHealthMax(unitId) * 100
-				if not onlyHighest or onlyHighest and hp > bossHealth[cIdOrGUID] then
+				if not onlyHighest or onlyHighest and hp > (bossHealth[cIdOrGUID] or 0) then
 					bossHealth[cIdOrGUID] = hp
 				end
 				bossHealthuIdCache[cIdOrGUID] = unitId
@@ -9012,13 +9017,17 @@ do
 					local noStrip = cap:match("noStrip ")
 					if not noStrip then
 						local name = cap
-						local playerClass = DBM:GetRaidClass(name)
+						local playerClass, playerIcon = DBM:GetRaidClass(name)
 						if playerClass ~= "UNKNOWN" then
 							cap = DBM:GetShortServerName(cap)--Only run realm strip function if class color was valid (IE it's an actual playername)
 						end
 						local playerColor = RAID_CLASS_COLORS[playerClass] or color
 						if playerColor then
-							cap = ("|r|cff%.2x%.2x%.2x%s|r|cff%.2x%.2x%.2x"):format(playerColor.r * 255, playerColor.g * 255, playerColor.b * 255, cap, color.r * 255, color.g * 255, color.b * 255)
+							if playerIcon > 0 then
+								cap = ("|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_%d:0|t"):format(playerIcon) .. ("|r|cff%.2x%.2x%.2x%s|r|cff%.2x%.2x%.2x"):format(playerColor.r * 255, playerColor.g * 255, playerColor.b * 255, cap, color.r * 255, color.g * 255, color.b * 255)
+							else
+								cap = ("|r|cff%.2x%.2x%.2x%s|r|cff%.2x%.2x%.2x"):format(playerColor.r * 255, playerColor.g * 255, playerColor.b * 255, cap, color.r * 255, color.g * 255, color.b * 255)
+							end
 						end
 					else
 						cap = cap:sub(9)
@@ -9435,6 +9444,10 @@ do
 		return newYell(self, "position", ...)
 	end
 
+	function bossModPrototype:NewShortPosYell(...)
+		return newYell(self, "shortposition", ...)
+	end
+
 	function bossModPrototype:NewComboYell(...)
 		return newYell(self, "combo", ...)
 	end
@@ -9606,13 +9619,17 @@ do
 		local noStrip = cap:match("noStrip ")
 		if not noStrip then
 			local name = cap
-			local playerClass = DBM:GetRaidClass(name)
+			local playerClass, playerIcon = DBM:GetRaidClass(name)
 			if playerClass ~= "UNKNOWN" then
 				cap = DBM:GetShortServerName(cap)--Only run strip code on valid player classes
 				if DBM.Options.SWarnClassColor then
 					local playerColor = RAID_CLASS_COLORS[playerClass]
 					if playerColor then
-						cap = ("|r|cff%.2x%.2x%.2x%s|r|cff%.2x%.2x%.2x"):format(playerColor.r * 255, playerColor.g * 255, playerColor.b * 255, cap, DBM.Options.SpecialWarningFontCol[1] * 255, DBM.Options.SpecialWarningFontCol[2] * 255, DBM.Options.SpecialWarningFontCol[3] * 255)
+						if playerIcon > 0 then
+							cap = ("|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_%d:0|t"):format(playerIcon) .. ("|r|cff%.2x%.2x%.2x%s|r|cff%.2x%.2x%.2x"):format(playerColor.r * 255, playerColor.g * 255, playerColor.b * 255, cap, DBM.Options.SpecialWarningFontCol[1] * 255, DBM.Options.SpecialWarningFontCol[2] * 255, DBM.Options.SpecialWarningFontCol[3] * 255)
+						else
+							cap = ("|r|cff%.2x%.2x%.2x%s|r|cff%.2x%.2x%.2x"):format(playerColor.r * 255, playerColor.g * 255, playerColor.b * 255, cap, DBM.Options.SpecialWarningFontCol[1] * 255, DBM.Options.SpecialWarningFontCol[2] * 255, DBM.Options.SpecialWarningFontCol[3] * 255)
+						end
 					end
 				end
 			end
@@ -9718,7 +9735,7 @@ do
 						if DBM.Options.SWarnNameInNote and noteText:find(playerName) then
 							noteHasName = 5
 						end
-						if self.announceType and self.announceType:find("switch") then
+						if self.announceType and not self.announceType:find("switch") then
 							noteText = noteText:gsub(">.-<", classColoringFunction)--Class color note text before combining with warning text.
 						end
 						noteText = " ("..noteText..")"

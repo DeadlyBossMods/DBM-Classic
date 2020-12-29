@@ -93,12 +93,12 @@ end
 do
 	function mod:FireballTarget(targetname, uId)
 		if not targetname then return end
+		if self.Options.SetIconOnFireball then
+			self:SetIcon(targetname, 8, 3)
+		end
 		warnFireball:Show(targetname)
 		if targetname == UnitName("player") then
 			yellFireball:Yell()
-		end
-		if self.Options.SetIconOnFireball then
-			self:SetIcon(targetname, 8, 3)
 		end
 	end
 

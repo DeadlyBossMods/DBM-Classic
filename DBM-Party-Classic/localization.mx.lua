@@ -1193,7 +1193,7 @@ L:SetGeneralLocalization{
 L = DBM:GetModLocalization(450)
 
 L:SetGeneralLocalization{
-	name 		= "La Imperdonable"
+	name 		= "El Imperdonable"
 }
 
 -----------------------------

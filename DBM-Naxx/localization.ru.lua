@@ -299,7 +299,6 @@ L:SetGeneralLocalization({
 
 L:SetOptionLocalization({
 	WarningMarkSoon				= "Предупреждать перед следующими знаками",
-	WarningMarkNow				= "Предупреждение для знаков",
 	SpecialWarningMarkOnPlayer	= "Спец-предупреждение, когда >4 знаков на вас"
 })
 
@@ -307,8 +306,7 @@ L:SetTimerLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningMarkSoon				= "Знак %d через 3 секунды",
-	WarningMarkNow				= "Знак %d",
+	WarningMarkSoon				= "Mark soon",--FIXME
 	SpecialWarningMarkOnPlayer	= "%s: %s"
 })
 

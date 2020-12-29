@@ -293,7 +293,6 @@ L:SetGeneralLocalization({
 
 L:SetOptionLocalization({
 	WarningMarkSoon				= "Zeige Vorwarnung für Mal",
-	WarningMarkNow				= "Zeige Warnung für Mal",
 	SpecialWarningMarkOnPlayer	= "Spezialwarnung, wenn sich ein Mal mehr als 4-mal auf dir stapelt"
 })
 
@@ -301,8 +300,7 @@ L:SetTimerLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningMarkSoon				= "Mal %d in 3 Sekunden",
-	WarningMarkNow				= "Mal %d",
+	WarningMarkSoon				= "Mark soon",--FIXME
 	SpecialWarningMarkOnPlayer	= "%s: %s"
 })
 

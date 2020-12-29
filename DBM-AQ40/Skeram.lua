@@ -51,13 +51,13 @@ do
 		if args.spellName == TrueFulfillment then
 			MCTargets[#MCTargets + 1] = args.destName
 			self:Unschedule(warnMCTargets)
+			if self.Options.SetIconOnMC then
+				self:SetIcon(args.destName, self.vb.MCIcon)
+			end
 			if #MCTargets >= 3 then
 				warnMCTargets(self)
 			else
 				self:Schedule(0.5, warnMCTargets, self)
-			end
-			if self.Options.SetIconOnMC then
-				self:SetIcon(args.destName, self.vb.MCIcon)
 			end
 			self.vb.MCIcon = self.vb.MCIcon - 1
 		end
