@@ -164,10 +164,10 @@ do
 				UIDropDownMenu_AddButton(info, 2)
 
 				info = UIDropDownMenu_CreateInfo()
-				info.text = L.INFOFRAME_LINES_TO:format(30)
+				info.text = L.INFOFRAME_LINES_TO:format(40)
 				info.func = setLines
-				info.arg1 = 30
-				info.checked = (DBM.Options.InfoFrameLines == 30)
+				info.arg1 = 40
+				info.checked = (DBM.Options.InfoFrameLines == 40)
 				UIDropDownMenu_AddButton(info, 2)
 			elseif menu == "cols" then
 				info = UIDropDownMenu_CreateInfo()
