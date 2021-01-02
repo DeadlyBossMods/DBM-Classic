@@ -31,16 +31,17 @@ L.BossModLoad_now 			= [[This boss mod is not loaded.
 It will be loaded when you enter the instance.
 You can also click the button to load the mod manually.]]
 
-L.PosX						= 'Position X'
-L.PosY						= 'Position Y'
+L.PosX						= "Position X"
+L.PosY						= "Position Y"
 
-L.MoveMe 					= 'Move me'
-L.Button_OK 				= 'OK'
-L.Button_Cancel 			= 'Cancel'
-L.Button_LoadMod 			= 'Load AddOn'
+L.MoveMe 					= "Move me"
+L.Button_OK 				= "OK"
+L.Button_Cancel 			= "Cancel"
+L.Button_LoadMod 			= "Load AddOn"
 L.Mod_Enabled				= "Enable boss mod"
 L.Mod_Reset					= "Load default options"
 L.Reset 					= "Reset"
+L.Import					= "Import"
 
 L.Enable  					= ENABLE
 L.Disable					= DISABLE
@@ -75,6 +76,7 @@ L.Latency_Text				= "Set max latency sync threshold: %d"
 L.Button_RangeFrame			= "Show/hide range frame"
 L.Button_InfoFrame			= "Show/hide info frame"
 L.Button_TestBars			= "Start test bars"
+L.Button_MoveBars			= "Move bars"
 L.Button_ResetInfoRange		= "Reset Info/Range frames"
 
 L.ModelOptions				= "3D Model Viewer Options"
@@ -84,6 +86,7 @@ L.ModelSoundShort			= SHORT
 L.ModelSoundLong			= TOAST_DURATION_LONG
 
 L.ResizeOptions			 	= "Resize Options"
+L.ResizeInfo				= "You can resize the GUI by clicking the bottom-right corner, and dragging."
 L.Button_ResetWindowSize	= "Reset GUI window size"
 L.Editbox_WindowWidth		= "GUI window width"
 L.Editbox_WindowHeight		= "GUI window height"
@@ -138,6 +141,11 @@ L.SelectModProfileCopy		= "Copy all settings from"
 L.SelectModProfileCopySound	= "Copy just sound setting from"
 L.SelectModProfileCopyNote	= "Copy just note setting from"
 L.SelectModProfileDelete	= "Delete mod settings for"
+
+L.Area_ImportExportProfile	= "Import/Export profiles"
+L.ImportExportInfo			= "Importing will overwrite your current profile, do at your own risk."
+L.ButtonImportProfile		= "Import profile"
+L.ButtonExportProfile		= "Export profile"
 
 -- Tab: Alerts
 L.TabCategory_Alerts	 	= "Alerts"
@@ -322,6 +330,7 @@ L.StripTimerText			= "Strip CD/Next out of timers"
 L.KeepBar					= "Keep timer active until ability cast"
 L.KeepBar2					= "(when supported by mod)"
 L.FadeBar					= "Fade timers for out of range abilities"
+L.BarSkin					= "Bar skin"
 
 -- Tab: Global Disables & Filters
 L.TabCategory_Filters	 	= "Global Disables & Filters"

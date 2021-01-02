@@ -162,6 +162,13 @@ do
 				info.arg1 = 20
 				info.checked = (DBM.Options.InfoFrameLines == 20)
 				UIDropDownMenu_AddButton(info, 2)
+
+				info = UIDropDownMenu_CreateInfo()
+				info.text = L.INFOFRAME_LINES_TO:format(30)
+				info.func = setLines
+				info.arg1 = 30
+				info.checked = (DBM.Options.InfoFrameLines == 30)
+				UIDropDownMenu_AddButton(info, 2)
 			elseif menu == "cols" then
 				info = UIDropDownMenu_CreateInfo()
 				info.text = L.INFOFRAME_LINESDEFAULT
@@ -203,6 +210,13 @@ do
 				info.func = setCols
 				info.arg1 = 5
 				info.checked = (DBM.Options.InfoFrameCols == 5)
+				UIDropDownMenu_AddButton(info, 2)
+
+				info = UIDropDownMenu_CreateInfo()
+				info.text = L.INFOFRAME_COLS_TO:format(6)
+				info.func = setCols
+				info.arg1 = 6
+				info.checked = (DBM.Options.InfoFrameCols == 6)
 				UIDropDownMenu_AddButton(info, 2)
 			end
 		end
@@ -928,8 +942,10 @@ local function onUpdate(frame, table)
 			infoFrame:SetLine(linesShown, icon or leftText, rightText, color.r, color.g, color.b, color2.r, color2.g, color2.b)
 		end
 	end
-	local maxWidth1, maxWidth2 = {}, {}
-	local linesPerRow = mmin(maxLines, mfloor(linesShown / maxCols + 0.99))
+	local maxWidth1, maxWidth2, linesPerRow = {}, {}, 5
+	if linesShown > 5 then
+		linesPerRow = mmin(maxLines, mfloor(linesShown / maxCols + 0.99))
+	end
 	local shouldUpdate = prevLines ~= linesShown
 	for i = 1, linesShown do
 		if shouldUpdate then
@@ -1137,6 +1153,7 @@ function infoFrame:SetLine(lineNum, leftText, rightText, colorR, colorG, colorB,
 		frame.lines[lineNum]:SetFont(font, size, style)
 		frame.lines[lineNum + 1] = frame:CreateFontString("Line" .. lineNum + 1, "OVERLAY", "GameFontNormal")
 		frame.lines[lineNum + 1]:SetFont(font, size, style)
+		frame.lines[lineNum + 1]:SetJustifyH("RIGHT")
 	end
 	frame.lines[lineNum]:SetText(leftText)
 	frame.lines[lineNum]:SetTextColor(colorR or 255, colorG or 255, colorB or 255)

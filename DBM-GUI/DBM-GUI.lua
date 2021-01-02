@@ -1,13 +1,28 @@
 local L = DBM_GUI_L
 
 DBM_GUI = {
-	tabs = {}
+	tabs	= {},
+	panels	= {}
 }
 
 local next, type, pairs, strsplit, tonumber, tostring, ipairs, tinsert, tsort, mfloor = next, type, pairs, strsplit, tonumber, tostring, ipairs, table.insert, table.sort, math.floor
-local C_Timer, GetExpansionLevel, IsAddOnLoaded, GameFontNormal, GameFontNormalSmall, GameFontHighlight, GameFontHighlightSmall = C_Timer, GetExpansionLevel, IsAddOnLoaded, GameFontNormal, GameFontNormalSmall, GameFontHighlight, GameFontHighlightSmall
-local RAID_DIFFICULTY1, RAID_DIFFICULTY2, RAID_DIFFICULTY3, RAID_DIFFICULTY4, PLAYER_DIFFICULTY1, PLAYER_DIFFICULTY2, PLAYER_DIFFICULTY3, PLAYER_DIFFICULTY6, PLAYER_DIFFICULTY_TIMEWALKER, CHALLENGE_MODE, ALL, SPECIALIZATION = RAID_DIFFICULTY1, RAID_DIFFICULTY2, RAID_DIFFICULTY3, RAID_DIFFICULTY4, PLAYER_DIFFICULTY1, PLAYER_DIFFICULTY2, PLAYER_DIFFICULTY3, PLAYER_DIFFICULTY6, PLAYER_DIFFICULTY_TIMEWALKER, CHALLENGE_MODE, ALL, SPECIALIZATION
+local CreateFrame, C_Timer, GetExpansionLevel, IsAddOnLoaded, GameFontNormal, GameFontNormalSmall, GameFontHighlight, GameFontHighlightSmall, ChatFontNormal, UIParent = CreateFrame, C_Timer, GetExpansionLevel, IsAddOnLoaded, GameFontNormal, GameFontNormalSmall, GameFontHighlight, GameFontHighlightSmall, ChatFontNormal, UIParent
+local RAID_DIFFICULTY1, RAID_DIFFICULTY2, RAID_DIFFICULTY3, RAID_DIFFICULTY4, PLAYER_DIFFICULTY1, PLAYER_DIFFICULTY2, PLAYER_DIFFICULTY3, PLAYER_DIFFICULTY6, PLAYER_DIFFICULTY_TIMEWALKER, CHALLENGE_MODE, ALL, CLOSE, SPECIALIZATION = RAID_DIFFICULTY1, RAID_DIFFICULTY2, RAID_DIFFICULTY3, RAID_DIFFICULTY4, PLAYER_DIFFICULTY1, PLAYER_DIFFICULTY2, PLAYER_DIFFICULTY3, PLAYER_DIFFICULTY6, PLAYER_DIFFICULTY_TIMEWALKER, CHALLENGE_MODE, ALL, CLOSE, SPECIALIZATION
 local LibStub, DBM, DBM_GUI, DBM_OPTION_SPACER = _G["LibStub"], DBM, DBM_GUI, DBM_OPTION_SPACER
+local playerName, realmName, playerLevel = UnitName("player"), GetRealmName(), UnitLevel("player")
+
+StaticPopupDialogs["IMPORTPROFILE_ERROR"] = {
+	text = "There are one or more errors importing this profile. Please see the chat for more information. Would you like to continue and reset found errors to default?",
+	button1 = "Import and fix",
+	button2 = "No",
+	OnAccept = function(self)
+		self.importFunc()
+	end,
+	timeout = 0,
+	whileDead = true,
+	hideOnEscape = true,
+	preferredIndex = 3,
+}
 
 do
 	local soundsRegistered = false
@@ -62,8 +77,9 @@ do
 			end
 		end
 		-- Sort LibSharedMedia keys alphabetically (case-insensitive)
+		local hashtable = LibStub("LibSharedMedia-3.0", true):HashTable(mediatype)
 		local keytable = {}
-		for k in next, LibStub("LibSharedMedia-3.0", true):HashTable(mediatype) do
+		for k in next, hashtable do
 			tinsert(keytable, k)
 		end
 		tsort(keytable, function(a, b)
@@ -82,7 +98,7 @@ do
 		end
 		for i = 1, #keytable do
 			if mediatype ~= "sound" or (keytable[i] ~= "None" and keytable[i] ~= "NPCScan") then
-				local v = LibStub("LibSharedMedia-3.0", true):HashTable(mediatype)[keytable[i]]
+				local v = hashtable[keytable[i]]
 				-- Filter duplicates
 				local insertme = true
 				for _, v2 in next, result do
@@ -115,6 +131,142 @@ do
 end
 
 do
+	local LibSerialize = LibStub("LibSerialize")
+	local LibDeflate = LibStub("LibDeflate")
+
+	local canWeWork = LibStub and LibStub("LibDeflate", true) and LibStub("LibSerialize", true)
+	local popupFrame
+
+	local function createPopupFrame()
+		popupFrame = CreateFrame("Frame", nil, UIParent)
+		popupFrame:SetFrameStrata("DIALOG")
+		popupFrame:SetFrameLevel(popupFrame:GetFrameLevel() + 10)
+		popupFrame:SetSize(512, 512)
+		popupFrame:SetPoint("CENTER")
+		popupFrame:SetBackdrop({
+			bgFile		= "Interface\\DialogFrame\\UI-DialogBox-Background", -- 131071
+			edgeFile	= "Interface\\DialogFrame\\UI-DialogBox-Border", -- 131072
+			tile		= true,
+			tileSize	= 32,
+			edgeSize	= 32,
+			insets		= { left = 8, right = 8, top = 8, bottom = 8 }
+		})
+		popupFrame:SetMovable(true)
+		popupFrame:EnableMouse(true)
+		popupFrame:RegisterForDrag("LeftButton")
+		popupFrame:SetScript("OnDragStart", popupFrame.StartMoving)
+		popupFrame:SetScript("OnDragStop", popupFrame.StopMovingOrSizing)
+		popupFrame:Hide()
+		popupFrame.text = ""
+
+		local backdrop = CreateFrame("Frame", nil, popupFrame)
+		backdrop:SetBackdrop({
+			bgFile		= "Interface\\ChatFrame\\ChatFrameBackground",
+			edgeFile	= "Interface\\Tooltips\\UI-Tooltip-Border",
+			tile		= true,
+			tileSize	= 16,
+			edgeSize	= 16,
+			insets		= { left = 3, right = 3, top = 5, bottom = 3 }
+		})
+		backdrop:SetBackdropColor(0.1, 0.1, 0.1, 0.6)
+		backdrop:SetBackdropBorderColor(0.4, 0.4, 0.4)
+		backdrop:SetPoint("TOPLEFT", 15, -15)
+		backdrop:SetPoint("BOTTOMRIGHT", -40, 40)
+
+		local scrollFrame = CreateFrame("ScrollFrame", "TestScrollFrame", popupFrame, "UIPanelScrollFrameTemplate")
+		scrollFrame:SetPoint("TOPLEFT", 15, -22)
+		scrollFrame:SetPoint("BOTTOMRIGHT", -40, 45)
+
+		local input = CreateFrame("EditBox", "TestEditBox", scrollFrame)
+		input:SetTextInsets(7, 7, 3, 3)
+		input:SetFontObject(ChatFontNormal)
+		input:SetMultiLine(true)
+		input:EnableMouse(true)
+		input:SetAutoFocus(false)
+		input:SetMaxBytes(nil)
+		input:SetScript("OnMouseUp", input.HighlightText)
+		input:SetScript("OnEscapePressed", input.ClearFocus)
+		input:HighlightText()
+		input:SetFocus()
+		scrollFrame:SetScrollChild(input)
+		input:ClearAllPoints()
+		input:SetPoint("TOPLEFT", scrollFrame, "TOPLEFT")
+		input:SetPoint("BOTTOMRIGHT", scrollFrame, "BOTTOMRIGHT")
+		input:SetWidth(452)
+
+		local import = CreateFrame("Button", nil, popupFrame, "UIPanelButtonTemplate")
+		import:SetPoint("BOTTOMRIGHT", -120, 13)
+		import:SetFrameLevel(import:GetFrameLevel() + 1)
+		import:SetSize(100, 20)
+		import:SetText(L.Import)
+		import:SetScript("OnClick", function()
+			if popupFrame:VerifyImport(input:GetText()) then
+				input:ClearFocus()
+				popupFrame:Hide()
+			end
+		end)
+		popupFrame.import = import
+
+		local close = CreateFrame("Button", nil, popupFrame, "UIPanelButtonTemplate")
+		close:SetPoint("LEFT", import, "RIGHT", 5, 0)
+		close:SetFrameLevel(close:GetFrameLevel() + 1)
+		close:SetSize(100, 20)
+		close:SetText(CLOSE)
+		close:SetScript("OnClick", function()
+			input:ClearFocus()
+			popupFrame:Hide()
+		end)
+
+		input:SetScript("OnChar", function()
+			if not import:IsShown() then
+				input:SetText(popupFrame.text)
+				input:HighlightText()
+			end
+		end)
+
+		function popupFrame:SetText(text)
+			input:SetText(text)
+			self.text = text
+		end
+	end
+
+	function DBM_GUI:CreateExportProfile(export)
+		if not canWeWork then
+			DBM:AddMsg("Missing required libraries to export.")
+			return
+		end
+		if not popupFrame then
+			createPopupFrame()
+		end
+		popupFrame.import:Hide()
+		popupFrame:SetText(LibDeflate:EncodeForPrint(LibDeflate:CompressDeflate(LibSerialize:Serialize(export), {level = 9})))
+		popupFrame:Show()
+	end
+
+	function DBM_GUI:CreateImportProfile(importFunc)
+		if not canWeWork then
+			DBM:AddMsg("Missing required libraries to export.")
+			return
+		end
+		if not popupFrame then
+			createPopupFrame()
+		end
+		function popupFrame:VerifyImport(import)
+			local success, deserialized = LibSerialize:Deserialize(LibDeflate:DecompressDeflate(LibDeflate:DecodeForPrint(import)))
+			if not success then
+				DBM:AddMsg("Failed to deserialize")
+				return false
+			end
+			importFunc(deserialized)
+			return true
+		end
+		popupFrame.import:Show()
+		popupFrame:SetText("")
+		popupFrame:Show()
+	end
+end
+
+do
 	local framecount = 0
 
 	function DBM_GUI:GetNewID()
@@ -141,23 +293,6 @@ function DBM_GUI:ShowHide(forceshow)
 			self:UpdateModList()
 			optionsFrame:Show()
 		end
-	end
-end
-
-do
-	local frames = {}
-
-	function DBM_GUI:AddFrame(name)
-		tinsert(frames, name)
-	end
-
-	function DBM_GUI:IsPresent(name)
-		for _, v in ipairs(frames) do
-			if v == name then
-				return true
-			end
-		end
-		return false
 	end
 end
 
@@ -387,6 +522,65 @@ do
 				copyModNoteProfile:GetScript("OnShow")()
 				deleteModProfile:GetScript("OnShow")()
 			end
+
+			-- Start import/export
+			local function actuallyImport(importTable)
+				local profileID = playerLevel > 9 and DBM_UseDualProfile and (GetSpecialization() or 1) or 0
+				for _, id in ipairs(DBM.ModLists[addon.modId]) do
+					_G[addon.modId:gsub("-", "") .. "_AllSavedVars"][playerName .. "-" .. realmName][id][profileID] = importTable[id]
+					DBM:GetModByName(id).Options = importTable[id]
+				end
+				DBM:AddMsg("Profile imported.")
+			end
+
+			local importExportProfilesArea = panel:CreateArea(L.Area_ImportExportProfile)
+			importExportProfilesArea:CreateText(L.ImportExportInfo, nil, true)
+			local exportProfile = importExportProfilesArea:CreateButton(L.ButtonExportProfile, 120, 20, function()
+				local exportProfile = {}
+				local profileID = playerLevel > 9 and DBM_UseDualProfile and (GetSpecialization() or 1) or 0
+				for _, id in ipairs(DBM.ModLists[addon.modId]) do
+					exportProfile[id] = _G[addon.modId:gsub("-", "") .. "_AllSavedVars"][playerName .. "-" .. realmName][id][profileID]
+				end
+				DBM_GUI:CreateExportProfile(exportProfile)
+			end)
+			exportProfile:SetPoint("TOPLEFT", 12, -20)
+			local importProfile = importExportProfilesArea:CreateButton(L.ButtonImportProfile, 120, 20, function()
+				DBM_GUI:CreateImportProfile(function(importTable)
+					local errors = {}
+					for id, table in pairs(importTable) do
+						-- Check if sound packs are missing
+						for settingName, settingValue in pairs(table) do
+							local ending = settingName:sub(-6):lower()
+							if ending == "cvoice" or ending == "wsound" then -- CVoice or SWSound (s is ignored so we only have to sub once)
+								if type(settingValue) == "string" and settingValue:lower() ~= "none" and not DBM:ValidateSound(settingValue, true, true) then
+									tinsert(errors, id .. "-" .. settingName)
+								end
+							end
+						end
+					end
+					-- Create popup confirming if they wish to continue (and therefor resetting to default)
+					if #errors > 0 then
+						local popup = StaticPopup_Show("IMPORTPROFILE_ERROR")
+						if popup then
+							popup.importFunc = function()
+								local modOptions = {}
+								for _, soundSetting in ipairs(errors) do
+									local modID, settingName = soundSetting:match("([^-]+)-([^-]+)")
+									if not modOptions[modID] then
+										modOptions[modID] = DBM:GetModByName(modID).DefaultOptions
+									end
+									importTable[modID][settingName] = modOptions[modID][settingName]
+								end
+								actuallyImport(importTable)
+							end
+						end
+					else
+						actuallyImport(importTable)
+					end
+				end)
+			end)
+			importProfile.myheight = 0
+			importProfile:SetPoint("LEFT", exportProfile, "RIGHT", 2, 0)
 		end
 
 		if addon.noStatistics then
@@ -394,12 +588,12 @@ do
 		end
 
 		local ptext = panel:CreateText(L.BossModLoaded:format(subtab and addon.subTabs[subtab] or addon.name), nil, nil, GameFontNormal)
-		ptext:SetPoint("TOPLEFT", panel.frame, "TOPLEFT", 10, modProfileArea and -165 or -10)
+		ptext:SetPoint("TOPLEFT", panel.frame, "TOPLEFT", 10, modProfileArea and -235 or -10)
 
 		local singleLine, doubleLine, noHeaderLine = 0, 0, 0
 		local area = panel:CreateArea()
 		area.frame.isStats = true
-		area.frame:SetPoint("TOPLEFT", 10, modProfileArea and -180 or -25)
+		area.frame:SetPoint("TOPLEFT", 10, modProfileArea and -250 or -25)
 
 		local statOrder = {
 			"lfr", "normal", "normal25", "heroic", "heroic25", "mythic", "challenge", "timewalker"
@@ -544,7 +738,7 @@ do
 
 			if not addon.panel then
 				-- Create a Panel for "Naxxramas" "Eye of Eternity" ...
-				addon.panel = category[addon.category]:CreateNewPanel(addon.modId or "Error: No-modId", nil, false, nil, addon.name)
+				addon.panel = category[addon.category]:CreateNewPanel(addon.name or "Error: No-modId")
 
 				if not IsAddOnLoaded(addon.modId) then
 					local button = addon.panel:CreateButton(L.Button_LoadMod, 200, 30)
