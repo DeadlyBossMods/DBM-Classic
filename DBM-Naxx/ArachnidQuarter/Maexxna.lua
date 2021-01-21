@@ -22,7 +22,7 @@ local specWarnWebWrap	= mod:NewSpecialWarningSwitch(28622, "RangedDps|Healer", n
 local yellWebWrap		= mod:NewYell(28622)
 
 local timerWebSpray		= mod:NewNextTimer(40.4, 29484, nil, nil, nil, 2)-- 40.43-40.54
-local timerWebWrap		= mod:NewNextTimer(39.6, 28622, "RangedDps|Healer", nil, nil, 2)-- 39.593-40.885
+local timerWebWrap		= mod:NewNextTimer(39.6, 28622, nil, "RangedDps|Healer", nil, 3)-- 39.593-40.885
 local timerSpider		= mod:NewTimer(30, "TimerSpider", 17332, nil, nil, 1)
 
 function mod:OnCombatStart(delay)
