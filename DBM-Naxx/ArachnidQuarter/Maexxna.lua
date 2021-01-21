@@ -18,7 +18,7 @@ local warnWebSprayNow	= mod:NewSpellAnnounce(29484, 3)
 local warnSpidersSoon	= mod:NewAnnounce("WarningSpidersSoon", 2, 17332)
 local warnSpidersNow	= mod:NewAnnounce("WarningSpidersNow", 4, 17332)
 
-local specWarnWebWrap	= mod:NewSpecialWarningSwitch(28622, "RangedDps|Healer", 2, nil, 1, 2)
+local specWarnWebWrap	= mod:NewSpecialWarningSwitch(28622, "RangedDps|Healer", nil, 2, 1, 2)
 local yellWebWrap		= mod:NewYell(28622)
 
 local timerWebSpray		= mod:NewNextTimer(40.4, 29484, nil, nil, nil, 2)-- 40.43-40.54
