@@ -32,7 +32,7 @@ local timerMarkCD				= mod:NewTimer(12.9, "timerMark", 28835, nil, nil, 3)-- 12.
 local timerMeteorCD				= mod:NewCDTimer(12.9, 28884, nil, nil, nil, 3)-- 12.9-14.6
 local timerVoidZoneCD			= mod:NewCDTimer(12.9, 28863, nil, nil, nil, 3)-- 12.9-16
 local timerHolyWrathCD			= mod:NewCDTimer(11.3, 28883, nil, nil, nil, 3)-- 11.3-14.5
-local timerBoneBarrier			= mod:NewTargetTimer(20, 28883, nil, nil, nil, 5)
+local timerBoneBarrier			= mod:NewTargetTimer(20, 29061, nil, nil, nil, 5)
 
 mod.vb.markCount = 0
 
