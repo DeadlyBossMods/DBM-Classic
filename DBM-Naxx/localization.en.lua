@@ -280,6 +280,7 @@ L:SetMiscLocalization({
 	WarningWave3	= "%d %s, %d %s and %d %s",
 	Trainee			= "Trainees",
 	Knight			= "Knights",
+	Horse			= "Spectral Horse",
 	Rider			= "Riders"
 })
 

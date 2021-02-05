@@ -10,6 +10,8 @@ mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_SUCCESS 28832 28833 28834 28835 28863 28883 28884",
+	"SPELL_AURA_APPLIED 29061",
+	"SPELL_AURA_REMOVED 29061",
 	"SPELL_AURA_APPLIED_DOSE 28832 28833 28834 28835"
 )
 
@@ -20,6 +22,7 @@ local warnMarkSoon				= mod:NewAnnounce("WarningMarkSoon", 1, 28835, false)
 local warnMeteor				= mod:NewSpellAnnounce(28884, 4)
 local warnVoidZone				= mod:NewTargetNoFilterAnnounce(28863, 3)--Only warns for nearby targets, to reduce spam
 local warnHolyWrath				= mod:NewTargetNoFilterAnnounce(28883, 3, nil, false)
+local warnBoneBarrier			= mod:NewTargetNoFilterAnnounce(29061, 2)
 
 local specWarnMarkOnPlayer		= mod:NewSpecialWarning("SpecialWarningMarkOnPlayer", nil, nil, nil, 1, 6)
 local specWarnVoidZone			= mod:NewSpecialWarningYou(28863, nil, nil, nil, 1, 2)
@@ -29,6 +32,7 @@ local timerMarkCD				= mod:NewTimer(12.9, "timerMark", 28835, nil, nil, 3)-- 12.
 local timerMeteorCD				= mod:NewCDTimer(12.9, 28884, nil, nil, nil, 3)-- 12.9-14.6
 local timerVoidZoneCD			= mod:NewCDTimer(12.9, 28863, nil, nil, nil, 3)-- 12.9-16
 local timerHolyWrathCD			= mod:NewCDTimer(11.3, 28883, nil, nil, nil, 3)-- 11.3-14.5
+local timerBoneBarrier			= mod:NewTargetTimer(20, 29061, nil, nil, nil, 5)
 
 mod.vb.markCount = 0
 
@@ -76,6 +80,22 @@ do
 				specWarnMarkOnPlayer:Show(args.spellName, args.amount)
 				specWarnMarkOnPlayer:Play("stackhigh")
 			end
+		end
+	end
+end
+
+do
+	local BoneBarrier = DBM:GetSpellInfo(29061)
+	function mod:SPELL_AURA_APPLIED(args)
+		if args.spellName == BoneBarrier then
+			warnBoneBarrier:Show(args.destName)
+			timerBoneBarrier:Start(20, args.destName)
+		end
+	end
+
+	function mod:SPELL_AURA_REMOVED(args)
+		if args.spellName == BoneBarrier then
+			timerBoneBarrier:Stop(args.destName)
 		end
 	end
 end
