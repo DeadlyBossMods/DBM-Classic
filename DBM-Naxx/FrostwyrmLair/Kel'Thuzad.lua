@@ -72,7 +72,6 @@ end
 
 function mod:OnCombatStart(delay)
 	self.vb.phase = 1
-	table.wipe(chainsTargets)
 	table.wipe(frostBlastTargets)
 	self.vb.warnedAdds = false
 	self.vb.MCIcon1 = 1
