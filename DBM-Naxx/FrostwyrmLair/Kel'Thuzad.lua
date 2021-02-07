@@ -51,7 +51,6 @@ mod.vb.warnedAdds = false
 mod.vb.MCIcon1 = 1
 mod.vb.MCIcon2 = 5
 local frostBlastTargets = {}
-local chainsTargets = {}
 
 local function AnnounceBlastTargets(self)
 	if self.Options.SetIconOnFrostTomb2 then
@@ -134,23 +133,21 @@ do
 			end
 		--elseif args.spellId == 28410 then -- Chains of Kel'Thuzad
 		elseif args.spellName == ChainsofKT then
-			chainsTargets[#chainsTargets + 1] = args.destName
 			if self:AntiSpam() then
-				table.wipe(chainsTargets)
 				self.vb.MCIcon1 = 1
 				self.vb.MCIcon2 = 5
 				--timerMCCD:Start(60)--60 seconds?
 			end
 			if self.Options.SetIconOnMC2 then
-	                        local destIndex = UnitInRaid(args.destName)
-        	                local _,_,group = GetRaidRosterInfo(destIndex)
-                	        if group == 1 or group == 3 or group ==5 or group == 7 then
-                        	        self:SetIcon(args.destName, self.vb.MCIcon1)
-                                	self.vb.MCIcon1 = self.vb.MCIcon1 + 1
-	                        else
-        	                        self:SetIcon(args.destName, self.vb.MCIcon2)
-                	                self.vb.MCIcon2 = self.vb.MCIcon2 - 1
-                        	end
+				local destIndex = UnitInRaid(args.destName)
+				local _, _, group = GetRaidRosterInfo(destIndex)
+				if group == 1 or group == 3 or group == 5 or group == 7 then
+					self:SetIcon(args.destName, self.vb.MCIcon1)
+					self.vb.MCIcon1 = self.vb.MCIcon1 + 1
+				else
+					self:SetIcon(args.destName, self.vb.MCIcon2)
+					self.vb.MCIcon2 = self.vb.MCIcon2 - 1
+				end
 			end
 			warnChainsTargets:CombinedShow(1, args.destName)
 		end
