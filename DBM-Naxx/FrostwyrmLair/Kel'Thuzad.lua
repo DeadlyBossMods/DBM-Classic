@@ -53,13 +53,6 @@ mod.vb.MCIcon2 = 5
 local frostBlastTargets = {}
 local chainsTargets = {}
 
-local function AnnounceChainsTargets(self)
-	warnChainsTargets:Show(table.concat(chainsTargets, "< >"))
-	table.wipe(chainsTargets)
-	self.vb.MCIcon1 = 1
-	self.vb.MCIcon2 = 5
-end
-
 local function AnnounceBlastTargets(self)
 	if self.Options.SetIconOnFrostTomb2 then
 		for i = #frostBlastTargets, 1, -1 do
@@ -143,6 +136,7 @@ do
 		elseif args.spellName == ChainsofKT then
 			chainsTargets[#chainsTargets + 1] = args.destName
 			if self:AntiSpam() then
+				table.wipe(chainsTargets)
 				self.vb.MCIcon1 = 1
 				self.vb.MCIcon2 = 5
 				--timerMCCD:Start(60)--60 seconds?
