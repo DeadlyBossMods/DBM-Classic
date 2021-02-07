@@ -139,9 +139,8 @@ do
 				--timerMCCD:Start(60)--60 seconds?
 			end
 			if self.Options.SetIconOnMC2 then
-				local destIndex = UnitInRaid(args.destName)
-				local _, _, group = GetRaidRosterInfo(destIndex)
-				if group == 1 or group == 3 or group == 5 or group == 7 then
+				local _, _, group = GetRaidRosterInfo(UnitInRaid(args.destName))
+				if group % 2 == 1 then
 					self:SetIcon(args.destName, self.vb.MCIcon1)
 					self.vb.MCIcon1 = self.vb.MCIcon1 + 1
 				else
