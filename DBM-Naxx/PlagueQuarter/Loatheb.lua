@@ -93,6 +93,12 @@ function mod:OnCombatStart(delay)
 	end
 end
 
+function mod:OnCombatEnd()
+	if DBM.InfoFrame:IsShown() then
+		DBM.InfoFrame:Hide()
+	end
+end
+
 do
 	local Spore, InevitableDoom, RemoveCurse = DBM:GetSpellInfo(29234), DBM:GetSpellInfo(29204), DBM:GetSpellInfo(30281)
 	function mod:SPELL_CAST_SUCCESS(args)
