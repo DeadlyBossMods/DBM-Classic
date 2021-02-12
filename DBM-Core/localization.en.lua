@@ -55,7 +55,7 @@ L.RAID_DOWN_L						= "%s cleared after %s! Your fastest clear took %s."
 L.RAID_DOWN_NR						= "%s cleared after %s! This is a new record! (Old record was %s)."
 L.GUILD_BOSS_DOWN					= "%s has been defeated by guild after %s!"
 L.COMBAT_ENDED_AT					= "Combat against %s (%s) ended after %s."
-L.COMBAT_ENDED_AT_LONG				= "Combat against %s (%s) ended after %s. You have %d total wipes on this difficulty."
+L.COMBAT_ENDED_AT_LONG				= "Combat against %s (%s) ended after %s. You have %d total wipe(s) on this difficulty."
 L.GUILD_COMBAT_ENDED_AT				= "Guild has wiped on %s (%s) after %s."
 L.COMBAT_STATE_RECOVERED			= "%s was engaged %s ago, recovering timers..."
 L.TRANSCRIPTOR_LOG_START			= "Transcriptor logging started."
@@ -261,6 +261,7 @@ L.TIMER_USAGE	= {
 }
 
 L.ERROR_NO_PERMISSION				= "You don't have the required permission to do this."
+L.TIME_TOO_SHORT					= "Pull timer must be longer than 3 seconds."
 
 --Common Locals
 L.NEXT								= "Next %s"

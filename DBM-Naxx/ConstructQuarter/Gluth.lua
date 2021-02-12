@@ -33,7 +33,7 @@ end
 
 do
 	local Roar = DBM:GetSpellInfo(29685)
-	function mod:SPELL_AURA_APPLIED(args)
+	function mod:SPELL_CAST_SUCCESS(args)
 		--if args.spellId == 29685 then
 		if args.spellName == Roar then
 			warnRoar:Show()

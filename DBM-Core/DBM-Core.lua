@@ -72,8 +72,8 @@ end
 
 DBM = {
 	Revision = parseCurseDate("@project-date-integer@"),
-	DisplayVersion = "1.13.65 alpha", -- the string that is shown as version
-	ReleaseRevision = releaseDate(2020, 12, 25) -- the date of the latest stable version that is available, optionally pass hours, minutes, and seconds for multiple releases in one day
+	DisplayVersion = "1.13.69 alpha", -- the string that is shown as version
+	ReleaseRevision = releaseDate(2021, 1, 27) -- the date of the latest stable version that is available, optionally pass hours, minutes, and seconds for multiple releases in one day
 }
 DBM.HighestRelease = DBM.ReleaseRevision --Updated if newer version is detected, used by update nags to reflect critical fixes user is missing on boss pulls
 
@@ -563,15 +563,12 @@ local function checkForSafeSender(sender, checkFriends, checkGuild, filterRaid)
 			end
 		end
 		--Check if it's a non bnet friend
-		local nf = C_FriendList.GetNumFriends()
-		for i = 1, nf do
-			local toonName = C_FriendList.GetFriendInfo(i)
-			if toonName == sender then
-				if filterRaid and DBM:GetRaidUnitId(toonName) then--Person is in raid group and filter raid enabled
-					return false--just set sender as unsafe
-				else
-					return true
-				end
+		local friendInfo = C_FriendList.GetFriendInfo(sender)
+		if friendInfo then
+			if filterRaid and DBM:GetRaidUnitId(friendInfo.name) then--Person is in raid group and filter raid enabled
+				return false--just set sender as unsafe
+			else
+				return true
 			end
 		end
 	end
@@ -2046,8 +2043,11 @@ end
 do
 	local trackedHudMarkers = {}
 	local function Pull(timer)
-		if (DBM:GetRaidRank(playerName) == 0 and IsInGroup()) or select(2, IsInInstance()) == "pvp" or IsEncounterInProgress() or (timer > 0 and timer < 3) then
+		if (DBM:GetRaidRank(playerName) == 0 and IsInGroup()) or select(2, IsInInstance()) == "pvp" or IsEncounterInProgress() then
 			return DBM:AddMsg(L.ERROR_NO_PERMISSION)
+		end
+		if timer > 0 and timer < 3 then
+			return DBM:AddMsg(L.TIME_TOO_SHORT)
 		end
 		local targetName = (UnitExists("target") and UnitIsEnemy("player", "target")) and UnitName("target") or nil--Filter non enemies in case player isn't targetting bos but another player/pet
 		if targetName then
@@ -2981,8 +2981,17 @@ do
 			if #iconSeter > 0 then
 				tsort(iconSeter, function(a, b) return a > b end)
 				local elected = iconSeter[1]
-				if playerName == elected:sub(elected:find(" ") + 1) then
+				if playerName == elected:sub(elected:find(" ") + 1) then--Highest revision in raid, auto allow, period, even if out of date, you're revision in raid that has assist
 					enableIcons = true
+					DBM:Debug("You have been elected as primary icon setter for raid for having newest revision in raid that has assist/lead", 2)
+				end
+				--Initiate backups that at least have latest version, in case the main elect doesn't have icons enabled
+				for i = 2, 3 do--Allow top 3 revisions in raid to set icons, instead of just top one
+					local electedBackup = iconSeter[i]
+					if updateNotificationDisplayed == 0 and electedBackup and playerName == electedBackup:sub(elected:find(" ") + 1) then
+						enableIcons = true
+						DBM:Debug("You have been elected as one of 2 backup icon setters in raid that have assist/lead", 2)
+					end
 				end
 			end
 		elseif IsInGroup() then
@@ -4052,14 +4061,24 @@ do
 			savedDifficulty, difficultyText = currentDifficulty, currentDifficultyText
 		end
 		self:Debug("Instance Check fired with mapID "..mapID.." and difficulty "..difficulty, 2)
+		-- Auto Logging for entire zone if record only bosses is off
+		-- This Bypasses Same ID check because we still need to recheck this on keystone difficulty check
+		if not self.Options.RecordOnlyBosses then
+			if LastInstanceType == "raid" or LastInstanceType == "party" then
+				self:StartLogging(0, nil)
+			else
+				self:StopLogging()
+			end
+		end
+		--These can still change even if mapID doesn't
+		difficultyIndex = difficulty
+		LastGroupSize = instanceGroupSize
 		if LastInstanceMapID == mapID then
 			self:TransitionToDungeonBGM()
 			self:Debug("No action taken because mapID hasn't changed since last check", 2)
 			return
 		end--ID hasn't changed, don't waste cpu doing anything else (example situation, porting into garrosh stage 4 is a loading screen)
 		LastInstanceMapID = mapID
-		LastGroupSize = instanceGroupSize
-		difficultyIndex = difficulty
 		if instanceType == "none" then
 			LastInstanceType = "none"
 			if not targetEventsRegistered then
@@ -4085,14 +4104,6 @@ do
 			DBM.HudMap:Disable()
 			if DBM.RangeCheck:IsRadarShown() then
 				DBM.RangeCheck:Hide(true)
-			end
-		end
-		-- Auto Logging for entire zone if record only bosses is off
-		if not self.Options.RecordOnlyBosses then
-			if LastInstanceType == "raid" or LastInstanceType == "party" then
-				self:StartLogging(0, nil)
-			else
-				self:StopLogging()
 			end
 		end
 		if self.Options.ShowReminders then
@@ -4268,7 +4279,7 @@ end
 
 do
 	local function checkForActualPull()
-		if DBM.Options.RecordOnlyBosses and #inCombat == 0 then
+		if (DBM.Options.RecordOnlyBosses and #inCombat == 0) or difficultyIndex ~= 8 then
 			DBM:StopLogging()
 		end
 	end
@@ -4460,7 +4471,7 @@ do
 			end
 		end
 		if DBM.Options.RecordOnlyBosses then
-			DBM:StartLogging(timer, checkForActualPull)
+			DBM:StartLogging(timer, checkForActualPull)--Start logging here to catch pre pots.
 		end
 		--[[if DBM.Options.CheckGear then
 			local bagilvl, equippedilvl = GetAverageItemLevel()
@@ -5890,7 +5901,7 @@ do
 	local tooltipsHidden = false
 	--Delayed Guild Combat sync object so we allow time for RL to disable them
 	local function delayedGCSync(modId, difficultyIndex, name, thisTime, wipeHP)
-		if not statusGuildDisabled then
+		if not statusGuildDisabled and updateNotificationDisplayed == 0 then
 			if thisTime then--Wipe event
 				SendAddonMessage("D4C", "GCE\t"..modId.."\t7\t1\t"..thisTime.."\t"..difficultyIndex.."\t"..name.."\t"..wipeHP, "GUILD")
 			else
@@ -6119,7 +6130,7 @@ do
 					self:PlaySoundFile(self.Options.EventSoundEngage2, nil, true)
 				end
 				fireEvent("DBM_MusicStart", "BossEncounter")
-				if self.Options.EventSoundMusic and self.Options.EventSoundMusic ~= "None" and self.Options.EventSoundMusic ~= "" and not (self.Options.EventMusicMythicFilter and (savedDifficulty == "mythic" or savedDifficulty == "challenge")) then
+				if self.Options.EventSoundMusic and self.Options.EventSoundMusic ~= "None" and self.Options.EventSoundMusic ~= "" and not (self.Options.EventMusicMythicFilter and (savedDifficulty == "mythic" or savedDifficulty == "challenge")) and not mod.noStatistics then
 					if not self.Options.RestoreSettingMusic then
 						self.Options.RestoreSettingMusic = tonumber(GetCVar("Sound_EnableMusic")) or 1
 						if self.Options.RestoreSettingMusic == 0 then
@@ -6130,7 +6141,7 @@ do
 					end
 					local path = "MISSING"
 					if self.Options.EventSoundMusic == "Random" then
-						local usedTable = self.Options.EventSoundMusicCombined and DBM.Music or DBM.BattleMusic
+						local usedTable = self.Options.EventSoundMusicCombined and DBM.Music or mod.inScenario and DBM.DungeonMusic or DBM.BattleMusic
 						if #usedTable >= 3 then
 							local random = fastrandom(3, #usedTable)
 							path = usedTable[random].value
@@ -6448,10 +6459,6 @@ do
 				autoLog = true
 				self:AddMsg("|cffffff00"..COMBATLOGENABLED.."|r")
 				LoggingCombat(true)
-				if checkFunc then
-					self:Unschedule(checkFunc)
-					self:Schedule(timer+10, checkFunc)--But if pull was canceled and we don't have a boss engaged within 10 seconds of pull timer ending, abort log
-				end
 			end
 		end
 		local transcriptor = _G["Transcriptor"]
@@ -6461,10 +6468,10 @@ do
 				self:AddMsg("|cffffff00"..L.TRANSCRIPTOR_LOG_START.."|r")
 				transcriptor:StartLog(1)
 			end
-			if checkFunc then
-				self:Unschedule(checkFunc)
-				self:Schedule(timer+10, checkFunc)--But if pull was canceled and we don't have a boss engaged within 10 seconds of pull timer ending, abort log
-			end
+		end
+		if checkFunc and (autoLog or autoTLog) then
+			self:Unschedule(checkFunc)
+			self:Schedule(timer+10, checkFunc)--But if pull was canceled and we don't have a boss engaged within 10 seconds of pull timer ending, abort log
 		end
 	end
 
@@ -6593,54 +6600,87 @@ function DBM:HasMapRestrictions()
 end
 
 do
-	local LSMMediaCacheBuilt = false
-	local sharedMediaFileCache = {}
+	local LSMMediaCacheBuilt, sharedMediaFileCache, validateCache = false, {}, {}
+
 	local function buildLSMFileCache()
+		local hashtable = LibStub("LibSharedMedia-3.0", true):HashTable("sound")
 		local keytable = {}
-		for k in next, LibStub("LibSharedMedia-3.0", true):HashTable("sound") do
+		for k in next, hashtable do
 			tinsert(keytable, k)
-			for i=1,#keytable do
-				local key = keytable[i]
-				local path = LibStub("LibSharedMedia-3.0", true):HashTable("sound")[key]
-				sharedMediaFileCache[path] = true
-			end
+		end
+		for i = 1, #keytable do
+			sharedMediaFileCache[hashtable[keytable[i]]] = true
 		end
 		LSMMediaCacheBuilt = true
 	end
+
+	function DBM:ValidateSound(path, log, ignoreCustom)
+		-- Validate LibSharedMedia
+		if not LSMMediaCacheBuilt then
+			buildLSMFileCache()
+		end
+		if not sharedMediaFileCache[path] and not path:find("DBM") then
+			if log then
+				if ignoreCustom then
+					-- This uses debug print because it has potential to cause mid fight spam
+					self:Debug("PlaySoundFile failed do to missing media at " .. path .. ". To fix this, re-add missing sound or change setting using this sound to a different sound.")
+				else
+					AddMsg(self, "PlaySoundFile failed do to missing media at " .. path .. ". To fix this, re-add missing sound or change setting using this sound to a different sound.")
+				end
+			end
+			return false
+		end
+		-- Validate audio packs
+		if not validateCache[path] then
+			local splitTable = {}
+			for split in string.gmatch(path, "[^\\/]+") do -- Matches \ and / as path delimiters (incl. more than one)
+				tinsert(splitTable, split)
+			end
+			if #splitTable >= 3 and splitTable[3]:lower() == "dbm-customsounds" then
+				validateCache[path] = {
+					exists = ignoreCustom or false
+				}
+			elseif #splitTable >= 3 and splitTable[1]:lower() == "interface" and splitTable[2]:lower() == "addons" then -- We're an addon sound
+				validateCache[path] = {
+					exists = IsAddOnLoaded(splitTable[3]),
+					AddOn = splitTable[3]
+				}
+			else
+				validateCache[path] = {
+					exists = true
+				}
+			end
+		end
+		if validateCache[path] and not validateCache[path].exists then
+			if log then
+				-- This uses actual user print because these events only occure at start or end of instance or fight.
+				AddMsg(self, "PlaySoundFile failed do to missing media at " .. path .. ". To fix this, re-add/enable " .. validateCache[path].AddOn .. " or change setting using this sound to a different sound.")
+			end
+			return false
+		end
+		return true
+	end
+
 	local function playSound(self, path, ignoreSFX, validate)
+		if self.Options.SilentMode or path == "" or path == "None" then
+			return
+		end
 		local soundSetting = self.Options.UseSoundChannel
 		if type(path) == "number" then
-			self:Debug("PlaySound playing with media "..path, 3)
+			self:Debug("PlaySound playing with media " .. path, 3)
 			if soundSetting == "Dialog" then
 				PlaySound(path, "Dialog", false)
 			elseif ignoreSFX or soundSetting == "Master" then
 				PlaySound(path, "Master", false)
 			else
-				PlaySound(path)--using SFX channel, leave forceNoDuplicates on.
+				PlaySound(path) -- Using SFX channel, leave forceNoDuplicates on.
 			end
 			fireEvent("DBM_PlaySound", path)
 		else
-			if validate then
-				--Validate LibSharedMedia
-				if not LSMMediaCacheBuilt then buildLSMFileCache() end
-				if not sharedMediaFileCache[path] and not path:find("DBM") then
-					--This uses debug print because it has potential to cause mid fight spam
-					self:Debug("PlaySoundFile failed do to missing media at "..path..". To fix this, re-add missing sound or change setting using this sound to a different sound.")
-					return
-				end
-				--Validate Event packs
-				if not _G["DBMVPSoundEventsPack"] and path:find("DBM-SoundEventsPack") then
-					--This uses actual user print because these events only occure at start or end of instance or fight.
-					AddMsg(self, "PlaySoundFile failed do to missing media at "..path..". To fix this, re-add/enable DBM-SoundEventsPack or change setting using this sound to a different sound.")
-					return
-				end
-				if not _G["DBMVPSMGPack"] and path:find("DBM-SMGEventsPack") then
-					--This uses actual user print because these events only occure at start or end of instance or fight.
-					AddMsg(self, "PlaySoundFile failed do to missing media at "..path..". To fix this, re-add/enable DBM-SMGEventsPack or change setting using this sound to a different sound.")
-					return
-				end
+			if validate and not self:ValidateSound(path, true, true) then
+				return
 			end
-			self:Debug("PlaySoundFile playing with media "..path, 3)
+			self:Debug("PlaySoundFile playing with media " .. path, 3)
 			if soundSetting == "Dialog" then
 				PlaySoundFile(path, "Dialog")
 			elseif ignoreSFX or soundSetting == "Master" then
@@ -6653,12 +6693,10 @@ do
 	end
 
 	function DBM:PlaySoundFile(path, ignoreSFX, validate)
-		if self.Options.SilentMode or path == "" or path == "None" then return end
 		playSound(self, path, ignoreSFX, validate)
 	end
 
 	function DBM:PlaySound(path, ignoreSFX, validate)
-		if self.Options.SilentMode or path == "" or path == "None" then return end
 		playSound(self, path, ignoreSFX, validate)
 	end
 end
@@ -6932,11 +6970,15 @@ do
 			if not C_ChatInfo.RegisterAddonMessagePrefix("D4C") then -- main prefix for DBM4
 				self:AddMsg("Error: unable to register DBM addon message prefix (reached client side addon message filter limit), synchronization will be unavailable") -- TODO: confirm that this actually means that the syncs won't show up
 			end
-			if not C_ChatInfo.RegisterAddonMessagePrefix("BigWigs") then
-				self:AddMsg("Error: unable to register BigWigs addon message prefix (reached client side addon message filter limit), BigWigs version checks will be unavailable")
+			if not C_ChatInfo.IsAddonMessagePrefixRegistered("BigWigs") then
+				if not C_ChatInfo.RegisterAddonMessagePrefix("BigWigs") then
+					self:AddMsg("Error: unable to register BigWigs addon message prefix (reached client side addon message filter limit), BigWigs version checks will be unavailable")
+				end
 			end
-			if not C_ChatInfo.RegisterAddonMessagePrefix("Transcriptor") then
-				self:AddMsg("Error: unable to register Transcriptor addon message prefix (reached client side addon message filter limit)")
+			if not C_ChatInfo.IsAddonMessagePrefixRegistered("Transcriptor") then
+				if not C_ChatInfo.RegisterAddonMessagePrefix("Transcriptor") then
+					self:AddMsg("Error: unable to register Transcriptor addon message prefix (reached client side addon message filter limit)")
+				end
 			end
 		end
 		--Check if any previous changed cvars were not restored and restore them
@@ -7365,6 +7407,7 @@ do
 				self.Options.MoviesSeen[id] = true
 			end
 		end
+		self:TransitionToDungeonBGM(false, true)
 	end
 
 	function DBM:CINEMATIC_START()
@@ -7381,6 +7424,7 @@ do
 		else
 			self.Options.MoviesSeen[currentMapID..currentSubZone] = true
 		end
+		self:TransitionToDungeonBGM(false, true)
 	end
 	function DBM:CINEMATIC_STOP()
 		self:Debug("CINEMATIC_STOP fired", 2)
@@ -10493,10 +10537,7 @@ do
 				fireEvent("DBM_TimerFadeUpdate", id, self.spellId, self.mod.id, true, self.name)--Timer ID, spellId, modId, true/nil, spellName (new callback only needed if we update an existing timers fade, self.fade is passed in timer start object for new timers)
 				bar.fade = true--Set bar object metatable, which is copied from timer metatable at bar start only
 				bar:ApplyStyle()
-				if bar.countdown then--Cancel countdown, because we just enabled a bar fade
-					DBM:Unschedule(playCountSound, id)
-					DBM:Debug("Disabling a countdown on bar ID: "..id.." after a SetFade enable call")
-				end
+				DBM:Unschedule(playCountSound, id)--Don't even need to check option, it's faster cpu wise to just unschedule countdown either way
 			end
 		elseif not fadeOn and self.fade then
 			self.fade = nil--set timer object metatable, which will make sure next bar started does NOT use fade
@@ -10507,10 +10548,13 @@ do
 				fireEvent("DBM_TimerFadeUpdate", id, self.spellId, self.mod.id, nil, self.name)--Timer ID, spellId, modId, true/nil, spellName (new callback only needed if we update an existing timers fade, self.fade is passed in timer start object for new timers)
 				bar.fade = nil--Set bar object metatable, which is copied from timer metatable at bar start only
 				bar:ApplyStyle()
-				if bar.countdown then--Unfading bar, start countdown
-					DBM:Unschedule(playCountSound, id)
-					playCountdown(id, bar.timer, bar.countdown, bar.countdownMax)--timerId, timer, voice, count
-					DBM:Debug("Re-enabling a countdown on bar ID: "..id.." after a SetFade disable call")
+				if self.option then
+					local countVoice = self.mod.Options[self.option .. "CVoice"] or 0
+					if (type(countVoice) == "string" or countVoice > 0) then--Unfading bar, start countdown
+						DBM:Unschedule(playCountSound, id)
+						playCountdown(id, bar.timer, countVoice, bar.countdownMax)--timerId, timer, voice, count
+						DBM:Debug("Re-enabling a countdown on bar ID: "..id.." after a SetFade disable call")
+					end
 				end
 			end
 		end
@@ -10527,19 +10571,34 @@ do
 				fireEvent("DBM_TimerFadeUpdate", id, self.spellId, self.mod.id, true, self.name)--Timer ID, spellId, modId, true/nil, spellName (new callback only needed if we update an existing timers fade, self.fade is passed in timer start object for new timers)
 				bar.fade = true--Set bar object metatable, which is copied from timer metatable at bar start only
 				bar:ApplyStyle()
-				if bar.countdown then--Cancel countdown, because we just enabled a bar fade
-					DBM:Unschedule(playCountSound, id)
-					DBM:Debug("Disabling a countdown on bar ID: "..id.." after a SetSTFade enable call")
-				end
+				DBM:Unschedule(playCountSound, id)
 			elseif not fadeOn and bar.fade then
 				fireEvent("DBM_TimerFadeUpdate", id, self.spellId, self.mod.id, nil, self.name)
 				bar.fade = false
 				bar:ApplyStyle()
-				if bar.countdown then--Unfading bar, start countdown
-					DBM:Unschedule(playCountSound, id)
-					playCountdown(id, bar.timer, bar.countdown, bar.countdownMax)--timerId, timer, voice, count
-					DBM:Debug("Re-enabling a countdown on bar ID: "..id.." after a SetSTFade disable call")
+				if self.option then
+					local countVoice = self.mod.Options[self.option .. "CVoice"] or 0
+					if (type(countVoice) == "string" or countVoice > 0) then--Unfading bar, start countdown
+						DBM:Unschedule(playCountSound, id)
+						playCountdown(id, bar.timer, countVoice, bar.countdownMax)--timerId, timer, voice, count
+						DBM:Debug("Re-enabling a countdown on bar ID: "..id.." after a SetSTFade disable call")
+					end
 				end
+			end
+		end
+	end
+
+	function timerPrototype:SetSTKeep(keepOn, ...)
+		local id = self.id..pformat((("\t%s"):rep(select("#", ...))), ...)
+		local bar = DBM.Bars:GetBar(id)
+		if bar then
+			if keepOn and not bar.keep then
+				bar.keep = true--Set bar object metatable, which is copied from timer metatable at bar start only
+				bar:ApplyStyle()
+			elseif not keepOn and bar.keep then
+				fireEvent("DBM_TimerFadeUpdate", id, self.spellId, self.mod.id, nil)
+				bar.keep = false
+				bar:ApplyStyle()
 			end
 		end
 	end
@@ -10632,11 +10691,17 @@ do
 		local id = self.id..pformat((("\t%s"):rep(select("#", ...))), ...)
 		local bar = DBM.Bars:GetBar(id)
 		fireEvent("DBM_TimerUpdate", id, elapsed, totalTime)
-		if bar and bar.countdown and bar.countdown > 0 then
-			DBM:Unschedule(playCountSound, id)
-			if not bar.fade then--Don't start countdown voice if it's faded bar
-				playCountdown(id, totalTime-elapsed, bar.countdown, bar.countdownMax)--timerId, timer, voice, count
-				DBM:Debug("Updating a countdown after a timer Update call for timer ID:"..id)
+		if bar and self.option then
+			local countVoice = self.mod.Options[self.option .. "CVoice"] or 0
+			if (type(countVoice) == "string" or countVoice > 0) then
+				DBM:Unschedule(playCountSound, id)
+				if not bar.fade then--Don't start countdown voice if it's faded bar
+					local newRemaining = totalTime-elapsed
+					if newRemaining > 2 then
+						playCountdown(id, newRemaining, countVoice, bar.countdownMax)--timerId, timer, voice, count
+						DBM:Debug("Updating a countdown after a timer Update call for timer ID:"..id)
+					end
+				end
 			end
 		end
 		return DBM.Bars:UpdateBar(id, elapsed, totalTime)
@@ -10652,12 +10717,15 @@ do
 			if bar then
 				local elapsed, total = (bar.totalTime - bar.timer), bar.totalTime
 				if elapsed and total then
-					if bar.countdown then
-						DBM:Unschedule(playCountSound, id)
-						if not bar.fade then--Don't start countdown voice if it's faded bar
-							local newRemaining = (total+extendAmount) - elapsed
-							playCountdown(id, newRemaining, bar.countdown, bar.countdownMax)--timerId, timer, voice, count
-							DBM:Debug("Updating a countdown after a timer AddTime call for timer ID:"..id)
+					if self.option then
+						local countVoice = self.mod.Options[self.option .. "CVoice"] or 0
+						if (type(countVoice) == "string" or countVoice > 0) then
+							DBM:Unschedule(playCountSound, id)
+							if not bar.fade then--Don't start countdown voice if it's faded bar
+								local newRemaining = (total+extendAmount) - elapsed
+								playCountdown(id, newRemaining, countVoice, bar.countdownMax)--timerId, timer, voice, count
+								DBM:Debug("Updating a countdown after a timer AddTime call for timer ID:"..id)
+							end
 						end
 					end
 					fireEvent("DBM_TimerUpdate", id, elapsed, total+extendAmount)
@@ -10679,19 +10747,22 @@ do
 				if elapsed and total then
 					local newRemaining = (total-reduceAmount) - elapsed
 					if newRemaining > 0 then
-						if bar.countdown and newRemaining > 2 then
-							DBM:Unschedule(playCountSound, id)
-							if not bar.fade then--Don't start countdown voice if it's faded bar
-								playCountdown(id, newRemaining, bar.countdown, bar.countdownMax)--timerId, timer, voice, count
-								DBM:Debug("Updating a countdown after a timer RemoveTime call for timer ID:"..id)
+						if self.option and newRemaining > 2 then
+							local countVoice = self.mod.Options[self.option .. "CVoice"] or 0
+							if (type(countVoice) == "string" or countVoice > 0) then
+								DBM:Unschedule(playCountSound, id)
+								if not bar.fade then--Don't start countdown voice if it's faded bar
+									if newRemaining > 2 then
+										playCountdown(id, newRemaining, countVoice, bar.countdownMax)--timerId, timer, voice, count
+										DBM:Debug("Updating a countdown after a timer RemoveTime call for timer ID:"..id)
+									end
+								end
 							end
 						end
 						fireEvent("DBM_TimerUpdate", id, elapsed, total-reduceAmount)
 						return DBM.Bars:UpdateBar(id, elapsed, total-reduceAmount)
 					else--New remaining less than 0
-						if bar.countdown then
-							DBM:Unschedule(playCountSound, id)
-						end
+						DBM:Unschedule(playCountSound, id)
 						fireEvent("DBM_TimerStop", id)
 						return DBM.Bars:CancelBar(id)
 					end

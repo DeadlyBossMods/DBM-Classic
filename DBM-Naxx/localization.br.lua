@@ -305,7 +305,7 @@ L:SetTimerLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningMarkSoon				= "Mark soon",--FIXME
+	WarningMarkSoon				= "Marca %d em 3 s",
 	SpecialWarningMarkOnPlayer	= "%s: %s"
 })
 

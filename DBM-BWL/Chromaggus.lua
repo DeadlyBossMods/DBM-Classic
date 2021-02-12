@@ -77,16 +77,16 @@ local vulnSpells = {
 
 local updateInfoFrame
 do
-	local lines = {}
-	local sortedLines = {}
+	local twipe = table.wipe
+	local lines, sortedLines = {}, {}
 	local function addLine(key, value)
 		-- sort by insertion order
 		lines[key] = value
 		sortedLines[#sortedLines + 1] = key
 	end
 	updateInfoFrame = function()
-		table.wipe(lines)
-		table.wipe(sortedLines)
+		twipe(lines)
+		twipe(sortedLines)
 		if lastVulnName then
 			addLine(lastVulnName, "")
 		end

@@ -23,7 +23,7 @@ function frame:UpdateMenuFrame()
 		button:SetWidth(bigList and 185 or 209)
 		button:UnlockHighlight()
 		local element = displayedElements[i + (listFrame.offset or 0)]
-		if not element or i > bigList or element.initial then
+		if not element or i > bigList then
 			button:Hide()
 			button:SetHeight(-1)
 		else
@@ -159,7 +159,7 @@ function frame:DisplayFrame(frame)
 		if not bossPreview then
 			bossPreview = CreateFrame("PlayerModel", "DBM_BossPreview", _G["DBM_GUI_OptionsFramePanelContainer"])
 			bossPreview:SetPoint("BOTTOMRIGHT", "DBM_GUI_OptionsFramePanelContainer", "BOTTOMRIGHT", -5, 5)
-			bossPreview:SetSize(300, 230)
+			bossPreview:SetSize(300, 300)
 			bossPreview:SetPortraitZoom(0.4)
 			bossPreview:SetRotation(0)
 			bossPreview:SetClampRectInsets(0, 0, 24, 0)
@@ -190,6 +190,26 @@ function frame:DisplayFrame(frame)
 			end
 		end
 	end
+end
+
+function frame:DeselectTab(i)
+	_G["DBM_GUI_OptionsFrameTab" .. i .. "Left"]:Show();
+	_G["DBM_GUI_OptionsFrameTab" .. i .. "Middle"]:Show();
+	_G["DBM_GUI_OptionsFrameTab" .. i .. "Right"]:Show();
+	_G["DBM_GUI_OptionsFrameTab" .. i .. "LeftDisabled"]:Hide();
+	_G["DBM_GUI_OptionsFrameTab" .. i .. "MiddleDisabled"]:Hide();
+	_G["DBM_GUI_OptionsFrameTab" .. i .. "RightDisabled"]:Hide();
+	self.tabs[i]:Hide()
+end
+
+function frame:SelectTab(i)
+	_G["DBM_GUI_OptionsFrameTab" .. i .. "Left"]:Hide();
+	_G["DBM_GUI_OptionsFrameTab" .. i .. "Middle"]:Hide();
+	_G["DBM_GUI_OptionsFrameTab" .. i .. "Right"]:Hide();
+	_G["DBM_GUI_OptionsFrameTab" .. i .. "LeftDisabled"]:Show();
+	_G["DBM_GUI_OptionsFrameTab" .. i .. "MiddleDisabled"]:Show();
+	_G["DBM_GUI_OptionsFrameTab" .. i .. "RightDisabled"]:Show();
+	self.tabs[i]:Show()
 end
 
 function frame:CreateTab(tab)
@@ -223,12 +243,6 @@ function frame:ShowTab(tab)
 			_G["DBM_GUI_OptionsFrameTab" .. i .. "LeftDisabled"]:Show()
 			_G["DBM_GUI_OptionsFrameTab" .. i .. "MiddleDisabled"]:Show()
 			_G["DBM_GUI_OptionsFrameTab" .. i .. "RightDisabled"]:Show()
-			for _, panel in ipairs(DBM_GUI.tabs[i].Buttons) do
-				if panel.initial then
-					self:DisplayFrame(panel.frame)
-					return
-				end
-			end
 		else
 			_G["DBM_GUI_OptionsFrameTab" .. i .. "Left"]:Show()
 			_G["DBM_GUI_OptionsFrameTab" .. i .. "Middle"]:Show()
@@ -236,12 +250,6 @@ function frame:ShowTab(tab)
 			_G["DBM_GUI_OptionsFrameTab" .. i .. "LeftDisabled"]:Hide()
 			_G["DBM_GUI_OptionsFrameTab" .. i .. "MiddleDisabled"]:Hide()
 			_G["DBM_GUI_OptionsFrameTab" .. i .. "RightDisabled"]:Hide()
-			for _, panel in ipairs(DBM_GUI.tabs[i].Buttons) do
-				if panel.initial then
-					panel.frame:Hide()
-					return
-				end
-			end
 		end
 	end
 end

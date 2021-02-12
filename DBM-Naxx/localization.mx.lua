@@ -235,9 +235,9 @@ L:SetGeneralLocalization({
 })
 
 L:SetMiscLocalization({
-	Yell1 = "¡No tengáis piedad!",
-	Yell2 = "¡El tiempo de practicar ha pasado! ¡Quiero ver lo que habéis aprendido!",
-	Yell3 = "¡Poned en práctica lo que os he enseñado!",
+	Yell1 = "¡No tengan piedad!",
+	Yell2 = "¡Se ha acabado el tiempo de práctica! ¡Quiero ver lo que han aprendido!",
+	Yell3 = "¡Hagan lo que les enseñé!",
 	Yell4 = "Un barrido con pierna... ¿Tienes algún problema?"
 })
 
@@ -308,7 +308,7 @@ L:SetTimerLocalization({
 })
 
 L:SetWarningLocalization({
-	WarningMarkSoon				= "Mark soon",--FIXME
+	WarningMarkSoon				= "Marca %d en 3 s",
 	SpecialWarningMarkOnPlayer	= "%s: %s"
 })
 

@@ -35,13 +35,13 @@ L.BossModLoad_now 			= [[Esse módulo não está carregado.
 Ele será carregado quando você entrar na instância.
 Você também pode clicar no botão para carregar o módulo manualmente.]]
 
-L.PosX						= 'Posição X'
-L.PosY						= 'Posição Y'
+L.PosX						= "Posição X"
+L.PosY						= "Posição Y"
 
-L.MoveMe 					= 'Mova-me'
-L.Button_OK 				= 'OK'
-L.Button_Cancel 			= 'Cancelar'
-L.Button_LoadMod 			= 'Carregar AddOn'
+L.MoveMe 					= "Mova-me"
+L.Button_OK 				= "OK"
+L.Button_Cancel 			= "Cancelar"
+L.Button_LoadMod 			= "Carregar AddOn"
 L.Mod_Enabled				= "Habilitar módulo"
 L.Mod_Reset					= "Carregar opções padrão"
 L.Reset 					= "Resetar"

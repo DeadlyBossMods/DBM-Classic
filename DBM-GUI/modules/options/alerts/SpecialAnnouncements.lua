@@ -1,6 +1,7 @@
 local L = DBM_GUI_L
 
 local specPanel = DBM_GUI.Cat_Alerts:CreateNewPanel(L.Panel_SpecWarnFrame, "option")
+
 local specArea = specPanel:CreateArea(L.Area_SpecWarn)
 
 local check1 = specArea:CreateCheckButton(L.ShowSWarningsInChat, true, nil, "ShowSWarningsInChat")
@@ -14,7 +15,9 @@ local movemebutton = specArea:CreateButton(L.MoveMe, 120, 16)
 movemebutton:SetPoint("TOPRIGHT", specArea.frame, "TOPRIGHT", -2, -4)
 movemebutton:SetNormalFontObject(GameFontNormalSmall)
 movemebutton:SetHighlightFontObject(GameFontNormalSmall)
-movemebutton:SetScript("OnClick", function() DBM:MoveSpecialWarning() end)
+movemebutton:SetScript("OnClick", function()
+	DBM:MoveSpecialWarning()
+end)
 
 local color0 = specArea:CreateColorSelect(64)
 color0:SetPoint("TOPLEFT", specArea.frame, "TOPLEFT", 20, -200)
@@ -105,7 +108,7 @@ local FontShadow = specArea:CreateCheckButton(L.FontShadow, nil, nil, "SpecialWa
 FontShadow:SetScript("OnClick", function()
 	DBM.Options.SpecialWarningFontShadow = not DBM.Options.SpecialWarningFontShadow
 	DBM:UpdateSpecialWarningOptions()
-	DBM:ShowTestSpecialWarning(nil, 1)
+	DBM:ShowTestSpecialWarning(nil, 1, nil, true)
 end)
 FontShadow:SetPoint("LEFT", FontStyleDropDown, "RIGHT", -35, 25)
 
@@ -148,7 +151,7 @@ showbuttonOne:SetPoint("BOTTOMRIGHT", specWarnOne.frame, "BOTTOMRIGHT", -2, 4)
 showbuttonOne:SetNormalFontObject(GameFontNormalSmall)
 showbuttonOne:SetHighlightFontObject(GameFontNormalSmall)
 showbuttonOne:SetScript("OnClick", function()
-	DBM:ShowTestSpecialWarning(nil, 1)
+	DBM:ShowTestSpecialWarning(nil, 1, nil, true)
 end)
 
 local color1 = specWarnOne:CreateColorSelect(64)
@@ -186,11 +189,9 @@ flashCheck1:SetPoint("BOTTOMLEFT", SpecialWarnSoundDropDown, "BOTTOMLEFT", 220, 
 local flashdurSlider = specWarnOne:CreateSlider(L.SpecWarn_FlashDur, 0.2, 2, 0.2, 120)
 flashdurSlider:SetPoint("TOPLEFT", SpecialWarnSoundDropDown, "TOPLEFT", 20, -45)
 flashdurSlider:SetValue(DBM.Options.SpecialWarningFlashDura1)
-do
-	flashdurSlider:HookScript("OnValueChanged", function(self)
-		DBM.Options.SpecialWarningFlashDura1 = self:GetValue()
-	end)
-end
+flashdurSlider:HookScript("OnValueChanged", function(self)
+	DBM.Options.SpecialWarningFlashDura1 = self:GetValue()
+end)
 flashdurSlider.myheight = 0
 
 local flashdalphaSlider = specWarnOne:CreateSlider(L.SpecWarn_FlashAlpha, 0.1, 1, 0.1, 120)
@@ -217,7 +218,7 @@ showbuttonTwo:SetPoint("BOTTOMRIGHT", specWarnTwo.frame, "BOTTOMRIGHT", -2, 4)
 showbuttonTwo:SetNormalFontObject(GameFontNormalSmall)
 showbuttonTwo:SetHighlightFontObject(GameFontNormalSmall)
 showbuttonTwo:SetScript("OnClick", function()
-	DBM:ShowTestSpecialWarning(nil, 2)
+	DBM:ShowTestSpecialWarning(nil, 2, nil, true)
 end)
 
 local color2 = specWarnTwo:CreateColorSelect(64)
@@ -234,11 +235,11 @@ color2reset:SetScript("OnClick", function()
 end)
 color2:SetColorRGB(DBM.Options.SpecialWarningFlashCol2[1], DBM.Options.SpecialWarningFlashCol2[2], DBM.Options.SpecialWarningFlashCol2[3])
 color2:SetScript("OnColorSelect", function(self)
-		DBM.Options.SpecialWarningFlashCol2[1] = select(1, self:GetColorRGB())
-		DBM.Options.SpecialWarningFlashCol2[2] = select(2, self:GetColorRGB())
-		DBM.Options.SpecialWarningFlashCol2[3] = select(3, self:GetColorRGB())
-		color2text:SetTextColor(self:GetColorRGB())
-		DBM:UpdateSpecialWarningOptions()
+	DBM.Options.SpecialWarningFlashCol2[1] = select(1, self:GetColorRGB())
+	DBM.Options.SpecialWarningFlashCol2[2] = select(2, self:GetColorRGB())
+	DBM.Options.SpecialWarningFlashCol2[3] = select(3, self:GetColorRGB())
+	color2text:SetTextColor(self:GetColorRGB())
+	DBM:UpdateSpecialWarningOptions()
 end)
 color2.myheight = 104
 
@@ -284,7 +285,7 @@ showbuttonThree:SetPoint("BOTTOMRIGHT", specWarnThree.frame, "BOTTOMRIGHT", -2, 
 showbuttonThree:SetNormalFontObject(GameFontNormalSmall)
 showbuttonThree:SetHighlightFontObject(GameFontNormalSmall)
 showbuttonThree:SetScript("OnClick", function()
-	DBM:ShowTestSpecialWarning(nil, 3)
+	DBM:ShowTestSpecialWarning(nil, 3, nil, true)
 end)
 
 local color3 = specWarnThree:CreateColorSelect(64)
@@ -299,7 +300,7 @@ color3reset:SetScript("OnClick", function()
 	DBM.Options.SpecialWarningFlashCol3[3] = DBM.DefaultOptions.SpecialWarningFlashCol3[3]
 	color3:SetColorRGB(DBM.Options.SpecialWarningFlashCol3[1], DBM.Options.SpecialWarningFlashCol3[2], DBM.Options.SpecialWarningFlashCol3[3])
 	DBM:UpdateSpecialWarningOptions()
-	DBM:ShowTestSpecialWarning(nil, 3)
+	DBM:ShowTestSpecialWarning(nil, 3, nil, true)
 end)
 color3:SetColorRGB(DBM.Options.SpecialWarningFlashCol3[1], DBM.Options.SpecialWarningFlashCol3[2], DBM.Options.SpecialWarningFlashCol3[3])
 color3:SetScript("OnColorSelect", function(self)
@@ -308,7 +309,7 @@ color3:SetScript("OnColorSelect", function(self)
 	DBM.Options.SpecialWarningFlashCol3[3] = select(3, self:GetColorRGB())
 	color3text:SetTextColor(self:GetColorRGB())
 	DBM:UpdateSpecialWarningOptions()
-	DBM:ShowTestSpecialWarning(nil, 3)
+	DBM:ShowTestSpecialWarning(nil, 3, nil, true)
 end)
 color3.myheight = 104
 
@@ -353,7 +354,7 @@ showbuttonFour:SetPoint("BOTTOMRIGHT", specWarnFour.frame, "BOTTOMRIGHT", -2, 4)
 showbuttonFour:SetNormalFontObject(GameFontNormalSmall)
 showbuttonFour:SetHighlightFontObject(GameFontNormalSmall)
 showbuttonFour:SetScript("OnClick", function()
-	DBM:ShowTestSpecialWarning(nil, 4)
+	DBM:ShowTestSpecialWarning(nil, 4, nil, true)
 end)
 
 local color4 = specWarnFour:CreateColorSelect(64)
@@ -368,7 +369,7 @@ color4reset:SetScript("OnClick", function()
 	DBM.Options.SpecialWarningFlashCol4[3] = DBM.DefaultOptions.SpecialWarningFlashCol4[3]
 	color4:SetColorRGB(DBM.Options.SpecialWarningFlashCol4[1], DBM.Options.SpecialWarningFlashCol4[2], DBM.Options.SpecialWarningFlashCol4[3])
 	DBM:UpdateSpecialWarningOptions()
-	DBM:ShowTestSpecialWarning(nil, 4)
+	DBM:ShowTestSpecialWarning(nil, 4, nil, true)
 end)
 color4:SetColorRGB(DBM.Options.SpecialWarningFlashCol4[1], DBM.Options.SpecialWarningFlashCol4[2], DBM.Options.SpecialWarningFlashCol4[3])
 color4:SetScript("OnColorSelect", function(self)
@@ -377,7 +378,7 @@ color4:SetScript("OnColorSelect", function(self)
 	DBM.Options.SpecialWarningFlashCol4[3] = select(3, self:GetColorRGB())
 	color4text:SetTextColor(self:GetColorRGB())
 	DBM:UpdateSpecialWarningOptions()
-	DBM:ShowTestSpecialWarning(nil, 4)
+	DBM:ShowTestSpecialWarning(nil, 4, nil, true)
 end)
 color4.myheight = 104
 
@@ -422,7 +423,7 @@ showbuttonFive:SetPoint("BOTTOMRIGHT", specWarnFive.frame, "BOTTOMRIGHT", -2, 4)
 showbuttonFive:SetNormalFontObject(GameFontNormalSmall)
 showbuttonFive:SetHighlightFontObject(GameFontNormalSmall)
 showbuttonFive:SetScript("OnClick", function()
-	DBM:ShowTestSpecialWarning(nil, 5)
+	DBM:ShowTestSpecialWarning(nil, 5, nil, true)
 end)
 
 local color5 = specWarnFive:CreateColorSelect(64)

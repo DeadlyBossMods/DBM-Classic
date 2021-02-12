@@ -162,6 +162,13 @@ do
 				info.arg1 = 20
 				info.checked = (DBM.Options.InfoFrameLines == 20)
 				UIDropDownMenu_AddButton(info, 2)
+
+				info = UIDropDownMenu_CreateInfo()
+				info.text = L.INFOFRAME_LINES_TO:format(40)
+				info.func = setLines
+				info.arg1 = 40
+				info.checked = (DBM.Options.InfoFrameLines == 40)
+				UIDropDownMenu_AddButton(info, 2)
 			elseif menu == "cols" then
 				info = UIDropDownMenu_CreateInfo()
 				info.text = L.INFOFRAME_LINESDEFAULT
@@ -203,6 +210,13 @@ do
 				info.func = setCols
 				info.arg1 = 5
 				info.checked = (DBM.Options.InfoFrameCols == 5)
+				UIDropDownMenu_AddButton(info, 2)
+
+				info = UIDropDownMenu_CreateInfo()
+				info.text = L.INFOFRAME_COLS_TO:format(6)
+				info.func = setCols
+				info.arg1 = 6
+				info.checked = (DBM.Options.InfoFrameCols == 6)
 				UIDropDownMenu_AddButton(info, 2)
 			end
 		end
@@ -856,42 +870,45 @@ local function onUpdate(frame, table)
 		local icon = icons[extraName or leftText] and icons[extraName or leftText] .. leftText
 		if friendlyEvents[currentEvent] then
 			local unitId = DBM:GetRaidUnitId(DBM:GetUnitFullName(extraName or leftText)) or "player"--Prevent nil logical error
-			if unitId and select(4, UnitPosition(unitId)) == currentMapId then
-				local _, class = UnitClass(unitId)
-				if class then
-					color = RAID_CLASS_COLORS[class]
-					if DBM.Options.StripServerName then -- StripServerName option is checked here, even though it's checked in GetShortServerName function, because we have to apply custom 3rd column hack reconstruction
-						local shortName = DBM:GetShortServerName(extraName or leftText)
-						if extraName then -- 3 column hack is present, we need to reconstruct leftText with shortened name
-							leftText = extra.."*"..shortName
-						else -- LeftText is name, just replace it with shortname
-							leftText = shortName
-						end
-					end
-				end
-				linesShown = linesShown + 1
-				if unitId and UnitIsUnit(unitId, "player") then -- It's player.
-					if currentEvent == "health" or currentEvent == "playerpower" or currentEvent == "playerabsorb" or currentEvent == "playerbuff" or currentEvent == "playergooddebuff" or currentEvent == "playerbaddebuff" or currentEvent == "playerdebuffremaining" or currentEvent == "playerdebuffstacks" or currentEvent == "playerbuffremaining" or currentEvent == "playertargets" or currentEvent == "playeraggro" then--Red
-						infoFrame:SetLine(linesShown, icon or leftText, rightText, 255, 0, 0, 255, 255, 255)
-					else -- Green
-						infoFrame:SetLine(linesShown, icon or leftText, rightText, 0, 255, 0, 255, 255, 255)
-					end
-				else -- It's not player, do nothing special with it. Ordinary class colored text.
-					if currentEvent == "playerdebuffremaining" or currentEvent == "playerbuffremaining" then
-						local numberValue = tonumber(rightText)
-						if numberValue < 6 then
-							infoFrame:SetLine(linesShown, icon or leftText, rightText, color.r, color.g, color.b, 255, 0, 0)--Red
-						elseif numberValue < 11 then
-							infoFrame:SetLine(linesShown, icon or leftText, rightText, color.r, color.g, color.b, 255, 127.5, 0)--Orange
-						else
-							if numberValue == 9000 then -- Out of range players
-								infoFrame:SetLine(linesShown, icon or leftText, SPELL_FAILED_OUT_OF_RANGE, color.r, color.g, color.b, 255, 0, 0)--Red
-							else
-								infoFrame:SetLine(linesShown, icon or leftText, rightText, color.r, color.g, color.b, 255, 255, 255)--White
+			if unitId then
+				local _, _, _, mapId = UnitPosition(unitId)
+				if mapId == currentMapId then
+					local _, class = UnitClass(unitId)
+					if class then
+						color = RAID_CLASS_COLORS[class]
+						if DBM.Options.StripServerName then -- StripServerName option is checked here, even though it's checked in GetShortServerName function, because we have to apply custom 3rd column hack reconstruction
+							local shortName = DBM:GetShortServerName(extraName or leftText)
+							if extraName then -- 3 column hack is present, we need to reconstruct leftText with shortened name
+								leftText = extra.."*"..shortName
+							else -- LeftText is name, just replace it with shortname
+								leftText = shortName
 							end
 						end
-					else
-						infoFrame:SetLine(linesShown, icon or leftText, rightText, color.r, color.g, color.b, 255, 255, 255)
+					end
+					linesShown = linesShown + 1
+					if unitId and UnitIsUnit(unitId, "player") then -- It's player.
+						if currentEvent == "health" or currentEvent == "playerpower" or currentEvent == "playerabsorb" or currentEvent == "playerbuff" or currentEvent == "playergooddebuff" or currentEvent == "playerbaddebuff" or currentEvent == "playerdebuffremaining" or currentEvent == "playerdebuffstacks" or currentEvent == "playerbuffremaining" or currentEvent == "playertargets" or currentEvent == "playeraggro" then--Red
+							infoFrame:SetLine(linesShown, icon or leftText, rightText, 255, 0, 0, 255, 255, 255)
+						else -- Green
+							infoFrame:SetLine(linesShown, icon or leftText, rightText, 0, 255, 0, 255, 255, 255)
+						end
+					else -- It's not player, do nothing special with it. Ordinary class colored text.
+						if currentEvent == "playerdebuffremaining" or currentEvent == "playerbuffremaining" then
+							local numberValue = tonumber(rightText)
+							if numberValue < 6 then
+								infoFrame:SetLine(linesShown, icon or leftText, rightText, color.r, color.g, color.b, 255, 0, 0)--Red
+							elseif numberValue < 11 then
+								infoFrame:SetLine(linesShown, icon or leftText, rightText, color.r, color.g, color.b, 255, 127.5, 0)--Orange
+							else
+								if numberValue == 9000 then -- Out of range players
+									infoFrame:SetLine(linesShown, icon or leftText, SPELL_FAILED_OUT_OF_RANGE, color.r, color.g, color.b, 255, 0, 0)--Red
+								else
+									infoFrame:SetLine(linesShown, icon or leftText, rightText, color.r, color.g, color.b, 255, 255, 255)--White
+								end
+							end
+						else
+							infoFrame:SetLine(linesShown, icon or leftText, rightText, color.r, color.g, color.b, 255, 255, 255)
+						end
 					end
 				end
 			end
@@ -928,8 +945,10 @@ local function onUpdate(frame, table)
 			infoFrame:SetLine(linesShown, icon or leftText, rightText, color.r, color.g, color.b, color2.r, color2.g, color2.b)
 		end
 	end
-	local maxWidth1, maxWidth2 = {}, {}
-	local linesPerRow = mmin(maxLines, mfloor(linesShown / maxCols + 0.99))
+	local maxWidth1, maxWidth2, linesPerRow = {}, {}, 5
+	if linesShown > 5 then
+		linesPerRow = mmin(maxLines, mfloor(linesShown / maxCols + 0.99))
+	end
 	local shouldUpdate = prevLines ~= linesShown
 	for i = 1, linesShown do
 		if shouldUpdate then
@@ -1137,6 +1156,7 @@ function infoFrame:SetLine(lineNum, leftText, rightText, colorR, colorG, colorB,
 		frame.lines[lineNum]:SetFont(font, size, style)
 		frame.lines[lineNum + 1] = frame:CreateFontString("Line" .. lineNum + 1, "OVERLAY", "GameFontNormal")
 		frame.lines[lineNum + 1]:SetFont(font, size, style)
+		frame.lines[lineNum + 1]:SetJustifyH("RIGHT")
 	end
 	frame.lines[lineNum]:SetText(leftText)
 	frame.lines[lineNum]:SetTextColor(colorR or 255, colorG or 255, colorB or 255)

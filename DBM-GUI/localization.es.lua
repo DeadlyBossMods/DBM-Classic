@@ -34,13 +34,13 @@ L.BossModLoad_now 			= [[Este módulo no está cargado.
 Se cargará al entrar en la estancia.
 También puedes hacer clic en el botón para cargar el módulo manualmente.]]
 
-L.PosX 						= 'Posición X'
-L.PosY 						= 'Posición Y'
+L.PosX 						= "Posición X"
+L.PosY 						= "Posición Y"
 
-L.MoveMe 					= 'Posición'
-L.Button_OK 				= 'Aceptar'
-L.Button_Cancel 			= 'Cancelar'
-L.Button_LoadMod 			= 'Cargar módulo'
+L.MoveMe 					= "Posición"
+L.Button_OK 				= "Aceptar"
+L.Button_Cancel 			= "Cancelar"
+L.Button_LoadMod 			= "Cargar módulo"
 L.Mod_Enabled				= "Habilitar módulo"
 L.Mod_Reset					= "Cargar opciones por defecto"
 L.Reset 					= "Restaurar"
@@ -81,7 +81,7 @@ L.ModelSoundOptions			= "Sonido"
 L.ModelSoundShort			= "Corto"
 L.ModelSoundLong			= "Duración grande"
 
-L.ResizeOptions			 	= "Opciones de redimensionamiento"
+L.ptions			 	= "Opciones de redimensionamiento"
 L.Button_ResetWindowSize	= "Restablecer el tamaño de la ventana"
 L.Editbox_WindowWidth		= "Anchura de la ventana"
 L.Editbox_WindowHeight		= "Altura de la ventana"

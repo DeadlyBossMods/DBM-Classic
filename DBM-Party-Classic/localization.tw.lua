@@ -283,6 +283,9 @@ L = DBM:GetModLocalization("PyroguardEmberseer")
 L:SetGeneralLocalization{
 	name 		= "烈焰衛士艾博希爾"
 }
+L:SetMiscLocalization{
+	Pull		= "%s開始恢復力量！"
+}
 -----------------------------
 --  Solakar Flamewreath  --
 -----------------------------

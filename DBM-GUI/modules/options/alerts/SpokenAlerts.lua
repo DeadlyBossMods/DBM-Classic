@@ -34,7 +34,7 @@ end, 180)
 VoiceDropDown:SetPoint("TOPLEFT", CountSoundDropDown2, "TOPLEFT", 0, -45)
 VoiceDropDown.myheight = 20 -- TODO: +10 padding per dropdown text
 
-local voiceFilterArea		= spokenAlertsPanel:CreateArea(L.Area_VoicePackOptions, 97)
+local voiceFilterArea		= spokenAlertsPanel:CreateArea(L.Area_VoicePackOptions)
 local VPF1					= voiceFilterArea:CreateCheckButton(L.SpecWarn_AlwaysVoice, true, nil, "AlwaysPlayVoice")
 local voiceSWOptions = {
 	{
@@ -55,23 +55,20 @@ local SWFilterDropDown		= voiceFilterArea:CreateDropdown(L.SpecWarn_NoSoundsWVoi
 end, 420)
 SWFilterDropDown:SetPoint("TOPLEFT", _G[VPF1:GetName() .. "Text"], "BOTTOMLEFT", -26, -5)
 
-local VPUrlArea1		= spokenAlertsPanel:CreateArea(L.Area_GetVEM, 30)
-local VPDownloadUrl1	= VPUrlArea1:CreateText(L.VEMDownload, nil, true, nil, "LEFT")
-VPDownloadUrl1:SetPoint("TOPLEFT", VPUrlArea1.frame, "TOPLEFT", 10, -7)
+local VPUrlArea1		= spokenAlertsPanel:CreateArea(L.Area_GetVEM)
+VPUrlArea1:CreateText(L.VEMDownload, nil, true, nil, "LEFT")
 VPUrlArea1.frame:SetScript("OnMouseUp", function()
-	DBM:ShowUpdateReminder(nil, nil, L.Area_GetVEM, "https://curseforge.com/wow/addons/dbm-voicepack-vem")
+	DBM:ShowUpdateReminder(nil, nil, L.Area_GetVEM, "https://www.curseforge.com/wow/addons/dbm-voicepack-vem")
 end)
 
-local VPUrlArea2		= spokenAlertsPanel:CreateArea(L.Area_BrowseOtherVP, 40)
-local VPDownloadUrl2	= VPUrlArea2:CreateText(L.BrowseOtherVPs, nil, true, nil, "LEFT")
-VPDownloadUrl2:SetPoint("TOPLEFT", VPUrlArea2.frame, "TOPLEFT", 10, -7)
+local VPUrlArea2		= spokenAlertsPanel:CreateArea(L.Area_BrowseOtherVP)
+VPUrlArea2:CreateText(L.BrowseOtherVPs, nil, true, nil, "LEFT")
 VPUrlArea2.frame:SetScript("OnMouseUp", function()
-	DBM:ShowUpdateReminder(nil, nil, L.Area_BrowseOtherVP, "https://curseforge.com/wow/addons/search?search=dbm+voice")
+	DBM:ShowUpdateReminder(nil, nil, L.Area_BrowseOtherVP, "https://www.curseforge.com/wow/addons/search?search=dbm+voice")
 end)
 
-local VPUrlArea3		= spokenAlertsPanel:CreateArea(L.Area_BrowseOtherCT, 40)
-local VPDownloadUrl3	= VPUrlArea3:CreateText(L.BrowseOtherCTs, nil, true, nil, "LEFT")
-VPDownloadUrl3:SetPoint("TOPLEFT", VPUrlArea3.frame, "TOPLEFT", 10, -7)
+local VPUrlArea3		= spokenAlertsPanel:CreateArea(L.Area_BrowseOtherCT)
+VPUrlArea3:CreateText(L.BrowseOtherCTs, nil, true, nil, "LEFT")
 VPUrlArea3.frame:SetScript("OnMouseUp", function()
-	DBM:ShowUpdateReminder(nil, nil, L.Area_BrowseOtherCT, "https://curseforge.com/wow/addons/search?search=dbm+count+pack")
+	DBM:ShowUpdateReminder(nil, nil, L.Area_BrowseOtherCT, "https://www.curseforge.com/wow/addons/search?search=dbm+count+pack")
 end)
