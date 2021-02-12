@@ -282,6 +282,7 @@ L:SetMiscLocalization({
 	WarningWave3	= "%d %s, %d %s, %d %s",
 	Trainee			= "수련생",
 	Knight			= "기사",
+	Horse			= "말 망령",
 	Rider			= "기병"
 })
 
@@ -296,14 +297,16 @@ L:SetGeneralLocalization({
 
 L:SetOptionLocalization({
 	WarningMarkSoon				= "징표 사전 경고 보기",
-	SpecialWarningMarkOnPlayer	= "징표가 4중첩 이상이 되면 특수 알림 보기"
-})
-
-L:SetTimerLocalization({
+	SpecialWarningMarkOnPlayer	= "징표가 4개 이상 걸리면 특수 알림 보기",
+	timerMark					= "다음 기사의 징표 타이머 바 보기 (횟수 포함)",
 })
 
 L:SetWarningLocalization({
-	WarningMarkSoon				= "곧 징표",
+	timerMark	= "%d번 징표",
+})
+
+L:SetWarningLocalization({
+	WarningMarkSoon				= "3초 후 %d번 징표",
 })
 
 L:SetMiscLocalization({
