@@ -87,7 +87,7 @@ end
 do
 	local BoneBarrier = DBM:GetSpellInfo(29061)
 	function mod:SPELL_AURA_APPLIED(args)
-		if args.spellName == BoneBarrier then
+		if args.spellName == BoneBarrier and args:IsSrcTypeHostile() then
 			warnBoneBarrier:Show(args.destName)
 			timerBoneBarrier:Start(20, args.destName)
 		end
