@@ -8,7 +8,7 @@ mod:SetModelID(16582)
 mod:RegisterCombat("combat_yell", L.Yell1, L.Yell2, L.Yell3, L.Yell4)
 
 mod:RegisterEventsInCombat(
-	"SPELL_CAST_SUCCESS 55543 29107 29060 29061",
+	"SPELL_CAST_SUCCESS 29107 29060 29061",--55543
 	"UNIT_DIED"
 )
 
