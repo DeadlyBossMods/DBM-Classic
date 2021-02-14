@@ -9,7 +9,7 @@ mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
 	"SPELL_AURA_APPLIED 28622",
-	"SPELL_CAST_SUCCESS 29484 54125"
+	"SPELL_CAST_SUCCESS 29484"
 )
 
 local warnWebWrap		= mod:NewTargetAnnounce(28622, 2)
