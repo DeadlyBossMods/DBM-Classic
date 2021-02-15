@@ -4803,7 +4803,7 @@ do
 
 		syncHandlers["GCB"] = function(sender, modId, ver, difficulty, name)
 			if not DBM.Options.ShowGuildMessages or not difficulty then return end
-			if not ver or not (ver == "3") then return end--Ignore old versions
+			if not ver or not (ver == "5") then return end--Ignore old versions
 			if DBM:AntiSpam(10, "GCB") then
 				if IsInInstance() then return end--Simple filter, if you are inside an instance, just filter it, if not in instance, good to go.
 				--difficulty = tonumber(difficulty)--Will be used in WoTLK
@@ -4815,7 +4815,7 @@ do
 
 		syncHandlers["GCE"] = function(sender, modId, ver, wipe, time, difficulty, name, wipeHP)
 			if not DBM.Options.ShowGuildMessages or not difficulty then return end
-			if not ver or not (ver == "6") then return end--Ignore old versions
+			if not ver or not (ver == "8") then return end--Ignore old versions
 			if DBM:AntiSpam(5, "GCE") then
 				if IsInInstance() then return end--Simple filter, if you are inside an instance, just filter it, if not in instance, good to go.
 				--difficulty = tonumber(difficulty)--Will be used in WoTLK
@@ -5903,9 +5903,9 @@ do
 	local function delayedGCSync(modId, difficultyIndex, name, thisTime, wipeHP)
 		if not statusGuildDisabled and updateNotificationDisplayed == 0 then
 			if thisTime then--Wipe event
-				SendAddonMessage("D4C", "GCE\t"..modId.."\t7\t1\t"..thisTime.."\t"..difficultyIndex.."\t"..name.."\t"..wipeHP, "GUILD")
+				SendAddonMessage("D4C", "GCE\t"..modId.."\t8\t1\t"..thisTime.."\t"..difficultyIndex.."\t"..name.."\t"..wipeHP, "GUILD")
 			else
-				SendAddonMessage("D4C", "GCB\t"..modId.."\t4\t"..difficultyIndex.."\t"..name, "GUILD")
+				SendAddonMessage("D4C", "GCB\t"..modId.."\t5\t"..difficultyIndex.."\t"..name, "GUILD")
 			end
 		end
 	end
@@ -6322,8 +6322,8 @@ do
 					else
 						msg = L.BOSS_DOWN_L:format(difficultyText..name, strFromTime(thisTime), strFromTime(lastTime), strFromTime(bestTime), totalKills)
 					end
-					if thisTimeString and difficultyIndex ~= 1 and (DBM:GetNumGuildPlayersInZone() >= 10) and not statusGuildDisabled and not self.Options.DisableGuildStatus then
-						SendAddonMessage("D4C", "GCE\t"..modId.."\t7\t0\t"..thisTimeString.."\t"..difficultyIndex.."\t"..name, "GUILD")
+					if thisTimeString and difficultyIndex ~= 1 and (DBM:GetNumGuildPlayersInZone() >= 10) and not statusGuildDisabled and not self.Options.DisableGuildStatus and updateNotificationDisplayed == 0 then
+						SendAddonMessage("D4C", "GCE\t"..modId.."\t8\t0\t"..thisTimeString.."\t"..difficultyIndex.."\t"..name, "GUILD")
 					end
 					self:Schedule(1, self.AddMsg, self, msg)
 				end
