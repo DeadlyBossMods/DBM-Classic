@@ -2654,7 +2654,7 @@ do
 			if whisperTarget then
 				--no dbm function uses whisper for pizza timers
 				--this allows weak aura creators or other modders to use the pizza timer object unicast via whisper instead of spamming group sync channels
-				SendAddonMessageLogged("D4", ("UW\t%s\t%s"):format(time, text), "WHISPER", whisperTarget)
+				SendAddonMessageLogged("D4C", ("UW\t%s\t%s"):format(time, text), "WHISPER", whisperTarget)
 			else
 				sendLoggedSync("U", ("%s\t%s"):format(time, text))
 			end
