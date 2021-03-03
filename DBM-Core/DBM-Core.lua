@@ -2648,8 +2648,8 @@ do
 			self:AddMsg(L.PIZZA_ERROR_USAGE)
 			return
 		end
-		self.Bars:CreateBar(time, text, 237538)
-		fireEvent("DBM_TimerStart", "DBMPizzaTimer", text, time, "237538", "pizzatimer", nil, 0)
+		self.Bars:CreateBar(time, text, 134376)
+		fireEvent("DBM_TimerStart", "DBMPizzaTimer", text, time, "134376", "pizzatimer", nil, 0)
 		if broadcast then
 			if whisperTarget then
 				--no dbm function uses whisper for pizza timers
