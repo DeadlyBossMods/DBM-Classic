@@ -93,6 +93,14 @@ if IsTestBuild() then
 	testBuild = true
 end
 
+do
+	local isShadowlandsClient = BackdropTemplateMixin and true or false
+
+	function DBM:IsShadowlands()
+		return isShadowlandsClient
+	end
+end
+
 -- dual profile setup
 local _, playerClass = UnitClass("player")
 DBM_UseDualProfile = true
@@ -7404,13 +7412,6 @@ end
 
 function DBM:GetTOC()
 	return wowTOC, testBuild, wowVersionString, wowBuild
-end
-
-do
-	local isShadowlandsClient = BackdropTemplateMixin and true or false
-	function DBM:IsShadowlands()
-		return isShadowlandsClient
-	end
 end
 
 function DBM:InCombat()
