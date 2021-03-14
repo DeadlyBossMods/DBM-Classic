@@ -8,7 +8,7 @@ mod:SetEncounterID(1119)
 mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
-	"SPELL_AURA_APPLIED 28522",
+	"SPELL_AURA_APPLIED 28522 28547",
 	"SPELL_CAST_START 28524",
 	"SPELL_CAST_SUCCESS 28542"--55665 Wrath spellId
 )
@@ -26,6 +26,7 @@ local warnAirPhaseSoon	= mod:NewAnnounce("WarningAirPhaseSoon", 3, "Interface\\A
 local warnAirPhaseNow	= mod:NewAnnounce("WarningAirPhaseNow", 4, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
 local warnLanded		= mod:NewAnnounce("WarningLanded", 4, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
 
+local warnBlizzard		= mod:NewSpecialWarningGTFO(28547, nil, nil, nil, 1, 8)
 local warnDeepBreath	= mod:NewSpecialWarning("WarningDeepBreath", nil, nil, nil, 1, 2)
 local yellIceBlock		= mod:NewYell(28522)
 
@@ -101,7 +102,7 @@ function mod:OnCombatEnd()
 end
 
 do
-	local IceBolt = DBM:GetSpellInfo(28522)
+	local IceBolt, Blizzard = DBM:GetSpellInfo(28522), DBM:GetSpellInfo(28547)
 	function mod:SPELL_AURA_APPLIED(args)
 		--if args.spellId == 28522 then
 		if args.spellName == IceBolt and args:IsDestTypePlayer() then
@@ -109,6 +110,10 @@ do
 			if args:IsPlayer() then
 				yellIceBlock:Yell()
 			end
+		--elseif args.spellId == 28547 and args:IsPlayer() then
+		elseif args.spellName == Blizzard and args:IsPlayer() then
+			warnBlizzard:Show(args.spellName)
+			warnBlizzard:Play("watchfeet")
 		end
 	end
 end
