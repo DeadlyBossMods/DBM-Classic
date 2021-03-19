@@ -13,18 +13,23 @@ function OptionsList_OnLoad(self, ...)
 	end
 end
 
-local tabFrame1 = CreateFrame("Frame", "DBM_GUI_DropDown", _G["DBM_GUI_OptionsFrame"], "OptionsFrameListTemplate")
+local tabFrame1 = CreateFrame("Frame", "DBM_GUI_DropDown", _G["DBM_GUI_OptionsFrame"], DBM:IsShadowlands() and "BackdropTemplate,OptionsFrameListTemplate" or "OptionsFrameListTemplate")
 tabFrame1:Hide()
 tabFrame1:SetFrameStrata("TOOLTIP")
 tabFrame1.offset = 0
-tabFrame1:SetBackdrop({
+tabFrame1.backdropInfo = {
 	bgFile		= "Interface\\ChatFrame\\ChatFrameBackground", -- 130937
 	edgeFile	= "Interface\\Tooltips\\UI-Tooltip-Border", -- 137057
 	tile		= true,
 	tileSize	= 16,
 	edgeSize	= 16,
 	insets		= { left = 3, right = 3, top = 5, bottom = 3 }
-})
+}
+if not DBM:IsShadowlands() then
+	tabFrame1:SetBackdrop(tabFrame1.backdropInfo)
+else
+	tabFrame1:ApplyBackdrop()
+end
 tabFrame1:SetBackdropColor(0.1, 0.1, 0.1, 0.6)
 tabFrame1:SetBackdropBorderColor(0.4, 0.4, 0.4)
 
@@ -38,6 +43,9 @@ tabFrame1List:SetScript("OnVerticalScroll", function(self, offset)
 	tabFrame1.offset = math.floor((offset / 16) + 0.5)
 	tabFrame1:Refresh()
 end)
+if DBM:IsShadowlands() then
+	Mixin(tabFrame1List, BackdropTemplateMixin)
+end
 tabFrame1List:SetBackdropBorderColor(0.6, 0.6, 0.6, 0.6)
 
 local tabFrame1ScrollBar = _G[tabFrame1List:GetName() .. "ScrollBar"]
@@ -78,7 +86,7 @@ end)
 
 tabFrame1.buttons = {}
 for i = 1, 10 do
-	local button = CreateFrame("Button", tabFrame1:GetName() .. "Button" .. i, tabFrame1, "UIDropDownMenuButtonTemplate")
+	local button = CreateFrame("Button", tabFrame1:GetName() .. "Button" .. i, tabFrame1, DBM:IsShadowlands() and "BackdropTemplate,UIDropDownMenuButtonTemplate" or "UIDropDownMenuButtonTemplate")
 	_G[button:GetName() .. "Check"]:Hide()
 	_G[button:GetName() .. "UnCheck"]:Hide()
 	button:SetFrameLevel(tabFrame1ScrollBar:GetFrameLevel() - 1)
@@ -112,7 +120,11 @@ for i = 1, 10 do
 		_G[self:GetName() .. "NormalText"]:SetFont(defaultFont, defaultFontSize)
 		self:SetHeight(0)
 		self:SetText("")
-		self:SetBackdrop(nil)
+		if DBM:IsShadowlands() then
+			self:ClearBackdrop()
+		else
+			self:SetBackdrop(nil)
+		end
 	end
 	tabFrame1.buttons[i] = button
 end
@@ -126,9 +138,14 @@ function tabFrame1:ShowMenu()
 			button:SetText((entry.value == self.dropdown.value and "|TInterface\\Buttons\\UI-CheckBox-Check:0|t" or "   ") .. entry.text)
 			button.entry = entry
 			if entry.texture then
-				button:SetBackdrop({
+				button.backdropInfo = {
 					bgFile	= entry.value
-				})
+				}
+				if DBM:IsShadowlands() then
+					button:ApplyBackdrop()
+				else
+					button:SetBackdrop(button.backdropInfo)
+				end
 			end
 		end
 	end

@@ -138,19 +138,24 @@ do
 	local popupFrame
 
 	local function createPopupFrame()
-		popupFrame = CreateFrame("Frame", nil, UIParent)
+		popupFrame = CreateFrame("Frame", nil, UIParent, DBM:IsShadowlands() and "BackdropTemplate")
 		popupFrame:SetFrameStrata("DIALOG")
 		popupFrame:SetFrameLevel(popupFrame:GetFrameLevel() + 10)
 		popupFrame:SetSize(512, 512)
 		popupFrame:SetPoint("CENTER")
-		popupFrame:SetBackdrop({
+		popupFrame.backdropInfo = {
 			bgFile		= "Interface\\DialogFrame\\UI-DialogBox-Background", -- 131071
 			edgeFile	= "Interface\\DialogFrame\\UI-DialogBox-Border", -- 131072
 			tile		= true,
 			tileSize	= 32,
 			edgeSize	= 32,
 			insets		= { left = 8, right = 8, top = 8, bottom = 8 }
-		})
+		}
+		if DBM:IsShadowlands() then
+			popupFrame:ApplyBackdrop()
+		else
+			popupFrame:SetBackdrop(popupFrame.backdropInfo)
+		end
 		popupFrame:SetMovable(true)
 		popupFrame:EnableMouse(true)
 		popupFrame:RegisterForDrag("LeftButton")
@@ -159,15 +164,20 @@ do
 		popupFrame:Hide()
 		popupFrame.text = ""
 
-		local backdrop = CreateFrame("Frame", nil, popupFrame)
-		backdrop:SetBackdrop({
+		local backdrop = CreateFrame("Frame", nil, popupFrame, DBM:IsShadowlands() and "BackdropTemplate")
+		backdrop.backdropInfo = {
 			bgFile		= "Interface\\ChatFrame\\ChatFrameBackground",
 			edgeFile	= "Interface\\Tooltips\\UI-Tooltip-Border",
 			tile		= true,
 			tileSize	= 16,
 			edgeSize	= 16,
 			insets		= { left = 3, right = 3, top = 5, bottom = 3 }
-		})
+		}
+		if DBM:IsShadowlands() then
+			backdrop:ApplyBackdrop()
+		else
+			backdrop:SetBackdrop(backdrop.backdropInfo)
+		end
 		backdrop:SetBackdropColor(0.1, 0.1, 0.1, 0.6)
 		backdrop:SetBackdropBorderColor(0.4, 0.4, 0.4)
 		backdrop:SetPoint("TOPLEFT", 15, -15)

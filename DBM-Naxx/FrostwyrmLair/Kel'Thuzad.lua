@@ -25,14 +25,17 @@ ability.id = 27810 or ability.id = 27819 or ability.id = 27808 and type = "cast"
 local warnAddsSoon			= mod:NewAnnounce("warnAddsSoon", 1, "134321")
 local warnPhase2			= mod:NewPhaseAnnounce(2, 3)
 local warnBlastTargets		= mod:NewTargetAnnounce(27808, 2)
-local warnFissure			= mod:NewSpellAnnounce(27810, 4, nil, nil, nil, nil, nil, 2)
+local warnFissure			= mod:NewTargetAnnounce(27810, 4, nil, nil, nil, nil, nil, 2)
 local warnMana				= mod:NewTargetAnnounce(27819, 2)
 local warnChainsTargets		= mod:NewTargetNoFilterAnnounce(28410, 4)
 
 local specwarnP2Soon		= mod:NewSpecialWarning("specwarnP2Soon")
 local specWarnManaBomb		= mod:NewSpecialWarningMoveAway(27819, nil, nil, nil, 1, 2)
 local specWarnBlast			= mod:NewSpecialWarningTarget(27808, "Healer", nil, nil, 1, 2)
+local specWarnFissureYou	= mod:NewSpecialWarningYou(27810, nil, nil, nil, 3, 2)
+local specWarnFissureClose	= mod:NewSpecialWarningClose(27810, nil, nil, nil, 2, 2)
 local yellManaBomb			= mod:NewShortYell(27819)
+local yellFissure			= mod:NewYell(27810)
 
 --Fissure timer is 13-30 or something pretty wide, so no timer
 local timerManaBomb			= mod:NewCDTimer(20, 27819, nil, nil, nil, 3)--20-50 (still true in vanilla, kind of shitty variation too)
@@ -95,8 +98,16 @@ do
 	function mod:SPELL_CAST_SUCCESS(args)
 		--if args.spellId == 27810 then
 		if args.spellName == ShadowFissure then
-			warnFissure:Show()
-			warnFissure:Play("watchstep")
+			if args:IsPlayer() then
+				specWarnFissureYou:Show()
+				specWarnFissureYou:Play("targetyou")
+				yellFissure:Yell()
+			elseif self:CheckNearby(8, args.destName) then
+				specWarnFissureClose:Show(args.destName)
+				specWarnFissureClose:Play("watchfeet")
+			else
+				warnFissure:Show(args.destName)
+			end
 		--elseif args.spellId == 27819 then
 		elseif args.spellName == ManaBomb then
 			timerManaBomb:Start()

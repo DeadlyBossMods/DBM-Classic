@@ -50,7 +50,7 @@ do
 	local Meteor, voidZone, HolyWrath = DBM:GetSpellInfo(28884), DBM:GetSpellInfo(28863), DBM:GetSpellInfo(28883)
 	function mod:SPELL_CAST_SUCCESS(args)
 		--if args:IsSpellID(28832, 28833, 28834, 28835) and self:AntiSpam(5) then
-		if (args.spellName == MarkofKorthazz or args.spellName == MarkofBlaumeux or args.spellName == MarkofMorgraine or args.spellName == MarkofZeliek) and self:AntiSpam(5) then
+		if (args.spellName == MarkofKorthazz or args.spellName == MarkofBlaumeux or args.spellName == MarkofMorgraine or args.spellName == MarkofZeliek) and (args:GetSrcCreatureID() == 16062 or args:GetSrcCreatureID() == 16063 or args:GetSrcCreatureID() == 16064 or args:GetSrcCreatureID() == 16065) and self:AntiSpam(10) then
 			self.vb.markCount = self.vb.markCount + 1
 			timerMarkCD:Start(nil, self.vb.markCount+1)
 			warnMarkSoon:Schedule(9.9, self.vb.markCount+1)

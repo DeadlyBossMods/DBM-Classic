@@ -118,6 +118,7 @@ globals = {
 	"WorldMapFrame",
 
 	-- FrameXML globals
+	"BackdropTemplateMixin",
 	"ChatFontNormal",
 	"GameFontNormal",
 	"FONT_COLOR_CODE_CLOSE",

@@ -24,7 +24,7 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	ArachnophobiaTimer	= "Arachnophobia",
-	Pull1				= "Oui, courez ! Faites circuler le sang !",
+	Pull1				= "Oui, courez ! Faites circulez le sang !",
 	Pull2				= "Rien qu'une petite bouchée…"
 })
 
@@ -169,8 +169,8 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	yell1 		     	= "R'cousu veut jouer !",
-	yell2 		     	= "R'cousu avatar de guerre pour Kel'Thuzad !"
+	yell1 		     	= "R'cousu veut jouer !",
+	yell2 		     	= "R'cousu avatar de guerre pour Kel'Thuzad !"
 })
 
 -----------------
@@ -234,8 +234,8 @@ L:SetGeneralLocalization({
 })
 
 L:SetMiscLocalization({
-	Yell1 					= "Pas de quartier !",
-	Yell2 					= "Les cours sont terminés ! Montrez-moi ce que vous avez appris !",
+	Yell1 					= "Pas de quartier !",
+	Yell2 					= "Les cours sont terminés ! Montrez-moi ce que vous avez appris !",
 	Yell3 					= "Faites ce que vous ai appris !",
 	Yell4 					= "Frappe-le à la jambe… Ça te pose un problème ?"
 })
@@ -375,7 +375,7 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Yell 					= "Serviteurs, valets et soldats des ténèbres glaciales ! Répondez à l'appel de Kel'Thuzad !"
+	Yell 					= "Serviteurs, valets et soldats des ténèbres glaciales ! Répondez à l'appel de Kel'Thuzad !"
 })
 
 L:SetWarningLocalization({
