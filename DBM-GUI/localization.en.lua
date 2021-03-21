@@ -16,6 +16,7 @@ L.OTabPlugins	= "Core Plugins"
 L.OTabOptions	= GAMEOPTIONS_MENU
 L.OTabAbout		= "About"
 
+L.TabCategory_SHADOWLANDS	= "Shadowlands"
 L.TabCategory_BFA	 		= "Battle for Azeroth"
 L.TabCategory_LEG	 		= "Legion"
 L.TabCategory_WOD	 		= "Warlords of Draenor"
