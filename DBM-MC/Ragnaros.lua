@@ -55,7 +55,7 @@ function mod:OnCombatEnd(wipe)
 		DBM.RangeCheck:Hide()
 	end
 	if not wipe then
-		DBM.Bars:CancelBar(DBM_CORE_L.SPEED_CLEAR_TIMER_TEXT)
+		DBT:CancelBar(DBM_CORE_L.SPEED_CLEAR_TIMER_TEXT)
 		if firstBossMod.vb.firstEngageTime then
 			local thisTime = GetServerTime() - firstBossMod.vb.firstEngageTime
 			if thisTime and thisTime > 0 then

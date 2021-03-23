@@ -328,6 +328,7 @@ L.SpamBlockNoShowTgtAnnounce= "不顯示目標的提示文字或播放警告音�
 L.SpamBlockNoSpecWarnText	= "不顯示特別警告文字"
 L.SpamBlockNoSpecWarnFlash	= "不顯示特別警告螢幕閃爍"
 L.SpamBlockNoSpecWarnSound	= "不播放特別警告音效 (如果在“語音警告”面板中啟用了語音包，則仍允許語音包)"
+L.SpamBlockNoTrivialSpecWarnSound	= "如果相對你等級是不重要的內容則不要播放特別警告音效 (播放使用者選擇的標準警告音效替代)"
 
 L.Area_SpamFilter_Timers	= "全局計時禁用及過濾選項"
 L.SpamBlockNoShowTimers		= "不顯示計時器(首領模組/挑戰模式/尋求組隊/重生)"
