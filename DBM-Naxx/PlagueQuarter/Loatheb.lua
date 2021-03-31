@@ -110,14 +110,9 @@ do
 			warnSporeSoon:Schedule(self.vb.sporeTimer - 5)
 		elseif args.spellName == InevitableDoom then
 			self.vb.doomCounter = self.vb.doomCounter + 1
-			local timer
-			if self.vb.doomCounter % 2 == 1 then timer = 29.1
-			else timer = 32.4 end
-			
+			local timer = self.vb.doomCounter % 2 == 0 and 32.4 or 29.1
 			if self.vb.doomCounter >= 7 then
-				if self.vb.doomCounter == 7 then timer = 9.7 -- doesn't refresh the doom debuff
-				elseif self.vb.doomCounter % 2 == 0 then timer = 19.4
-				else timer = 11.3 end
+				timer = self.vb.doomCounter == 7 and 9.7 or self.vb.doomCounter % 2 == 0 and 19.4 or 11.3
 			end
 			warnDoomNow:Show(self.vb.doomCounter)
 			timerDoom:Start(timer, self.vb.doomCounter + 1)
