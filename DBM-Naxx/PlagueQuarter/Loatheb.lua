@@ -75,7 +75,7 @@ function mod:OnCombatStart(delay)
 	timerRemoveCurseCD:Start(3 - delay)
 	timerSpore:Start(11.3 - delay, 1)
 	warnSporeSoon:Schedule(self.vb.sporeTimer - 5 - delay)
-	timerDoom:Start(130 - delay, self.vb.doomCounter + 1)
+	timerDoom:Start(121.4 - delay, self.vb.doomCounter + 1)
 
 	local startTime = GetTime()
 	table.wipe(hadCorrupted)
@@ -110,10 +110,14 @@ do
 			warnSporeSoon:Schedule(self.vb.sporeTimer - 5)
 		elseif args.spellName == InevitableDoom then
 			self.vb.doomCounter = self.vb.doomCounter + 1
-			local timer = 30
+			local timer
+			if self.vb.doomCounter % 2 == 1 then timer = 29.1
+			else timer = 32.4 end
+			
 			if self.vb.doomCounter >= 7 then
-				if self.vb.doomCounter % 2 == 0 then timer = 17
-				else timer = 12 end
+				if self.vb.doomCounter == 7 then timer = 9.7 -- doesn't refresh the doom debuff
+				elseif self.vb.doomCounter % 2 == 0 then timer = 19.4
+				else timer = 11.3 end
 			end
 			warnDoomNow:Show(self.vb.doomCounter)
 			timerDoom:Start(timer, self.vb.doomCounter + 1)
