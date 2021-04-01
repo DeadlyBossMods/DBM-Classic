@@ -602,9 +602,6 @@ L.LDB_TOOLTIP_HELP2	= "Правый клик чтобы открыть меню 
 
 L.LDB_LOAD_MODS		= "Загрузить босс"
 
-L.LDB_CAT_OTHER		= "Другие босс моды"
-
-L.LDB_CAT_GENERAL		= "Общие"
 L.LDB_ENABLE_BOSS_MOD	= "Включить босс мод"
 
 

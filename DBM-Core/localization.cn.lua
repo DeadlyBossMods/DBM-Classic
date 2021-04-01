@@ -616,17 +616,6 @@ L.SILENTMODE_IS					= "静音模式为："
 
 L.LDB_LOAD_MODS		            = "载入首领模块"
 
-L.LDB_CAT_BFA					= "争霸艾泽拉斯"
-L.LDB_CAT_LEG					= "军团再临"
-L.LDB_CAT_WOD					= "德拉诺之王"
-L.LDB_CAT_MOP					= "熊猫人之谜"
-L.LDB_CAT_CATA					= "大地的裂变"
-L.LDB_CAT_WOTLK					= "巫妖王之怒"
-L.LDB_CAT_BC					= "燃烧的远征"
-L.LDB_CAT_CLASSIC 				= "经典"
-L.LDB_CAT_OTHER		            = "其他首领"
-
-L.LDB_CAT_GENERAL		        = "常规"
 L.LDB_ENABLE_BOSS_MOD	        = "启用首领模块"
 --首领喊话应该没错吧-Localizers, do not copy entire table, follow same guidelines as other tables, overwrite each entry with L.WORLD_BUFFS.hordeOny = "stuff" for example.
 

@@ -586,16 +586,6 @@ L.SILENTMODE_IS                     = "조용함 모드 "
 
 L.LDB_LOAD_MODS		= "보스 모드 로드"
 
-L.LDB_CAT_BFA			= "격전의 아제로스"
-L.LDB_CAT_LEG			= "군단"
-L.LDB_CAT_WOD			= "드레노어의 전쟁군주"
-L.LDB_CAT_MOP			= "판다리아의 안개"
-L.LDB_CAT_CATA		= "대격변"
-L.LDB_CAT_WOTLK		= "리치 왕의 분노"
-L.LDB_CAT_BC			= "불타는 성전"
-L.LDB_CAT_OTHER		= "그 외 보스 모드"
-
-L.LDB_CAT_GENERAL		= "일반"
 L.LDB_ENABLE_BOSS_MOD	= "보스 모드 사용"
 
 L.WORLD_BUFFS.hordeOny		= "호드의 백성들이여, 오그리마의 주민들이여, 모두 와서 호드의 영웅을 찬양하라."

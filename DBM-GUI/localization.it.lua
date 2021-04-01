@@ -10,11 +10,6 @@ L.OTabBosses	= "Boss"
 L.OTabOptions	= "Optioni"
 
 L.TabCategory_Options	 	= "Opzioni generali"
-L.TabCategory_MOP	 		= "Nebbie di Pandaria"
-L.TabCategory_CATA	 		= "Cataclisma"
-L.TabCategory_WOTLK 		= "Wrath of the Lich King"
-L.TabCategory_BC 			= "The Burning Crusade"
-L.TabCategory_CLASSIC		= "WoW Classic"
 L.TabCategory_OTHER    		= "Altri Boss Mods"
 
 L.BossModLoaded 			= "%s statistiche"

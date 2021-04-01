@@ -16,15 +16,6 @@ L.OTabPlugins	= "Core Plugins"
 L.OTabOptions	= GAMEOPTIONS_MENU
 L.OTabAbout		= "About"
 
-L.TabCategory_SHADOWLANDS	= "Shadowlands"
-L.TabCategory_BFA	 		= "Battle for Azeroth"
-L.TabCategory_LEG	 		= "Legion"
-L.TabCategory_WOD	 		= "Warlords of Draenor"
-L.TabCategory_MOP	 		= "Mists of Pandaria"
-L.TabCategory_CATA	 		= "Cataclysm"
-L.TabCategory_WOTLK 		= "Wrath of the Lich King"
-L.TabCategory_BC 			= "Burning Crusade"
-L.TabCategory_CLASSIC		= EXPANSION_NAME0
 L.TabCategory_OTHER    		= "Other Mods"
 
 L.BossModLoaded 			= "%s statistics"
