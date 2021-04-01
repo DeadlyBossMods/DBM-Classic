@@ -3929,7 +3929,7 @@ do
 		if not self.Options.SpecialWarningFont or (self.Options.SpecialWarningFont == "Fonts\\2002.TTF" or self.Options.SpecialWarningFont == "Fonts\\ARKai_T.ttf" or self.Options.SpecialWarningFont == "Fonts\\blei00d.TTF" or self.Options.SpecialWarningFont == "Fonts\\FRIZQT___CYR.TTF" or self.Options.SpecialWarningFont == "Fonts\\FRIZQT__.TTF") then
 			self.Options.SpecialWarningFont = "standardFont"
 		end
-		if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then return end--Don't do sound migration in a situation user is loading wrong DBM version, to avoid sound path corruption
+		if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then return end--Don't do sound migration in a situation user is loading wrong DBM version, to avoid sound path corruption
 		--Migrate user sound options to soundkit Ids if selected media doesn't exist in Interface\\AddOns
 		local migrated = false
 		if type(self.Options.RaidWarningSound) == "string" and self.Options.RaidWarningSound ~= "" then
