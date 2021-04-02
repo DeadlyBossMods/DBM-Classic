@@ -610,9 +610,6 @@ L.SILENTMODE_IS                     = "無聲模式是 "
 
 L.LDB_LOAD_MODS		= "載入首領模組"
 
-L.LDB_CAT_OTHER		= "其他首領"
-
-L.LDB_CAT_GENERAL		= "一般"
 L.LDB_ENABLE_BOSS_MOD	= "啟用首領模組"
 
 --Localizers, do not copy entire table, follow same guidelines as other tables, overwrite each entry with L.WORLD_BUFFS.hordeOny = "stuff" for example.

@@ -557,9 +557,6 @@ L.LDB_TOOLTIP_HELP2	= "Rechts-Klick, um das Konfigurationsmenü zu öffnen."
 
 L.LDB_LOAD_MODS		= "Lade Boss Mod"
 
-L.LDB_CAT_OTHER		= "Sonstige Boss Mods"
-
-L.LDB_CAT_GENERAL		= "Allgemein"
 L.LDB_ENABLE_BOSS_MOD	= "Aktiviere Boss Mod"
 
 L.WORLD_BUFFS.hordeOny		= "Miembros de la Horda, ciudadanos de Orgrimmar, vengan y reúnanse para homenajear un hecho heroico" --needs translation

@@ -72,8 +72,8 @@ end
 
 DBM = {
 	Revision = parseCurseDate("@project-date-integer@"),
-	DisplayVersion = "1.13.71 alpha", -- the string that is shown as version
-	ReleaseRevision = releaseDate(2021, 3, 23) -- the date of the latest stable version that is available, optionally pass hours, minutes, and seconds for multiple releases in one day
+	DisplayVersion = "1.13.72 alpha", -- the string that is shown as version
+	ReleaseRevision = releaseDate(2021, 3, 30) -- the date of the latest stable version that is available, optionally pass hours, minutes, and seconds for multiple releases in one day
 }
 DBM.HighestRelease = DBM.ReleaseRevision --Updated if newer version is detected, used by update nags to reflect critical fixes user is missing on boss pulls
 
@@ -479,8 +479,8 @@ local instanceDifficultyBylevel = {
 --	[1220]={110, 1},[1779]={45, 1},--Legion World bosses
 --	[1643]={120, 1},[1642]={50, 1},[1718]={50, 1},[1943]={50, 1},[1876]={50, 1},[2105]={50, 1},[2111]={50, 1},[2275]={50, 1},--Bfa World bosses and warfronts
 	--Raids
-	[509]={60, 3},[531]={60, 3},[469]={60, 3},[409]={60, 3},[533]={60, 3},--Classic Raids
-	[564]={70, 3},[534]={70, 3},[532]={70, 3},[565]={70, 3},[544]={70, 3},[548]={70, 3},[580]={70, 3},[550]={70, 3},--BC Raids
+	[509]={60, 3},[531]={60, 3},[469]={60, 3},[409]={60, 3},[533]={60, 3},[309]={60, 3},--Classic Raids (309 is legacy ZG)
+	[564]={70, 3},[534]={70, 3},[532]={70, 3},[565]={70, 3},[544]={70, 3},[548]={70, 3},[580]={70, 3},[550]={70, 3},[568]={70, 3},--BC Raids (568 is legacy ZA)
 --	[615]={80, 3},[724]={80, 3},[649]={80, 3},[616]={80, 3},[631]={80, 3},[533]={80, 3},[249]={80, 3},[603]={80, 3},[624]={80, 3},--Wrath Raids
 --	[757]={85, 3},[671]={85, 3},[669]={85, 3},[967]={85, 3},[720]={85, 3},[951]={85, 3},[754]={85, 3},--Cata Raids
 --	[1009]={90, 3},[1008]={90, 3},[1136]={90, 3},[996]={90, 3},[1098]={90, 3},--MoP Raids
@@ -1395,7 +1395,7 @@ do
 			end
 			onLoadCallbacks = nil
 			loadOptions(self)
-			if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
+			if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
 				self:Disable(true)
 				self:Schedule(15, infniteLoopNotice, self, L.CLASSIC_ONLY)
 				return
@@ -1449,8 +1449,8 @@ do
 			end
 			local soundChannels = tonumber(GetCVar("Sound_NumChannels")) or 24--if set to 24, may return nil, Defaults usually do
 			--If this messes with your fps, stop raiding with a toaster. It's only fix for addon sound ducking.
-			if soundChannels < 128 then
-				SetCVar("Sound_NumChannels", 128)
+			if soundChannels < 64 then
+				SetCVar("Sound_NumChannels", 64)
 			end
 			self.AddOns = {}
 			self.Voices = { {text = "None",value  = "None"}, }--Create voice table, with default "None" value
@@ -3929,7 +3929,7 @@ do
 		if not self.Options.SpecialWarningFont or (self.Options.SpecialWarningFont == "Fonts\\2002.TTF" or self.Options.SpecialWarningFont == "Fonts\\ARKai_T.ttf" or self.Options.SpecialWarningFont == "Fonts\\blei00d.TTF" or self.Options.SpecialWarningFont == "Fonts\\FRIZQT___CYR.TTF" or self.Options.SpecialWarningFont == "Fonts\\FRIZQT__.TTF") then
 			self.Options.SpecialWarningFont = "standardFont"
 		end
-		if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then return end--Don't do sound migration in a situation user is loading wrong DBM version, to avoid sound path corruption
+		if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then return end--Don't do sound migration in a situation user is loading wrong DBM version, to avoid sound path corruption
 		--Migrate user sound options to soundkit Ids if selected media doesn't exist in Interface\\AddOns
 		local migrated = false
 		if type(self.Options.RaidWarningSound) == "string" and self.Options.RaidWarningSound ~= "" then

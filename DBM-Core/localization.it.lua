@@ -262,7 +262,4 @@ L.LDB_TOOLTIP_HELP2	= "Click-DX per aprire il menu'"
 
 L.LDB_LOAD_MODS		= "Carica i Moduli dei Boss"
 
-L.LDB_CAT_OTHER		= "Altri Boss Mods"
-
-L.LDB_CAT_GENERAL		= "Generale"
 L.LDB_ENABLE_BOSS_MOD	= "Abilita Modulo Boss"

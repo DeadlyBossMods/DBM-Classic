@@ -391,13 +391,18 @@ end
 --  Create the frame  --
 ------------------------
 local function createTextFrame()
-	textFrame = CreateFrame("Frame", "DBMRangeCheck", UIParent)
+	textFrame = CreateFrame("Frame", "DBMRangeCheck", UIParent, DBM:IsShadowlands() and "BackdropTemplate")
 	textFrame:SetFrameStrata("DIALOG")
-	textFrame:SetBackdrop({
-		bgFile		= "Interface\\DialogFrame\\UI-DialogBox-Background", -- 131071
+	textFrame.backdropInfo = {
+		bgFile		= "Interface\\DialogFrame\\UI-DialogBox-Background",--131071
 		tile		= true,
 		tileSize	= 16
-	})
+	}
+	if not DBM:IsShadowlands() then
+		textFrame:SetBackdrop(textFrame.backdropInfo)
+	else
+		textFrame:ApplyBackdrop()
+	end
 	textFrame:SetPoint(DBM.Options.RangeFramePoint, UIParent, DBM.Options.RangeFramePoint, DBM.Options.RangeFrameX, DBM.Options.RangeFrameY)
 	textFrame:SetSize(128, 12)
 	textFrame:SetClampedToScreen(true)
@@ -539,7 +544,7 @@ end
 ----------------
 do
 	local UnitExists, UnitIsUnit, UnitIsDeadOrGhost, UnitIsConnected, UnitInPhase, GetPlayerFacing, UnitName, UnitClass, IsInRaid, GetNumGroupMembers, GetRaidTargetIndex, GetBestMapForUnit = UnitExists, UnitIsUnit, UnitIsDeadOrGhost, UnitIsConnected, UnitInPhase, GetPlayerFacing, UnitName, UnitClass, IsInRaid, GetNumGroupMembers, GetRaidTargetIndex, C_Map.GetBestMapForUnit
-	local max, sin, cos, pi2 = math.max, math.sin, math.cos, math.pi * 2
+	local min, max, sin, cos, pi2 = math.min, math.max, math.sin, math.cos, math.pi * 2
 	local circleColor, rotation, pixelsperyard, activeDots, prevRange, prevThreshold, prevNumClosePlayer, prevclosestRange, prevColor, prevType = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 	local unitList = {}
 	local BLIP_TEX_COORDS = {

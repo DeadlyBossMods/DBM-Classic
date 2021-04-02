@@ -619,17 +619,6 @@ L.SILENTMODE_IS                     = "Modo silencioso é "
 
 L.LDB_LOAD_MODS						= "Carregar mods de chefe"
 
-L.LDB_CAT_BFA						= "Battle for Azeroth"
-L.LDB_CAT_LEG						= "Legion"
-L.LDB_CAT_WOD						= "Warlords of Draenor"
-L.LDB_CAT_MOP						= "Mists of Pandaria"
-L.LDB_CAT_CATA						= "Cataclysm"
-L.LDB_CAT_WOTLK						= "Wrath of the Lich King"
-L.LDB_CAT_BC						= "Burning Crusade"
-L.LDB_CAT_CLASSIC 					= "Clássico"
-L.LDB_CAT_OTHER						= "Outros mods de chefe"
-
-L.LDB_CAT_GENERAL					= "Geral"
 L.LDB_ENABLE_BOSS_MOD				= "Ativar mods de chefe"
 
 L.WORLD_BUFFS.hordeOny		= "Povo da Horda, cidadãos de Orgrimmar, venham! Vamos homenagear uma heroína da Horda"

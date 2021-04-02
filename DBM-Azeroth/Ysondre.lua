@@ -10,8 +10,7 @@ mod:RegisterCombat("combat_yell", L.Pull)
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_SUCCESS 24814 24813 24818",
 	"SPELL_AURA_APPLIED 24818",
-	"SPELL_AURA_APPLIED_DOSE 24818",
-	"UNIT_SPELLCAST_SUCCEEDED"
+	"SPELL_AURA_APPLIED_DOSE 24818"
 )
 
 --TODO, maybe taunt special warnings for classic version when it matters more.
@@ -66,13 +65,4 @@ do
 		end
 	end
 	mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
-end
-
---Probably won't work in classic, unit_spellcast events disabled there for all but "player"
-function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
-	if spellId == 24819 and self:AntiSpam(5, 2) then--Lightning Wave
-		DBM:AddMsg("UNIT_SPELLCAST_SUCCEEDED is working on this boss, tell DBM author")
-		--warningLightningWave:Show()
-		--timerLightningWaveCD:Start()
-	end
 end
