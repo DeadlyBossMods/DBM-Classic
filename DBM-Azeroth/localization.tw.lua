@@ -1,4 +1,4 @@
-﻿if GetLocale() ~= "zhTW" then return end
+if GetLocale() ~= "zhTW" then return end
 local L
 --Last update: 2020/07/03 （重新整理）
 -- Lord Kazzak (Badlands)
