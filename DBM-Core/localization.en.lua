@@ -22,7 +22,7 @@ L.LOAD_GUI_COMBAT					= "GUI cannot be initially loaded in combat. GUI will be l
 L.BAD_LOAD							= L.DBM .. " has detected your mod for this instance failed to fully load correctly because of combat. As soon as you are out of combat, please do /console reloadui as soon as possible."
 L.LOAD_MOD_VER_MISMATCH				= "%s could not be loaded because your " .. L.DBM .. "-Core does not meet requirements. An updated version is required"
 L.LOAD_MOD_EXP_MISMATCH				= "%s could not be loaded because it is designed for a WoW expansion that's not currently available. When expansion becomes available, this mod will automatically work."
-L.LOAD_MOD_TOC_MISMATCH				= "%s could not be loaded because it is not designed for Classic WoW. You likely installed a retail version of a module. Remove this module and use only addons designed for Classic World of Warcraft"
+L.LOAD_MOD_TOC_MISMATCH				= "%s could not be loaded because it is not designed for Classic WoW. You likely installed a retail or Burning Crusade Classic version of a module. Remove this module and use only addons designed for Classic WoW"
 L.LOAD_MOD_DISABLED					= "%s is installed but currently disabled. This mod will not be loaded unless you enable it."
 L.LOAD_MOD_DISABLED_PLURAL			= "%s are installed but currently disabled. These mods will not be loaded unless you enable them."
 
