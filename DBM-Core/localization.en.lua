@@ -181,7 +181,7 @@ L.DPMCORE							= "WARNING: Deadly PvP mods is discontinued and not compatible w
 L.DBMLDB							= "WARNING: DBM-LDB is now built into DBM-Core. While it won't do any harm, it's recommended to remove 'DBM-LDB' from your addons folder"
 L.UPDATE_REQUIRES_RELAUNCH			= "WARNING: This " .. L.DBM .. " update will not work correctly if you don't fully restart your game client. This update contains new files or .toc file changes that cannot be loaded via ReloadUI. You may encounter broken functionality or errors if you continue without a client restart."
 L.OUT_OF_DATE_NAG					= "Your version of " .. L.DBM.. " is out-of-date and this specific fight mod has newer features or bug fixes. It is recommended you update for this fight to improve your experience."
-L.CLASSIC_ONLY						= "WARNING: This version of " .. L.DBM .. " is only meant to be used with World of Warcraft: Classic. Uninstall this version and install correct version of " .. L.DBM .. " for Retail WoW."
+L.CLASSIC_ONLY						= "WARNING: This version of " .. L.DBM .. " is only meant to be used with WoW: Classic Era. Uninstall this version and install correct version of " .. L.DBM .. " for your WoW version."
 
 L.MOVABLE_BAR						= "Drag me!"
 
