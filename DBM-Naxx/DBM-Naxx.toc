@@ -1,4 +1,4 @@
-## Interface: 11306
+## Interface: 11307
 ## X-Min-Interface: 11302
 ## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Naxxramas|r
 ## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Naxxramas|r
@@ -30,7 +30,7 @@
 ## X-DBM-Mod-SubCategories-esMX: El Arrabal Arácnido,El Arrabal de los Ensamblajes,El Arrabal de la Plaga,El Arrabal Militar,Guarida Helada
 ## X-DBM-Mod-SubCategories-ptBR: O Distrito dos Aracnídeos,O Distrito dos Constructos,O Distrito da Peste,O Distrito Militar,Covil do Sapphiron
 ## X-DBM-Mod-MapID: 533
-## X-DBM-Mod-Sort: 8
+## X-DBM-Mod-Sort: 1101
 ## X-DBM-Mod-MinCoreRevision: 12473
 ## X-DBM-Mod-MinExpansion: 0
 localization.en.lua

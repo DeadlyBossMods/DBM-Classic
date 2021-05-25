@@ -1,4 +1,4 @@
-## Interface: 11306
+## Interface: 11307
 ## X-Min-Interface: 11302
 
 ## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Dungeons (Classic)|r
@@ -43,7 +43,7 @@
 ## X-DBM-Mod-Name-koKR: 던전 (클래식)
 ## X-DBM-Mod-Name-zhTW: 隊伍首領 (傳統)
 ## X-DBM-Mod-Name-zhCN: 队伍首领(经典旧世)
-## X-DBM-Mod-Sort: 15
+## X-DBM-Mod-Sort: 1115
 ## X-DBM-Mod-MapID: 48,230,229,36,429,90,349,389,129,47,189,289,33,34,329,109,70,43,209
 ## X-DBM-Mod-MinCoreRevision: 12473
 ## X-DBM-Mod-MinExpansion: 0

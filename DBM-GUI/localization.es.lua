@@ -17,6 +17,7 @@ L.OTabPlugins	= "Plugins del núcleo"
 L.OTabOptions	= GAMEOPTIONS_MENU
 L.OTabAbout		= "Sobre"
 
+
 L.TabCategory_Options	 	= "Opciones generales"
 L.TabCategory_OTHER    		= "Otros módulos"
 
@@ -215,7 +216,7 @@ L.ExpandUpwards				= "Expandir arriba"
 L.FillUpBars				= "Rellenar"
 L.ClickThrough				= "Deshabilitar clic en barras"
 L.Bar_Decimal				= "Mostrar decimales bajo: %d s"
-L.Bar_Alpha					= "Transparencia de barra: %0.1f"
+L.Bar_Alpha					= "Transparencia: %0.1f"
 L.Bar_EnlargeTime			= "Agrandar barras bajo tiempo: %d s"
 L.BarSpark					= "Destello de barras"
 L.BarFlash					= "Iluminar barras a punto de expirar"

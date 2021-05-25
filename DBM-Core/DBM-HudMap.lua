@@ -1,4 +1,4 @@
-﻿-- Original code and concept by Antiarc. Used and modified with his permission.
+-- Original code and concept by Antiarc. Used and modified with his permission.
 -- First adaptation in dbm credits to VEM team. Continued on their behalf do to no time from original author to make it an external mod or DBM plugin.
 
 local ADDON_NAME = ...
@@ -777,10 +777,12 @@ do
 			if not self.alwaysShow then
 				local distance
 				local px, py = mod:GetUnitPosition("player")
-				distance, x, y = self:Distance(px, py, true)
-				if distance > 200 then
-					self:Hide()
-					return
+				if px and py then
+					distance, x, y = self:Distance(px, py, true)
+					if distance > 200 then
+						self:Hide()
+						return
+					end
 				end
 			else
 				x, y = self:Location()

@@ -158,6 +158,8 @@ globals = {
 	"C_EncounterJournal.GetSectionIconFlags",
 	"C_EncounterJournal.GetSectionInfo",
 	"C_FriendList.GetFriendInfo",
+	"C_LFGInfo",
+	"C_LFGInfo.GetDungeonInfo",
 	"C_Map.GetBestMapForUnit",
 	"C_Map.GetMapInfo",
 	"C_Map.GetPlayerMapPosition",

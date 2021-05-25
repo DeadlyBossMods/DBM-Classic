@@ -22,7 +22,7 @@ L.LOAD_GUI_COMBAT					= "GUI cannot be initially loaded in combat. GUI will be l
 L.BAD_LOAD							= L.DBM .. " has detected your mod for this instance failed to fully load correctly because of combat. As soon as you are out of combat, please do /console reloadui as soon as possible."
 L.LOAD_MOD_VER_MISMATCH				= "%s could not be loaded because your " .. L.DBM .. "-Core does not meet requirements. An updated version is required"
 L.LOAD_MOD_EXP_MISMATCH				= "%s could not be loaded because it is designed for a WoW expansion that's not currently available. When expansion becomes available, this mod will automatically work."
-L.LOAD_MOD_TOC_MISMATCH				= "%s could not be loaded because it is not designed for Classic WoW. You likely installed a retail version of a module. Remove this module and use only addons designed for Classic World of Warcraft"
+L.LOAD_MOD_TOC_MISMATCH				= "%s could not be loaded because it is not designed for Classic WoW. You likely installed a retail or Burning Crusade Classic version of a module. Remove this module and use only addons designed for Classic WoW"
 L.LOAD_MOD_DISABLED					= "%s is installed but currently disabled. This mod will not be loaded unless you enable it."
 L.LOAD_MOD_DISABLED_PLURAL			= "%s are installed but currently disabled. These mods will not be loaded unless you enable them."
 
@@ -181,7 +181,7 @@ L.DPMCORE							= "WARNING: Deadly PvP mods is discontinued and not compatible w
 L.DBMLDB							= "WARNING: DBM-LDB is now built into DBM-Core. While it won't do any harm, it's recommended to remove 'DBM-LDB' from your addons folder"
 L.UPDATE_REQUIRES_RELAUNCH			= "WARNING: This " .. L.DBM .. " update will not work correctly if you don't fully restart your game client. This update contains new files or .toc file changes that cannot be loaded via ReloadUI. You may encounter broken functionality or errors if you continue without a client restart."
 L.OUT_OF_DATE_NAG					= "Your version of " .. L.DBM.. " is out-of-date and this specific fight mod has newer features or bug fixes. It is recommended you update for this fight to improve your experience."
-L.CLASSIC_ONLY						= "WARNING: This version of " .. L.DBM .. " is only meant to be used with World of Warcraft: Classic. Uninstall this version and install correct version of " .. L.DBM .. " for Retail WoW."
+L.CLASSIC_ONLY						= "WARNING: This version of " .. L.DBM .. " is only meant to be used with WoW: Classic Era. Uninstall this version and install correct version of " .. L.DBM .. " for your WoW version."
 
 L.MOVABLE_BAR						= "Drag me!"
 
@@ -412,7 +412,7 @@ L.AUTO_SPEC_WARN_TEXTS = {
 	stack							= "%%d stacks of %s on you",
 	switch							= "%s - switch targets",
 	switchcount						= "%s - switch targets (%%s)",
-	gtfo							= "%%s under you - move away",
+	gtfo							= "%%s damage - move away",
 	adds							= "Incoming Adds - switch targets",
 	addscustom						= "Incoming Adds - %%s",
 	targetchange					= "Target Change - switch to %%s"

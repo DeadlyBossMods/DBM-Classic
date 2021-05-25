@@ -40,7 +40,7 @@ local timerGiantClawTentacle	= mod:NewTimer(60, "TimerGiantClawTentacle", 26391,
 local timerWeakened				= mod:NewTimer(45, "TimerWeakened", 28598)
 
 mod:AddRangeFrameOption("10")
-mod:AddSetIconOption("SetIconOnEyeBeam", 26134, true, false, {1})
+mod:AddSetIconOption("SetIconOnEyeBeam2", 26134, false, false, {1})
 mod:AddInfoFrameOption(nil, true)
 
 mod.vb.phase = 1
@@ -135,7 +135,7 @@ do
 	local EyeBeam = DBM:GetSpellInfo(26134)
 	function mod:EyeBeamTarget(targetname, uId)
 		if not targetname then return end
-		if self.Options.SetIconOnEyeBeam then
+		if self.Options.SetIconOnEyeBeam2 then
 			self:SetIcon(targetname, 1, 3)
 		end
 		if targetname == UnitName("player") then

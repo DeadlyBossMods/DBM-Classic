@@ -1,4 +1,4 @@
-﻿local mod = DBM:NewMod("Thekal", "DBM-ZG", 1)
+local mod = DBM:NewMod("Thekal", "DBM-ZG", 1)
 local L = mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision$"):sub(12, -3))
@@ -97,6 +97,7 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 end
 
 function mod:OnSync(msg, arg)
+	if not self:IsInCombat() then return end
 	if msg == "PriestDied" then
 		if self:AntiSpam(20, 1) then
 			warnSimulKill:Show()

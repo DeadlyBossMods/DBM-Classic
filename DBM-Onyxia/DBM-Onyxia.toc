@@ -1,4 +1,4 @@
-## Interface: 11306
+## Interface: 11307
 ## X-Min-Interface: 11302
 ## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Onyxia|r
 ## Title-frFR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Repaire d'Onyxia|r
@@ -19,7 +19,7 @@
 ## X-DBM-Mod-Type: RAID
 ## X-DBM-Mod-Category: Classic
 ## X-DBM-StatTypes: normal
-## X-DBM-Mod-Sort: 14
+## X-DBM-Mod-Sort: 1108
 ## X-DBM-Mod-MapID: 249
 ## X-DBM-Mod-MinCoreRevision: 12473
 ## X-DBM-Mod-MinExpansion: 0

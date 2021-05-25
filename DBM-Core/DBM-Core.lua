@@ -72,8 +72,8 @@ end
 
 DBM = {
 	Revision = parseCurseDate("@project-date-integer@"),
-	DisplayVersion = "1.13.72 alpha", -- the string that is shown as version
-	ReleaseRevision = releaseDate(2021, 3, 30) -- the date of the latest stable version that is available, optionally pass hours, minutes, and seconds for multiple releases in one day
+	DisplayVersion = "1.13.73 alpha", -- the string that is shown as version
+	ReleaseRevision = releaseDate(2021, 4, 21) -- the date of the latest stable version that is available, optionally pass hours, minutes, and seconds for multiple releases in one day
 }
 DBM.HighestRelease = DBM.ReleaseRevision --Updated if newer version is detected, used by update nags to reflect critical fixes user is missing on boss pulls
 
@@ -532,7 +532,7 @@ local IsInRaid, IsInGroup, IsInInstance = IsInRaid, IsInGroup, IsInInstance
 local UnitAffectingCombat, InCombatLockdown, IsFalling, IsEncounterInProgress, UnitPlayerOrPetInRaid, UnitPlayerOrPetInParty = UnitAffectingCombat, InCombatLockdown, IsFalling, IsEncounterInProgress, UnitPlayerOrPetInRaid, UnitPlayerOrPetInParty
 local UnitGUID, UnitHealth, UnitHealthMax, UnitBuff, UnitDebuff, UnitAura = UnitGUID, UnitHealth, UnitHealthMax, UnitBuff, UnitDebuff, UnitAura
 local UnitExists, UnitIsDead, UnitIsFriend, UnitIsUnit = UnitExists, UnitIsDead, UnitIsFriend, UnitIsUnit
-local GetSpellInfo, GetDungeonInfo, GetSpellTexture, GetSpellCooldown = GetSpellInfo, GetDungeonInfo, GetSpellTexture, GetSpellCooldown
+local GetSpellInfo, GetDungeonInfo, GetSpellTexture, GetSpellCooldown = GetSpellInfo, C_LFGInfo and C_LFGInfo.GetDungeonInfo or GetDungeonInfo, GetSpellTexture, GetSpellCooldown
 --local EJ_GetEncounterInfo, EJ_GetCreatureInfo, EJ_GetSectionInfo, GetSectionIconFlags = EJ_GetEncounterInfo, EJ_GetCreatureInfo, C_EncounterJournal.GetSectionInfo, C_EncounterJournal.GetSectionIconFlags
 local GetInstanceInfo = GetInstanceInfo
 local UnitDetailedThreatSituation = UnitDetailedThreatSituation
@@ -779,9 +779,8 @@ do
 	local argsMT = {__index = {}}
 	local args = setmetatable({}, argsMT)
 
-	function argsMT.__index:IsSpellID(a1, a2, a3, a4, a5)
-		local v = self.spellId
-		return v == a1 or v == a2 or v == a3 or v == a4 or v == a5
+	function argsMT.__index:IsSpellID(...)
+		return tIndexOf({...}, self.spellId) ~= nil
 	end
 
 	function argsMT.__index:IsPlayer()
@@ -1395,7 +1394,7 @@ do
 			end
 			onLoadCallbacks = nil
 			loadOptions(self)
-			if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
+			if WOW_PROJECT_ID ~= (WOW_PROJECT_CLASSIC or 2) then
 				self:Disable(true)
 				self:Schedule(15, infniteLoopNotice, self, L.CLASSIC_ONLY)
 				return
@@ -3929,7 +3928,7 @@ do
 		if not self.Options.SpecialWarningFont or (self.Options.SpecialWarningFont == "Fonts\\2002.TTF" or self.Options.SpecialWarningFont == "Fonts\\ARKai_T.ttf" or self.Options.SpecialWarningFont == "Fonts\\blei00d.TTF" or self.Options.SpecialWarningFont == "Fonts\\FRIZQT___CYR.TTF" or self.Options.SpecialWarningFont == "Fonts\\FRIZQT__.TTF") then
 			self.Options.SpecialWarningFont = "standardFont"
 		end
-		if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then return end--Don't do sound migration in a situation user is loading wrong DBM version, to avoid sound path corruption
+		if WOW_PROJECT_ID ~= (WOW_PROJECT_CLASSIC or 2) then return end--Don't do sound migration in a situation user is loading wrong DBM version, to avoid sound path corruption
 		--Migrate user sound options to soundkit Ids if selected media doesn't exist in Interface\\AddOns
 		local migrated = false
 		if type(self.Options.RaidWarningSound) == "string" and self.Options.RaidWarningSound ~= "" then
@@ -4777,6 +4776,7 @@ do
 	do
 		local accessList = {}
 		local savedSender
+		local bossesEngaged = {}
 
 		local inspopup = CreateFrame("Frame", "DBMPopupLockout", UIParent, DBM:IsShadowlands() and "BackdropTemplate")
 		inspopup.backdropInfo = {
@@ -4892,7 +4892,8 @@ do
 		syncHandlers["GCB"] = function(sender, modId, ver, difficulty, name)
 			if not DBM.Options.ShowGuildMessages or not difficulty then return end
 			if not ver or not (ver == "5") then return end--Ignore old versions
-			if DBM:AntiSpam(10, "GCB") then
+			if not bossesEngaged[modId] then
+				bossesEngaged[modId] = true
 				if IsInInstance() then return end--Simple filter, if you are inside an instance, just filter it, if not in instance, good to go.
 				--difficulty = tonumber(difficulty)--Will be used in WoTLK
 				modId = tonumber(modId)
@@ -4904,7 +4905,8 @@ do
 		syncHandlers["GCE"] = function(sender, modId, ver, wipe, time, difficulty, name, wipeHP)
 			if not DBM.Options.ShowGuildMessages or not difficulty then return end
 			if not ver or not (ver == "8") then return end--Ignore old versions
-			if DBM:AntiSpam(5, "GCE") then
+			if bossesEngaged[modId] then
+				bossesEngaged[modId] = nil
 				if IsInInstance() then return end--Simple filter, if you are inside an instance, just filter it, if not in instance, good to go.
 				--difficulty = tonumber(difficulty)--Will be used in WoTLK
 				modId = tonumber(modId)

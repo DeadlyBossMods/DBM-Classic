@@ -1,4 +1,4 @@
-﻿-- author: callmejames @《凤凰之翼》 一区藏宝海湾
+-- author: callmejames @《凤凰之翼》 一区藏宝海湾
 -- commit by: yaroot <yaroot AT gmail.com>
 -- Mini Dragon(projecteurs AT gmail.com) Brilla@金色平原
 -- Last update: 2019/08/22
