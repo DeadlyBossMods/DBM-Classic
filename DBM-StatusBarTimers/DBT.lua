@@ -880,6 +880,7 @@ function barPrototype:Update(elapsed)
 		isEnlarged = true
 		tinsert(largeBars, self)
 		self:ApplyStyle()
+		DBT:UpdateBars(true)
 	elseif isMoving == "nextEnlarge" then
 		barIsAnimating = false
 		self.moving = nil
