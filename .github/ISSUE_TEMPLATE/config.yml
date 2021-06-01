@@ -3,3 +3,6 @@ contact_links:
   - name: Retail?
     url: https://github.com/DeadlyBossMods/DeadlyBossMods/issues/new/choose
     about: Is your issue for retail WoW?
+  - name: Burning Crusade Classic?
+    url: https://github.com/DeadlyBossMods/DBM-TBC-Classic/issues/new/choose
+    about: Is your issue for Burning Crusade Classic WoW?
