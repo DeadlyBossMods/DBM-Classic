@@ -34,8 +34,8 @@ local function setCompatibleRestrictedRange(range)
 --		range = 30
 	elseif range <= 33 then
 		range = 33
-	elseif range <= 43 then
-		range = 43
+--	elseif range <= 43 then
+--		range = 43
 --	elseif range <= 48 then
 --		range = 48
 --	elseif range <= 53 then
