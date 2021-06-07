@@ -102,7 +102,7 @@ do
 			elseif IsItemInRange(21519, uId) then return 23
 	--		elseif CheckInteractDistance(uId, 1) then return 30
 			elseif IsItemInRange(1180, uId) then return 33
-			elseif UnitInRange(uId) then return 43
+	--		elseif UnitInRange(uId) then return 43
 	--		elseif IsItemInRange(32698, uId) then return 48
 	--		elseif IsItemInRange(116139, uId) then return 53
 	--		elseif IsItemInRange(32825, uId) then return 60
