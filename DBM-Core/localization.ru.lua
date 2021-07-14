@@ -525,7 +525,7 @@ L.AUTO_YELL_OPTION_TEXT.fade		= "Кричать (с обратный отсче�
 L.AUTO_YELL_OPTION_TEXT.shortfade	= "Кричать (с обратный отсчетом), когда $spell:%s спадает"
 L.AUTO_YELL_OPTION_TEXT.iconfade	= "Кричать (с обратный отсчетом и меткой), когда $spell:%s спадает"
 L.AUTO_YELL_OPTION_TEXT.position	= "Кричать (с позицией), когда на вас $spell:%s"
-L.AUTO_YELL_OPTION_TEXT.shortposition = "Кричать (с позицией), когда на вас $spell:%s",
+L.AUTO_YELL_OPTION_TEXT.shortposition = "Кричать (с позицией), когда на вас $spell:%s"
 L.AUTO_YELL_OPTION_TEXT.combo		= "Кричать (с пользовательским текстом), когда на вас $spell:%s и в тоже время другие заклинания"
 
 L.AUTO_YELL_ANNOUNCE_TEXT.shortyell	= "%s"
@@ -535,7 +535,7 @@ L.AUTO_YELL_ANNOUNCE_TEXT.fade	= "%s спадает через %%d"
 L.AUTO_YELL_ANNOUNCE_TEXT.shortfade	= "%%d"
 L.AUTO_YELL_ANNOUNCE_TEXT.iconfade	= "{rt%%2$d}%%1$d"
 L.AUTO_YELL_ANNOUNCE_TEXT.position = "%s %%s на {rt%%d}"..UnitName("player").."{rt%%d}"
-L.AUTO_YELL_ANNOUNCE_TEXT.shortposition = "{rt%%1$d}%s %%2$d",--Icon, Spellname, number
+L.AUTO_YELL_ANNOUNCE_TEXT.shortposition = "{rt%%1$d}%s %%2$d"--Icon, Spellname, number
 L.AUTO_YELL_ANNOUNCE_TEXT.combo	= "%s и %%s"--Spell name (from option, plus spellname given in arg)
 
 L.AUTO_YELL_CUSTOM_POSITION     = "{rt%d}%s{"--Doesn't need translating. Has no strings
