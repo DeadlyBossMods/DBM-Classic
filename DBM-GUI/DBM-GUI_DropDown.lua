@@ -165,6 +165,9 @@ function tabFrame1:ShowFontMenu()
 end
 
 function tabFrame1:Refresh()
+	if #self.dropdown.values == 0 then -- Quirky case where there may be no elements in the dropdown???
+		return
+	end
 	self:Show()
 	if self.offset < 0 then
 		self.offset = 0
