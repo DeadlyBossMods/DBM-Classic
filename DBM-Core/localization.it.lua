@@ -102,7 +102,6 @@ L.SLASHCMD_HELP				= {
 	"/dbm break <min>: Lancia un Timer di Pausa di <min> minuti. Da a tutti i giocatori un Timer DBM di pausa (richiede CapoIncursione o Assistente).",
 	"/dbm pull <sec>: Avvia un Timer di Pull di <sec> secondi. Da' a tutti i giocatori un Timer DBM di Pull (richiede CapoIncursione o Assistente).",
 	"/dbm arrow: Visualizza le Frecce DBM, vedi anche /dbm arrow help per i dettagli.",
-	"/dbm lockout: Chiede a tutti i giocatori di linkare l'ID dell'incursione in cui sono salvati (aliases: lockouts, ids) (richiede CapoIncursione o Assistente).",
 	"/dbm help: Visualizza questo messaggio."
 }
 

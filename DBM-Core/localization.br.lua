@@ -252,8 +252,7 @@ L.SLASHCMD_HELP2				= {
 	"/dbm version: Realiza uma checagem de versão de toda a raid. (ou: ver).",
 	"/dbm version2: Realiza uma checagem de versão de toda a raid e sussurra para avisando os membros que estão desatualizados (alias: ver2).",
 	"/dbm break <min>: Inicia um cronômetro de intervalo de <min> minutos. Dá a todos os integrantes da raid um cronômetro de intervalo (requer status de líder/guia).",
-	"/dbm pull <seg>: Dispara um cronômetro para iniciar a luta em <seg> segundos. Dá a todos os integrantes da raid um cronômetro para iniciar a luta (requer status de líder/guia).",
-	"/dbm lockout: Pergunta a todos os membros da raid, por seus vínculos de raid (ou: lockouts, ids) (requer status de líder/guia).."
+	"/dbm pull <seg>: Dispara um cronômetro para iniciar a luta em <seg> segundos. Dá a todos os integrantes da raid um cronômetro para iniciar a luta (requer status de líder/guia)."
 }
 --Translate all of these
 L.TIMER_USAGE	= {

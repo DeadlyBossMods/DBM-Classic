@@ -24,12 +24,14 @@ local function setCompatibleRestrictedRange(range)
 		range = 10
 	elseif range <= 11 then
 		range = 11
---	elseif range <= 13 then
---		range = 13
+	elseif range <= 13 then
+		range = 13
 	elseif range <= 18 then
 		range = 18
 	elseif range <= 23 then
 		range = 23
+	elseif range <= 28 then
+		range = 28
 --	elseif range <= 30 then
 --		range = 30
 	elseif range <= 33 then
@@ -58,9 +60,10 @@ do
 	--	[4] = 90175,--Gin-Ji Knife Set
 	--	[6] = 37727,--Ruby Acorn
 		[8] = 8149,--Voodoo Charm
-	--	[13] = 32321,--Sparrowhawk Net
+		[13] = 17626,--Frostwolf Muzzle
 		[18] = 6450,--Silk Bandage
 		[23] = 21519,--Mistletoe
+		[28] = 13289,--Egan's Blaster
 		[33] = 1180,--Scroll of Stamina
 	--	[43] = 34471,--Vial of the Sunwell (UnitInRange api alternate if item checks break)
 	--	[48] = 32698,--Wrangling Rope
@@ -97,9 +100,10 @@ do
 			if IsItemInRange(8149, uId) then return 8
 			elseif CheckInteractDistance(uId, 3) then return 10
 			elseif CheckInteractDistance(uId, 2) then return 11
-	--		elseif IsItemInRange(32321, uId) then return 13
+			elseif IsItemInRange(17626, uId) then return 13
 			elseif IsItemInRange(6450, uId) then return 18
 			elseif IsItemInRange(21519, uId) then return 23
+			elseif IsItemInRange(13289, uId) then return 28
 	--		elseif CheckInteractDistance(uId, 1) then return 30
 			elseif IsItemInRange(1180, uId) then return 33
 	--		elseif UnitInRange(uId) then return 43
